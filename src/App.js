@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// index.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './views/Login';
+import Groups from './views/Groups';
+import Standings from './views/Standings';
+import CurrentMatch from './views/CurrentMatch';
+import Moderator from './views/Moderator';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<Router>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/groups" component={Groups} />
+        <Route path="/standings" component={Standings} />
+        <Route path="/currentmatch" component={CurrentMatch} />
+        <Route path="/matchmoderator" component={Moderator} />
+        {/* Other routes can be added here */}
+      </Switch>
+    </Router>
   );
 }
 
