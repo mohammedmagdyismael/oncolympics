@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 
 export const GroupsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 50% 50%;
   align-items: center;
   padding: 2rem;
 `;
@@ -13,6 +13,7 @@ export const GroupTable = styled.table`
   width: 80%;
   margin-bottom: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 18px auto;
 `;
 
 export const GroupHeader = styled.caption`
@@ -41,4 +42,19 @@ export const TableCell = styled.td`
   border: 1px solid #ddd;
   padding: 0.5rem;
   text-align: left;
+`;
+
+export const LoadingStatusContainer = styled.div`
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+`;
+
+export const StatusMsg = styled.p`
+    display: flex;
+    height: fit-content;
+    margin: auto;
+    font-size: 24px;
+    font-weight: 500;
 `;

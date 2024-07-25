@@ -12,20 +12,35 @@ export const TabContainer = styled.div`
   display: flex;
   justify-content: space-around;
   background-color: #282c34;
-  padding: 1rem;
 `;
 
 export const Tab = styled(NavLink)`
+  height: 60px;
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   &.active {
     font-weight: bold;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 5px solid #61dafb;
   }
 
   &:hover {
     color: #61dafb;
   }
+`;
+
+export const LogoutContainer = styled.div`
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
 `;

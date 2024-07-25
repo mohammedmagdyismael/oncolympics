@@ -1,29 +1,59 @@
 // Standings.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Layout from '../../components/Layout/Layout';
-import { StandingsContainer, MatchCard, TeamName, MatchDate } from './Standings.style';
-
-const matches = [
-  { team1: 'Team 1', team2: 'Team 2', date: 'Sunday 20 July 08:00 PM' },
-  { team1: 'Team 3', team2: 'Team 4', date: 'Monday 21 July 06:00 PM' },
-  { team1: 'Team 5', team2: 'Team 6', date: 'Tuesday 22 July 04:00 PM' },
-  { team1: 'Team 7', team2: 'Team 8', date: 'Wednesday 23 July 10:00 AM' },
-  { team1: 'Team 9', team2: 'Team 10', date: 'Thursday 24 July 02:00 PM' },
-  { team1: 'Team 11', team2: 'Team 12', date: 'Friday 25 July 12:00 PM' },
-];
+import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate } from './Standings.style';
 
 const Standings = () => {
+
+  const [matches, setMatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch matches data from API
+    const fetchMatches = async () => {
+      try {
+        const response = await axios.get('https://oncolympics-api.onrender.com/api/standings/all-matches');
+        const formattedMatches = response.data.data.map(match => ({
+          team1: match.team1_name,
+          team2: match.team2_name,
+          date: new Date(match.date_time).toLocaleString('en-GB', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+          })
+        }));
+        setMatches(formattedMatches);
+        setLoading(false);
+      } catch (error) {
+        setError('Failed to fetch data');
+        setLoading(false);
+      }
+    };
+
+    fetchMatches();
+  }, []);
+
+  if (loading) return <LoadingStatusContainer><StatusMsg>Loading ...</StatusMsg></LoadingStatusContainer>;
+  if (error) return <LoadingStatusContainer><StatusMsg>{error}</StatusMsg></LoadingStatusContainer>;
+
+
   return (
     <Layout>
-    <StandingsContainer>
-        {matches.map((match, index) => (
-            <MatchCard key={index}>
-            <div>
-                <TeamName>{match.team1}</TeamName> vs <TeamName>{match.team2}</TeamName>
-            </div>
-            <MatchDate>{match.date}</MatchDate>
-            </MatchCard>
-        ))}
+      <StandingsContainer>
+          {matches.map((match, index) => (
+              <MatchCard key={index}>
+              <div>
+                  <TeamName>{match.team1}</TeamName> vs <TeamName>{match.team2}</TeamName>
+              </div>
+              <MatchDate>{match.date}</MatchDate>
+              </MatchCard>
+          ))}
         </StandingsContainer>
     </Layout>
   );

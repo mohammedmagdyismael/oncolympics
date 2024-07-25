@@ -30,3 +30,18 @@ export const MatchDate = styled.div`
   margin-top: 0.5rem;
   color: #777;
 `;
+
+export const LoadingStatusContainer = styled.div`
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+`;
+
+export const StatusMsg = styled.p`
+    display: flex;
+    height: fit-content;
+    margin: auto;
+    font-size: 24px;
+    font-weight: 500;
+`;
