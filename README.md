@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Node version: v18.19.0
+
+## Frontend Repo
+
+https://github.com/mohammedmagdyismael/oncolympics
+
+## Backend Repo
+
+https://github.com/mohammedmagdyismael/oncolympics_api
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -27,8 +27,11 @@ const Layout = ({ children }) => {
   return (
     <LayoutContainer>
       <TabContainer>
-      <Tab exact to="/groups" activeClassName="active">
+        <Tab exact to="/groups" activeClassName="active">
           Groups
+        </Tab>
+        <Tab exact to="/knockouts" activeClassName="active">
+          Knockouts
         </Tab>
         <Tab exact to="/standings" activeClassName="active">
           Standings

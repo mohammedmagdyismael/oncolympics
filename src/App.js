@@ -6,6 +6,7 @@ import Groups from './views/Groups';
 import Standings from './views/Standings';
 import CurrentMatch from './views/CurrentMatch';
 import Moderator from './views/Moderator';
+import knockouts from './views/knockouts';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route path="/groups" component={Groups} />
+        <Route path="/knockouts" component={knockouts} />
         <Route path="/standings" component={Standings} />
         <Route path="/currentmatch" component={CurrentMatch} />
         <Route path="/matchmoderator" component={Moderator} />
