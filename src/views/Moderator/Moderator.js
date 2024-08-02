@@ -9,7 +9,7 @@ import {
   LoadingStatusContainer,
   StatusMsg,
   MatchQuestionContainer,
-  QuestionsCounter,
+  MatchScoreContaint,
 } from './Moderator.style';
 
 import axios from 'axios';
@@ -124,10 +124,10 @@ const MatchModeratorView = () => {
     } else if (match.match_status === 2) {
         return (
           <Layout>
-            <div>
+            <MatchScoreContaint>
                 <MatchDetails match={match} />
                 <MatchScores />
-            </div>
+            </MatchScoreContaint>
           </Layout>
         );
     }
