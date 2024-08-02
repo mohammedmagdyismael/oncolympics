@@ -1,0 +1,224 @@
+{
+    "questions": [
+        {
+            "question": "What is the capital of France?",
+            "answers": [
+                {
+                    "answer": "Paris",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "Cairo",
+                    "correct": false
+                },
+                {
+                    "answer": "London",
+                    "correct": false
+                },
+                {
+                    "answer": "Tokyo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "answers": [
+                {
+                    "answer": "Mars",
+                    "correct": true,
+                    "reason": "blablablas"
+                },
+                {
+                    "answer": "Venus",
+                    "correct": false
+                },
+                {
+                    "answer": "Jupiter",
+                    "correct": false
+                },
+                {
+                    "answer": "Saturn",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "Who wrote 'To Kill a Mockingbird'?",
+            "answers": [
+                {
+                    "answer": "Harper Lee",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "Mark Twain",
+                    "correct": false
+                },
+                {
+                    "answer": "Ernest Hemingway",
+                    "correct": false
+                },
+                {
+                    "answer": "F. Scott Fitzgerald",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "What is the chemical symbol for water?",
+            "answers": [
+                {
+                    "answer": "H2O",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "O2",
+                    "correct": false
+                },
+                {
+                    "answer": "H2O2",
+                    "correct": false
+                },
+                {
+                    "answer": "CO2",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "Which country is known as the Land of the Rising Sun?",
+            "answers": [
+                {
+                    "answer": "Japan",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "China",
+                    "correct": false
+                },
+                {
+                    "answer": "South Korea",
+                    "correct": false
+                },
+                {
+                    "answer": "India",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "answers": [
+                {
+                    "answer": "Leonardo da Vinci",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "Vincent van Gogh",
+                    "correct": false
+                },
+                {
+                    "answer": "Pablo Picasso",
+                    "correct": false
+                },
+                {
+                    "answer": "Claude Monet",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "What is the largest mammal in the world?",
+            "answers": [
+                {
+                    "answer": "Blue Whale",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "Elephant",
+                    "correct": false
+                },
+                {
+                    "answer": "Giraffe",
+                    "correct": false
+                },
+                {
+                    "answer": "Rhino",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "In which year did the Titanic sink?",
+            "answers": [
+                {
+                    "answer": "1912",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "1905",
+                    "correct": false
+                },
+                {
+                    "answer": "1920",
+                    "correct": false
+                },
+                {
+                    "answer": "1931",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "What is the smallest prime number?",
+            "answers": [
+                {
+                    "answer": "2",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "1",
+                    "correct": false
+                },
+                {
+                    "answer": "3",
+                    "correct": false
+                },
+                {
+                    "answer": "5",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "Who developed the theory of relativity?",
+            "answers": [
+                {
+                    "answer": "Albert Einstein",
+                    "correct": true,
+                    "reason": ""
+                },
+                {
+                    "answer": "Isaac Newton",
+                    "correct": false
+                },
+                {
+                    "answer": "Galileo Galilei",
+                    "correct": false
+                },
+                {
+                    "answer": "Nikola Tesla",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
