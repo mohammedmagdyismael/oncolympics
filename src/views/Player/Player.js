@@ -1,5 +1,5 @@
 // Match.js
-import React, { useState, useEffect, useDeferredValue } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie'; // Make sure you have js-cookie installed
 
 import Layout from '../../components/Layout/Layout';
