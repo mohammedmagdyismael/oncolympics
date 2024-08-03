@@ -31,33 +31,35 @@ const PlayerView = () => {
         });
     }
 
-    const fetchMatchData = async () => {
-        setLoading(true);
-        try {
-            const response = await axios.get('https://oncolympics-api.onrender.com/api/match/playermatch', {
-                headers: {
-                    'token': Cookies.get('token'),
-                }
-            });
-            if (response?.data?.data) {
-                const match = response.data.data?.[0]
-                if (match.canAnswer !== matchData?.[0].canAnswer || match.current_question !== matchData?.[0].current_question) {
-                    setMatchData(response.data.data);
-                }
-            }
-            setLoading(false);
-        } catch (err) {
-            setError(err);
-            setLoading(false);
-        }
-    };
+    
 
     useEffect(() => {
+        const fetchMatchData = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get('https://oncolympics-api.onrender.com/api/match/playermatch', {
+                    headers: {
+                        'token': Cookies.get('token'),
+                    }
+                });
+                if (response?.data?.data) {
+                    const match = response.data.data?.[0]
+                    if (match.canAnswer !== matchData?.[0].canAnswer || match.current_question !== matchData?.[0].current_question) {
+                        setMatchData(response.data.data);
+                    }
+                }
+                setLoading(false);
+            } catch (err) {
+                setError(err);
+                setLoading(false);
+            }
+        };
+
         fetchMatchData();
         const interval = setInterval(fetchMatchData, 4000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [matchData]);
 
     if (loading && !matchData) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
     if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
