@@ -2,8 +2,11 @@
 import styled from 'styled-components';
 
 export const StandingsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+
   align-items: center;
   padding: 2rem;
   background-color: #f0f2f5;
@@ -21,9 +24,10 @@ export const MatchCard = styled.div`
   width: 80%;
 `;
 
-export const TeamName = styled.span`
+export const TeamName = styled.p`
   font-weight: bold;
   color: #333;
+  margin: 0;
 `;
 
 export const MatchDate = styled.div`
@@ -44,4 +48,11 @@ export const StatusMsg = styled.p`
     margin: auto;
     font-size: 24px;
     font-weight: 500;
+`;
+
+export const Deatils = styled.div`
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+  line-height: 18px;
 `;

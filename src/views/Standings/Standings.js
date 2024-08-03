@@ -1,10 +1,14 @@
 // Standings.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Layout from '../../components/Layout/Layout';
-import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate } from './Standings.style';
+import Layout from '../../components/Layout';
+import MatchScoresPopUp from './MatchScoresPopUP';
+import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate, Deatils } from './Standings.style';
 
 const Standings = () => {
+
+  const [isDetailsPopUpOpened, toggleDetailsPopUp] = useState(false);
+  const [matchDetails, setMatchDetails] = useState(null);
 
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,6 +31,9 @@ const Standings = () => {
           team1Score: match.score_team1,
           team2Score: match.score_team2,
           matchStatus: match.match_status,
+          matchId: match.match_id,
+          team1Logo: match.team1_logo,
+          team2Logo: match.team2_logo,
         }));
         setMatches(formattedMatches);
         setLoading(false);
@@ -37,11 +44,20 @@ const Standings = () => {
     };
 
     fetchMatches();
+
+    const interval = setInterval(fetchMatches, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  if (loading) return <LoadingStatusContainer><StatusMsg>Loading ...</StatusMsg></LoadingStatusContainer>;
+  if (loading && !matches?.length) return <LoadingStatusContainer><StatusMsg>Loading ...</StatusMsg></LoadingStatusContainer>;
   if (error) return <LoadingStatusContainer><StatusMsg>{error}</StatusMsg></LoadingStatusContainer>;
 
+
+  const handlePopUp = (match) => {
+    setMatchDetails(match);
+    toggleDetailsPopUp(true);
+  }
 
   return (
     <Layout>
@@ -58,15 +74,22 @@ const Standings = () => {
                   <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '5px' }}>
                     <TeamName>
                       {match.matchStatus === 0 && 'Not Started Yet'}
-                      {match.matchStatus === 1 && 'In Progress ...'}
+                      {match.matchStatus === 1 && 'Live Now'}
                       {match.matchStatus === 2 && 'Ended'}
                     </TeamName>
+                    {match.matchStatus !== 0 && (
+                      <Deatils onClick={() => handlePopUp(match)}>
+                        <p style={{ margin: '0' }}>Details</p>
+                      </Deatils>
+                    )}
+                    
                   </div>
               </div>
               <MatchDate>{match.date}</MatchDate>
               </MatchCard>
           ))}
         </StandingsContainer>
+        <MatchScoresPopUp match={matchDetails} isOpen={isDetailsPopUpOpened} onClose={() => toggleDetailsPopUp(false)} />
     </Layout>
   );
 };
