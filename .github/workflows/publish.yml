@@ -23,7 +23,7 @@ jobs:
         run: yarn build # The build command of your project
 
       - name: Include Config Files From react-app-configs to build
-        run: cp -r react-app-configs/. build
+        run: find react-app-configs -type f -exec cp {} build \;
 
       - name: Push
         uses: s0/git-publish-subdir-action@develop
