@@ -66,3 +66,66 @@ export const SubmitButton = styled.button`
     background-color: #0056b3;
   }
 `;
+
+
+export const Button = styled.button`
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+export const NextLabel = styled.p`
+      font-size: 32px;
+      font-weight: 700;
+`;
+
+export const ActionBtn = styled.button`
+  width: 147px;
+  height: 60px;
+  border: unset;
+  border-radius: 8px;
+  background-color: #282c34;
+  display: flex;
+  margin: 10px auto;
+  cursor: pointer;
+  :hover > p {
+    color: #61dafb;
+  }
+`;
+
+export const ActionBtnLabel = styled.p`
+  margin: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+`;
+
+export const LoadingStatusContainer = styled.div`
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+`;
+
+export const StatusMsg = styled.p`
+    display: flex;
+    height: fit-content;
+    margin: auto;
+    font-size: 24px;
+    font-weight: 500;
+`;
+
+export const MatchQuestionContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+`;
+
+export const MatchScoreContaint = styled(MatchQuestionContainer)``;

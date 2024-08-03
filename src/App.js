@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Login from './views/Login';
 import Groups from './views/Groups';
 import Standings from './views/Standings';
-import CurrentMatch from './views/CurrentMatch';
+import Player from './views/Player';
 import Moderator from './views/Moderator';
 import knockouts from './views/knockouts';
 
@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/groups" component={Groups} />
         <Route path="/knockouts" component={knockouts} />
         <Route path="/standings" component={Standings} />
-        <Route path="/currentmatch" component={CurrentMatch} />
+        <Route path="/currentmatch" component={Player} />
         <Route path="/matchmoderator" component={Moderator} />
         {/* Other routes can be added here */}
         <Redirect to="/groups" />

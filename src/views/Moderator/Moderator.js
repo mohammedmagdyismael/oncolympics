@@ -23,6 +23,8 @@ const MatchModeratorView = () => {
     const [error, setError] = useState(null);
     const [numberOfQuestions, setNumberOfQuestions] = useState(0);
 
+    const [isStopping, setStopAnswer] = useState(undefined);
+
     const fetchMatchData = async () => {
         try {
             const response = await axios.get('https://oncolympics-api.onrender.com/api/match/moderatormatch', {
@@ -32,6 +34,7 @@ const MatchModeratorView = () => {
             });
             setMatchData(response.data.data);
             setLoading(false);
+            setStopAnswer(undefined);
         } catch (err) {
             setError(err);
             setLoading(false);
@@ -69,6 +72,21 @@ const MatchModeratorView = () => {
           console.error(err);
       }
   };
+
+  const stopAnswer = async () => {
+    setStopAnswer(true);
+    try {
+        await axios.get('https://oncolympics-api.onrender.com/api/match/stopanswer', {
+            headers: {
+                'token': Cookies.get('token'),
+            }
+        });
+        setStopAnswer(false);
+
+    } catch (err) {
+        console.error(err);
+    }
+};
   
   const endMatch = async () => {
       setLoading(true);
@@ -110,11 +128,22 @@ const MatchModeratorView = () => {
                 <div>
                   <MatchQuestion setNumberOfQuestions={setNumberOfQuestions} questionFile={match.question_file} currentQuestion={match.current_question} />
                   
+                  <ActionBtn onClick={stopAnswer}>
+                    {isStopping === undefined && (
+                      <ActionBtnLabel>Stop Answer</ActionBtnLabel>
+                    )}
+                    {isStopping === true && (
+                      <ActionBtnLabel>Loading ...</ActionBtnLabel>
+                    )}
+                    {isStopping === false && (
+                      <ActionBtnLabel>Stopped</ActionBtnLabel>
+                    )}
+                    
+                  </ActionBtn>
                   {numberOfQuestions === match.current_question + 1 ? (
                     <ActionBtn onClick={endMatch}><ActionBtnLabel>{loading ? 'Loading' : 'End Match'}</ActionBtnLabel></ActionBtn>
                   ) : (
                     <ActionBtn onClick={nextQuestion}><ActionBtnLabel>{loading ? 'Loading' : 'Next Question'}</ActionBtnLabel></ActionBtn>
-
                   )}
                   
                 </div>
