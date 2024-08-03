@@ -32,7 +32,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, setNumberOfQuestions }) 
             }
         };
         fetchQuestions();
-    }, [questionFile]);
+    }, [questionFile, setNumberOfQuestions]);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
