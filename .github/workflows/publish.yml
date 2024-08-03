@@ -16,8 +16,14 @@ jobs:
       - name: Install all dependencies
         run: yarn
 
+      - name: Clone React Configs Repo
+        run: git clone https://github.com/mohammedmagdyismael/react-app-configs.git
+
       - name: Build
         run: yarn build # The build command of your project
+
+      - name: Include Config Files From react-app-configs to build
+        run: cp -r react-app-configs/* build
 
       - name: Push
         uses: s0/git-publish-subdir-action@develop
