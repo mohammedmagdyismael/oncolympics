@@ -22,11 +22,11 @@ const Standings = () => {
             weekday: 'long',
             day: 'numeric',
             month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-          })
+            year: 'numeric'
+          }),
+          team1Score: match.score_team1,
+          team2Score: match.score_team2,
+          matchStatus: match.match_status,
         }));
         setMatches(formattedMatches);
         setLoading(false);
@@ -48,8 +48,20 @@ const Standings = () => {
       <StandingsContainer>
           {matches.map((match, index) => (
               <MatchCard key={index}>
-              <div>
-                  <TeamName>{match.team1}</TeamName> vs <TeamName>{match.team2}</TeamName>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+                    <TeamName>{match.team1}</TeamName> vs <TeamName>{match.team2}</TeamName>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+                    <TeamName>{match.team1Score}</TeamName> : <TeamName>{match.team2Score}</TeamName>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '5px' }}>
+                    <TeamName>
+                      {match.matchStatus === 0 && 'Not Started Yet'}
+                      {match.matchStatus === 1 && 'In Progress ...'}
+                      {match.matchStatus === 2 && 'Ended'}
+                    </TeamName>
+                  </div>
               </div>
               <MatchDate>{match.date}</MatchDate>
               </MatchCard>
