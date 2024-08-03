@@ -16,8 +16,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
     const [error, setError] = useState(null);
     const [selectedOption, setSelectedOption] = useState();
 
-    const canAnswer = match.canAnswer;
-    console.log(canAnswer);
+    const canAnswer = match.canAnswer; 
 
     useEffect(() => {
         setSelectedOption(null);
