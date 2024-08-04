@@ -43,8 +43,11 @@ const PlayerView = () => {
                     }
                 });
                 if (response?.data?.data) {
-                    const match = response.data.data?.[0]
-                    if (match?.canAnswer !== matchData?.[0]?.canAnswer || match?.current_question !== matchData?.[0]?.current_question) {
+                    const match = response.data.data?.[0];
+                    
+                    if (!matchData) {
+                        setMatchData(response.data.data);
+                    } else if (match?.match_status !== matchData?.[0]?.match_status || match?.canAnswer !== matchData?.[0]?.canAnswer || match?.current_question !== matchData?.[0]?.current_question) {
                         setMatchData(response.data.data);
                     }
                 } else {

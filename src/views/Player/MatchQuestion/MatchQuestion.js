@@ -18,8 +18,6 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
     const [error, setError] = useState(null);
     const [selectedOption, setSelectedOption] = useState();
 
-    console.log('Player', questionFile, currentQuestion);
-
     const canAnswer = match?.canAnswer; 
 
     useEffect(() => {
@@ -57,7 +55,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
     return (
         <Container>
             <div style={{ marginBottom: '20px' }}>
-                <CountdownStopwatch />
+                <CountdownStopwatch isChanged={currentQuestion} />
             </div>
             <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
 

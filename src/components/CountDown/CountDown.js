@@ -10,8 +10,10 @@ const TimerDisplay = styled.div`
   margin: auto;
 `;
 
-const CountdownStopwatch = () => {
+const CountdownStopwatch = ({ isChanged }) => {
   const [seconds, setSeconds] = useState(60);
+
+  console.log(isChanged);
 
   useEffect(() => {
     if (seconds > 0) {
@@ -21,6 +23,10 @@ const CountdownStopwatch = () => {
       return () => clearInterval(intervalId);
     }
   }, [seconds]);
+
+  useEffect(() => {
+    setSeconds(60);
+  }, [isChanged])
 
   return <TimerDisplay>{`${seconds === 0 ? 'Timeout!' : `${seconds} sec`}`}</TimerDisplay>;
 };
