@@ -22,6 +22,7 @@ export const TeamContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    justify-content: flex-start;
 `;
 
 export const NextLabel = styled.p`
@@ -32,13 +33,19 @@ export const NextLabel = styled.p`
 
 export const TeamLabel = styled.p`
     font-weight: bold;
-    font-size: 28px;
+    font-size: 22px;
     text-align: center;
+    margin: auto 0;
+    width: 165px;
+`;
+
+export const TeamScore = styled(TeamLabel)`
     margin: 5px 0;
 `;
 
 export const TeamLogo = styled.img`
     width: 90px;
+    margin: 0 auto;
 `;
 
 export const MatchDate = styled.p`

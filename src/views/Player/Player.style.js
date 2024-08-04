@@ -109,7 +109,7 @@ export const ActionBtnLabel = styled.p`
 `;
 
 export const LoadingStatusContainer = styled.div`
-    height: 100vh;
+    height: calc(100vh - 85px);
     display: flex;
     width: 100%;
     justify-content: center;
@@ -119,8 +119,8 @@ export const StatusMsg = styled.p`
     display: flex;
     height: fit-content;
     margin: auto;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 700;
 `;
 
 export const MatchQuestionContainer = styled.div`

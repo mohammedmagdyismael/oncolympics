@@ -46,16 +46,18 @@ const MatchQuestion = ({ questionFile, currentQuestion, setNumberOfQuestions }) 
             <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
             <ul>
                 {question.answers.map((answer, index) => (
-                    <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{answer.answer}</Option></OptionContainer>
+                    <div>
+                        <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{answer.answer}</Option></OptionContainer>
+                        {showRightAns && (
+                            <AnswerJustification>
+                                {answer?.reason}
+                            </AnswerJustification>
+                        )}
+                    </div>
                 ))}
             </ul>
             {!showRightAns && (
                 <ActionBtn onClick={() => toggleRightAns(!showRightAns)}><ActionBtnLabel>Show Right Answer</ActionBtnLabel></ActionBtn>
-            )}
-            {showRightAns && (
-                <AnswerJustification>
-                    {question?.answers?.find(answer => answer.correct)?.reason}
-                </AnswerJustification>
             )}
 
         </Container>

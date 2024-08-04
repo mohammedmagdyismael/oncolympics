@@ -8,6 +8,7 @@ import {
     InnerContainer,
     TeamContainer,
     TeamsContainer,
+    TeamScore,
 } from './MatchDetails.style';
 
 const MatchDetails = ({ match }) => {
@@ -28,12 +29,12 @@ const MatchDetails = ({ match }) => {
                     <TeamContainer>
                         <TeamLogo src={`/assets/image/${match.team1Logo}`} alt={`${match.team1} logo`} />
                         <TeamLabel>{match.team1}</TeamLabel>
-                        {(match.matchStatus === 1 || match.matchStatus === 2) && (<TeamLabel>{match.team1Score}</TeamLabel>)}
+                        {(match.matchStatus === 1 || match.matchStatus === 2) && (<TeamScore>{match.team1Score}</TeamScore>)}
                     </TeamContainer>
                     <TeamContainer>
                         <TeamLogo src={`/assets/image/${match.team2Logo}`} alt={`${match.team2} logo`} />
                         <TeamLabel>{match.team2}</TeamLabel>
-                        {(match.matchStatus === 1 || match.matchStatus === 2) && (<TeamLabel>{match.team2Score}</TeamLabel>)}
+                        {(match.matchStatus === 1 || match.matchStatus === 2) && (<TeamScore>{match.team2Score}</TeamScore>)}
                     </TeamContainer>
                 </TeamsContainer>
                 

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../../components/Layout';
 import MatchScoresPopUp from './MatchScoresPopUP';
-import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate, Deatils } from './Standings.style';
+import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate, Deatils } from './Matches.style';
 
 const Standings = () => {
 
@@ -66,7 +66,7 @@ const Standings = () => {
               <MatchCard key={index}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                    <TeamName>{match.team1}</TeamName> vs <TeamName>{match.team2}</TeamName>
+                    <TeamName style={{ width: '200px', textAlign: 'center' }}>{match.team1}</TeamName> vs <TeamName style={{ width: '200px', textAlign: 'center' }}>{match.team2}</TeamName>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
                     <TeamName>{match.team1Score}</TeamName> : <TeamName>{match.team2Score}</TeamName>

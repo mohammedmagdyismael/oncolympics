@@ -1,4 +1,4 @@
-// Match.js
+// match?.js
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie'; // Make sure you have js-cookie installed
 
@@ -106,12 +106,12 @@ const MatchModeratorView = () => {
     if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
 
     if (!matchData || matchData.length === 0) {
-        return <div>No Matches Yet</div>;
+        return <Layout><LoadingStatusContainer><StatusMsg>No Matches Yet</StatusMsg></LoadingStatusContainer></Layout>;
     }
 
     const match = matchData[0];
 
-    if (match.match_status === 0) {
+    if (match?.match_status === 0) {
         return (
           <Layout>
             <div>
@@ -120,13 +120,13 @@ const MatchModeratorView = () => {
             </div>
           </Layout>
         );
-    } else if (match.match_status === 1) {
+    } else if (match?.match_status === 1) {
         return (
           <Layout>
             <MatchQuestionContainer>
                 <MatchDetails match={match} />
                 <div>
-                  <MatchQuestion setNumberOfQuestions={setNumberOfQuestions} questionFile={match.question_file} currentQuestion={match.current_question} />
+                  <MatchQuestion setNumberOfQuestions={setNumberOfQuestions} questionFile={match?.question_file} currentQuestion={match?.current_question} />
                   
                   <ActionBtn onClick={stopAnswer}>
                     {isStopping === undefined && (
@@ -140,7 +140,7 @@ const MatchModeratorView = () => {
                     )}
                     
                   </ActionBtn>
-                  {numberOfQuestions === match.current_question + 1 ? (
+                  {numberOfQuestions === match?.current_question + 1 ? (
                     <ActionBtn onClick={endMatch}><ActionBtnLabel>{loading ? 'Loading' : 'End Match'}</ActionBtnLabel></ActionBtn>
                   ) : (
                     <ActionBtn onClick={nextQuestion}><ActionBtnLabel>{loading ? 'Loading' : 'Next Question'}</ActionBtnLabel></ActionBtn>
@@ -150,7 +150,7 @@ const MatchModeratorView = () => {
             </MatchQuestionContainer>
           </Layout>
         );
-    } else if (match.match_status === 2) {
+    } else if (match?.match_status === 2) {
         return (
           <Layout>
             <MatchScoreContaint>

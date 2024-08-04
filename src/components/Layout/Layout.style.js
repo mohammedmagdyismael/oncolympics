@@ -44,3 +44,31 @@ export const LogoutContainer = styled.div`
     justify-content: center;
     font-weight: bold;
 `;
+
+export const UserInfoContainr = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  background: #fff0;
+  position: absolute;
+  right: 0;
+  top: 65px;
+  min-height: 48px;
+`;
+
+export const UserInfoInnerContainr = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px 0;
+`;
+
+export const UserLogo = styled.img`
+  width: 28px;
+`;
+
+export const UserName = styled.p`
+  margin: 0;
+  font-weight: 700;
+  margin: 0px 16px;
+  line-height: 26px;
+  font-size: 16px;
+`;

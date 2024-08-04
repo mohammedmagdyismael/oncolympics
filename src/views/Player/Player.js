@@ -44,9 +44,11 @@ const PlayerView = () => {
                 });
                 if (response?.data?.data) {
                     const match = response.data.data?.[0]
-                    if (match.canAnswer !== matchData?.[0].canAnswer || match.current_question !== matchData?.[0].current_question) {
+                    if (match?.canAnswer !== matchData?.[0]?.canAnswer || match?.current_question !== matchData?.[0]?.current_question) {
                         setMatchData(response.data.data);
                     }
+                } else {
+                    setMatchData(null);
                 }
                 setLoading(false);
             } catch (err) {
@@ -61,11 +63,11 @@ const PlayerView = () => {
         return () => clearInterval(interval);
     }, [matchData]);
 
-    if (loading && !matchData) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
+    if (loading && !matchData?.length === 0) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
     if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
 
     if (!matchData || matchData.length === 0) {
-        return <div>No Matches Yet</div>;
+        return <Layout><LoadingStatusContainer><StatusMsg>No Matches Yet</StatusMsg></LoadingStatusContainer></Layout>;
     }
 
     const match = matchData[0];
@@ -84,7 +86,7 @@ const PlayerView = () => {
             <MatchQuestionContainer>
                 <MatchDetails match={match} />
                 <div>
-                  <MatchQuestion match={match} answerQuestion={answerQuestion} questionFile={match.question_file} currentQuestion={match.current_question} />
+                  <MatchQuestion match={match} answerQuestion={answerQuestion} questionFile={match?.question_file} currentQuestion={match?.current_question} />
                 </div>
             </MatchQuestionContainer>
           </Layout>

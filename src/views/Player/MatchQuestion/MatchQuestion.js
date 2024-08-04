@@ -16,7 +16,9 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
     const [error, setError] = useState(null);
     const [selectedOption, setSelectedOption] = useState();
 
-    const canAnswer = match.canAnswer; 
+    console.log('Player', questionFile, currentQuestion);
+
+    const canAnswer = match?.canAnswer; 
 
     useEffect(() => {
         setSelectedOption(null);
@@ -57,23 +59,24 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
             <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
             <ul>
                 {question.answers.map((answer, index) => (
-                    <OptionContainer
-                        onClick={() => onSelectOption(answer.correct, index)}
-                        isSelected={index === selectedOption}
-                        isRight={answer.correct && !canAnswer}
-                        isWrong={!answer.correct && !canAnswer && index === selectedOption}
-                        key={index}>
-                            <Option>{answer.answer}</Option>
-                    </OptionContainer>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <OptionContainer
+                            onClick={() => onSelectOption(answer.correct, index)}
+                            isSelected={index === selectedOption}
+                            isRight={answer.correct && !canAnswer}
+                            isWrong={!answer.correct && !canAnswer && index === selectedOption}
+                            key={index}>
+                                <Option>{answer.answer}</Option>
+                        </OptionContainer>
+                        {(!canAnswer && answer?.reason) && (
+                            <AnswerJustification>
+                                {answer?.reason}
+                            </AnswerJustification>
+                        )}
+                    </div>
+                    
                 ))}
             </ul>
-
-            {!canAnswer && (
-                <AnswerJustification>
-                    {question?.answers?.find(answer => answer.correct)?.reason}
-                </AnswerJustification>
-            )}
-
         </Container>
     );
 };
