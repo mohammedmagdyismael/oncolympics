@@ -10,6 +10,7 @@ import {
     ActionBtnLabel,
     AnswerJustification,
 } from './MatchQuestion.style';
+import CountdownStopwatch from '../../../components/CountDown/CountDown';
 
 
 const MatchQuestion = ({ questionFile, currentQuestion, setNumberOfQuestions }) => {
@@ -41,8 +42,10 @@ const MatchQuestion = ({ questionFile, currentQuestion, setNumberOfQuestions }) 
 
     return (
         <Container>
+            <div style={{ marginBottom: '20px' }}>
+                <CountdownStopwatch />
+            </div>
             <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
-
             <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
             <ul>
                 {question.answers.map((answer, index) => (
