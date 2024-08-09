@@ -14,7 +14,7 @@ import {
 
 const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, matchDetails }) => {
     const [questions, setQuestions] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedOption, setSelectedOption] = useState();
 
@@ -30,10 +30,10 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
                 const response = await fetch(`/assets/matchesquestions/${questionFile}`);
                 const data = await response.json();
                 setQuestions(data.questions);
-                setLoading(false);
+                // setLoading(false);
             } catch (err) {
                 setError(err);
-                setLoading(false);
+                // setLoading(false);
             }
         };
         fetchQuestions();
