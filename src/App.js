@@ -7,11 +7,13 @@ import Matches from './views/Matches';
 import Player from './views/Player';
 import Moderator from './views/Moderator';
 import knockouts from './views/knockouts';
+import Landing from './views/Landing';
 
 const App = () => {
   return (
 <Router>
       <Switch>
+        <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route path="/groups" component={Groups} />
         <Route path="/knockouts" component={knockouts} />
@@ -19,7 +21,7 @@ const App = () => {
         <Route path="/yourmatch" component={Player} />
         <Route path="/matchmoderator" component={Moderator} />
         {/* Other routes can be added here */}
-        <Redirect to="/groups" />
+        <Redirect to="/" />
       </Switch>
     </Router>
   );
