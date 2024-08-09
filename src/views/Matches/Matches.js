@@ -48,9 +48,9 @@ const Standings = () => {
       <StandingsContainer>
           {matches?.map((match, index) => (
               <MatchCard key={index}>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                   <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                    <TeamName style={{ width: '200px', textAlign: 'center' }}>{match.team1}</TeamName> vs <TeamName style={{ width: '200px', textAlign: 'center' }}>{match.team2}</TeamName>
+                    <TeamName style={{ width: '40%', textAlign: 'center' }}>{match.team1}</TeamName> vs <TeamName style={{ width: '40%', textAlign: 'center' }}>{match.team2}</TeamName>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
                     <TeamName>{match.team1Score}</TeamName> : <TeamName>{match.team2Score}</TeamName>

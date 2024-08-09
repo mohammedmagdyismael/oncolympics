@@ -6,6 +6,13 @@ export const GroupsContainer = styled.div`
   grid-template-columns: 50% 50%;
   align-items: center;
   padding: 2rem;
+
+  @media only screen and (max-width: 855px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+  }
 `;
 
 export const GroupTable = styled.table`
@@ -14,6 +21,10 @@ export const GroupTable = styled.table`
   margin-bottom: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 18px auto;
+
+  @media only screen and (max-width: 855px) {
+    margin: 5px auto;
+  }
 `;
 
 export const GroupHeader = styled.caption`
