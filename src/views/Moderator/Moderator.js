@@ -28,8 +28,8 @@ const MatchModeratorView = () => {
     const [numberOfQuestions, setNumberOfQuestions] = useState(0);
     const [isStopping, setStopAnswer] = useState(undefined);
     const [isRestting, setRestting] = useState(undefined);
+    const [isProceeding, setProceeding] = useState(undefined);
 
-    const [showNextBtn, toggleShowBtn] = useState(false);
 
     const fetchMatchData = async () => {
         setLoading(true);
@@ -39,7 +39,7 @@ const MatchModeratorView = () => {
             setLoading(false);
             setStopAnswer(undefined);
             setRestting(undefined);
-            toggleShowBtn(false);
+            setProceeding(undefined);
         } catch (err) {
             setError(err);
             setLoading(false);
@@ -61,6 +61,7 @@ const MatchModeratorView = () => {
     };
     
     const nextQuestion = async () => {
+        setProceeding(true);
         try {
             await nextQuestionAPI();
             fetchMatchData();
@@ -73,8 +74,7 @@ const MatchModeratorView = () => {
         setStopAnswer(true);
         try {
             await stopAnswerAPI().then(() => {
-                toggleShowBtn(true);
-                setStopAnswer(false);
+                fetchMatchData();
             });
         } catch (err) {
             console.error(err);
@@ -118,14 +118,18 @@ const MatchModeratorView = () => {
         }
     };
 
-    if (loading && matchData === null) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
+    // if (loading && matchData === null) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
     if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
 
-    if (!matchData || matchData.length === 0) {
+    if (matchData?.length === 0) {
         return <Layout><LoadingStatusContainer><StatusMsg>No Matches Yet</StatusMsg></LoadingStatusContainer></Layout>;
     }
 
-    const match = matchData[0];
+    const match = matchData?.[0];
+
+    console.log(match);
+
+    const teamCanAnswer = match?.canAnswer === 1
 
     if (match?.match_status === 0) {
         return (
@@ -151,7 +155,7 @@ const MatchModeratorView = () => {
                     />
                   
                   <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-                    {!showNextBtn && (
+                    {teamCanAnswer && (
                         <ActionBtn onClick={stopAnswer}>
                             {isStopping === undefined && (
                                 <ActionBtnLabel>Stop Answer</ActionBtnLabel>
@@ -167,18 +171,18 @@ const MatchModeratorView = () => {
 
                     {numberOfQuestions === match?.current_question + 1 ? (
                         <div>
-                            {showNextBtn && (
-                                <ActionBtn onClick={endMatch}><ActionBtnLabel>{loading ? 'Loading' : 'End Match'}</ActionBtnLabel></ActionBtn>
+                            {!teamCanAnswer && (
+                                <ActionBtn onClick={endMatch}><ActionBtnLabel>End Match</ActionBtnLabel></ActionBtn>
                             )}
                         </div>
                     ) : (
                         <div>
-                            {showNextBtn && (
-                                <ActionBtn onClick={nextQuestion}><ActionBtnLabel>{loading ? 'Loading' : 'Next Question'}</ActionBtnLabel></ActionBtn>
+                            {!teamCanAnswer && (
+                                <ActionBtn onClick={nextQuestion}><ActionBtnLabel>{isProceeding ? 'Loading ...' : 'Next'}</ActionBtnLabel></ActionBtn>
                             )}
                         </div>
                     )}
-                    <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset Match'}</ActionBtnLabel></ActionBtn>
+                    <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset'}</ActionBtnLabel></ActionBtn>
                   </div>
                  
                 </div>
