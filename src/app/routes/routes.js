@@ -21,7 +21,7 @@ export const getTabs = role => {
     if (isAdmin) {
         tabs.push(
             {
-                label: 'Match Moderator',
+                label: 'Moderator',
                 route: '/matchmoderator'
             },
         );

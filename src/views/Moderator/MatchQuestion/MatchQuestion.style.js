@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     padding: 40px;
+
+    @media only screen and (max-width: 855px) {
+      padding: 5px;
+  }
 `;
 
 export const QuestionContainer = styled.div`
@@ -13,6 +17,10 @@ export const Question = styled.p`
     text-align: center;
     color: #333;
     font-weight: 700;
+
+    @media only screen and (max-width: 855px) {
+      font-size: 18px;
+    }
 `;
 
 export const OptionContainer = styled.div`
@@ -43,6 +51,10 @@ export const QuestionsCounter = styled.div`
   text-align: center;
   color: #333;
   font-weight: 700;
+
+  @media only screen and (max-width: 855px) {
+      font-size: 18px;
+  }
 `;
 
 export const ActionBtn = styled.button`
@@ -71,6 +83,11 @@ export const OptionsContainer = styled.ul`
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
   padding: 0;
+
+  @media only screen and (max-width: 855px) {
+      display: flex;
+      flex-direction: column;
+  }
 `;
 
 export const TeamQuestionContainer = styled.div`

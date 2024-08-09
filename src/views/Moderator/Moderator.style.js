@@ -95,6 +95,7 @@ export const ActionBtn = styled.button`
   background-color: #282c34;
   display: flex;
   cursor: pointer;
+  margin: auto;
   :hover > p {
     color: #61dafb;
   }
@@ -128,3 +129,12 @@ export const MatchQuestionContainer = styled.div`
 `;
 
 export const MatchScoreContaint = styled(MatchQuestionContainer)``;
+
+export const BtnsPanel = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  @media only screen and (max-width: 855px) {
+    flex-direction: column;
+  }
+`;

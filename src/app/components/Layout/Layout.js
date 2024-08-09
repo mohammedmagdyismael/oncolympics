@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getTabs } from '../../routes';
 import { userInfoAPI } from '../../api/User';
 import Cookies from 'js-cookie';
+import BurgerMenu from '../BurgerMenu';
 import { AuthPathes } from './helper';
 import { LogoutContainer,LayoutContainer, Tab, TabContainer, UserInfoContainr, UserLogo, UserName, UserInfoInnerContainr } from './Layout.style';
 
@@ -45,6 +46,7 @@ const Layout = ({ children }) => {
 
   return (
     <LayoutContainer>
+      <BurgerMenu items={tabs} title={`Hi! ${userInfo?.name}`} isLogged={!!role} handleLogin={handleLogin} handleLogout={handleLogout} />
       <TabContainer>
         {tabs?.map(tab => (
           <Tab exact to={tab.route} activeClassName="active">

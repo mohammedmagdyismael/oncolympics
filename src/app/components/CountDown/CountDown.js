@@ -8,6 +8,10 @@ const TimerDisplay = styled.div`
   color: red;
   width: fit-content;
   margin: auto;
+
+  @media only screen and (max-width: 855px) {
+      font-size: 18px;
+  }
 `;
 
 const CountdownStopwatch = ({ isChanged }) => {

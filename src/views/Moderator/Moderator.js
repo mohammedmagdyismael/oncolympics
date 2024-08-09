@@ -17,6 +17,7 @@ import {
   LoadingStatusContainer,
   StatusMsg,
   MatchQuestionContainer,
+  BtnsPanel,
 } from './Moderator.style';
 import MatchDetails from '../../app/common/MatchDetails';
 import MatchQuestion from './MatchQuestion';
@@ -127,8 +128,6 @@ const MatchModeratorView = () => {
 
     const match = matchData?.[0];
 
-    console.log(match);
-
     const teamCanAnswer = match?.canAnswer === 1
 
     if (match?.match_status === 0) {
@@ -136,9 +135,9 @@ const MatchModeratorView = () => {
           <Layout>
             <div>
                 <MatchDetails isAdmin match={match} />
-                <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <BtnsPanel id='panel'>
                     <ActionBtn onClick={startMatch}><ActionBtnLabel>{loading ? 'Loading' : 'Start Match'}</ActionBtnLabel></ActionBtn>
-                </div>
+                </BtnsPanel>
             </div>
           </Layout>
         );
@@ -154,7 +153,7 @@ const MatchModeratorView = () => {
                         matchDetails={<MatchDetails isAdmin match={match} rewardTeam={rewardTeam} penaltyTeam={penaltyTeam}  />}
                     />
                   
-                  <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                  <BtnsPanel id='panel'>
                     {teamCanAnswer && (
                         <ActionBtn onClick={stopAnswer}>
                             {isStopping === undefined && (
@@ -183,7 +182,7 @@ const MatchModeratorView = () => {
                         </div>
                     )}
                     <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset'}</ActionBtnLabel></ActionBtn>
-                  </div>
+                  </BtnsPanel>
                  
                 </div>
             </MatchQuestionContainer>
@@ -194,9 +193,9 @@ const MatchModeratorView = () => {
           <Layout>
             <div>
                 <MatchDetails isAdmin match={match} />
-                <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <BtnsPanel id='panel'BtnsPanel>
                     <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset Match'}</ActionBtnLabel></ActionBtn>
-                </div>
+                </BtnsPanel>
             </div>
           </Layout>
         );

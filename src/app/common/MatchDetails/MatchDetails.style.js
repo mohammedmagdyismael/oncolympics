@@ -7,6 +7,10 @@ export const Container = styled.div`
     ${props => props.isMini && `
         padding: 0 40px;
     `};
+
+    @media only screen and (max-width: 855px) {
+        padding: 0 20px;
+    }
 `;
 
 export const InnerContainer = styled.div`

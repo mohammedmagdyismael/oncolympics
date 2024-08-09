@@ -12,6 +12,10 @@ export const TabContainer = styled.div`
   display: flex;
   justify-content: space-around;
   background-color: #282c34;
+
+  @media only screen and (max-width: 855px) {
+    display: none;
+  }
 `;
 
 export const Tab = styled(NavLink)`

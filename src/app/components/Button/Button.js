@@ -12,7 +12,6 @@ const Button = ({
 }) => {
 
     const onClickHandler = () => {
-        console.log('jhhh')
         if (!isLoading && !disabled && onClick) onClick();
     }
 
