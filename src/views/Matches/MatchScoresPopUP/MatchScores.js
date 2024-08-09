@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import PopUp from '../../../components/PopUp';
+import { matchDetailsAPI } from '../../../app/api/Matches';
+import PopUp from '../../../app/components/PopUp';
+import MatchDetails from '../../../app/common/MatchDetails';
 import {
     LoadingStatusContainer,
     StatusMsg,
@@ -14,7 +15,6 @@ import {
     ScoreLabel,
     ScoresContainer,
 } from './MatchScores.style';
-import MatchDetails from './MatchDetails';
  
 
 const MatchScores = ({ isOpen, onClose, match }) => {
@@ -27,8 +27,8 @@ const MatchScores = ({ isOpen, onClose, match }) => {
             const fetchScores = async () => {
                 setLoading(true);
                 try {
-                    const response = await axios.get(`https://oncolympics-api.onrender.com/api/standings/matchdetails?matchid=${match?.matchId}`);
-                    setScores(response?.data?.data);
+                    const response = await matchDetailsAPI(match?.matchId);
+                    setScores(response);
                     setLoading(false);
                 } catch (err) {
                     setError(err);
@@ -49,7 +49,16 @@ const MatchScores = ({ isOpen, onClose, match }) => {
              <div>
                 <LabelContainer><Label>Match Details</Label></LabelContainer>
                 <div style={{ display: 'flex' }}>
-                    <MatchDetails match={match} />
+                    <MatchDetails match={{
+                        ...match,
+                        match_status: match?.matchStatus,
+                        team1_name: match?.team1,
+                        team1_logo: match?.team1Logo,
+                        score_team1: match?.team1Score,
+                        team2_name: match?.team2,
+                        team2_logo: match?.team2Logo,
+                        score_team2: match?.team2Score,
+                    }} />
                     <ScoresContainer>
                         {scores?.map((score, index) => (
                             <QContainer key={index}>

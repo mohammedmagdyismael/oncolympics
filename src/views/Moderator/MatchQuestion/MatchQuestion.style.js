@@ -65,3 +65,26 @@ export const ActionBtnLabel = styled.p`
   font-weight: bold;
   color: #fff;
 `;
+
+export const OptionsContainer = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  padding: 0;
+`;
+
+export const TeamQuestionContainer = styled.div`
+  display: flex;
+  @media only screen and (max-width: 855px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+`;
+
+export const TeamsDetailsContainer = styled.div`
+  width: fit-content;
+  @media only screen and (max-width: 855px) {
+    margin: 0px auto 35px auto;
+  }
+`

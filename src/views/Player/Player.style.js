@@ -125,7 +125,7 @@ export const StatusMsg = styled.p`
 
 export const MatchQuestionContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
 `;
 
 export const MatchScoreContaint = styled(MatchQuestionContainer)``;

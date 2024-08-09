@@ -15,8 +15,8 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route path="/groups" component={Groups} />
         <Route path="/knockouts" component={knockouts} />
-        <Route path="/matches" component={Matches} />
-        <Route path="/currentmatch" component={Player} />
+        <Route path="/schedule" component={Matches} />
+        <Route path="/yourmatch" component={Player} />
         <Route path="/matchmoderator" component={Moderator} />
         {/* Other routes can be added here */}
         <Redirect to="/groups" />

@@ -1,6 +1,6 @@
 // knockouts.js
 import React from 'react';
-import Layout from '../../components/Layout/Layout';
+import Layout from '../../app/components/Layout/Layout';
 import { Container, KnockOutsImg } from './knockouts.style';
  
 const Groups = () => {

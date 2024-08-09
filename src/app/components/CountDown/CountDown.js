@@ -12,9 +12,6 @@ const TimerDisplay = styled.div`
 
 const CountdownStopwatch = ({ isChanged }) => {
   const [seconds, setSeconds] = useState(60);
-
-  console.log(isChanged);
-
   useEffect(() => {
     if (seconds > 0) {
       const intervalId = setInterval(() => {

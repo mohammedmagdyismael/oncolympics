@@ -1,7 +1,7 @@
 // Standings.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Layout from '../../components/Layout';
+import { allMatchesAPI } from '../../app/api/Matches';
+import Layout from '../../app/components/Layout';
 import MatchScoresPopUp from './MatchScoresPopUP';
 import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate, Deatils } from './Matches.style';
 
@@ -18,24 +18,8 @@ const Standings = () => {
     // Fetch matches data from API
     const fetchMatches = async () => {
       try {
-        const response = await axios.get('https://oncolympics-api.onrender.com/api/standings/all-matches');
-        const formattedMatches = response.data.data.map(match => ({
-          team1: match.team1_name,
-          team2: match.team2_name,
-          date: new Date(match.date_time).toLocaleString('en-GB', {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-          }),
-          team1Score: match.score_team1,
-          team2Score: match.score_team2,
-          matchStatus: match.match_status,
-          matchId: match.match_id,
-          team1Logo: match.team1_logo,
-          team2Logo: match.team2_logo,
-        }));
-        setMatches(formattedMatches);
+        const formattedMatchesResponse = await allMatchesAPI();
+        setMatches(formattedMatchesResponse);
         setLoading(false);
       } catch (error) {
         setError('Failed to fetch data');
@@ -62,7 +46,7 @@ const Standings = () => {
   return (
     <Layout>
       <StandingsContainer>
-          {matches.map((match, index) => (
+          {matches?.map((match, index) => (
               <MatchCard key={index}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
@@ -89,7 +73,9 @@ const Standings = () => {
               </MatchCard>
           ))}
         </StandingsContainer>
-        <MatchScoresPopUp match={matchDetails} isOpen={isDetailsPopUpOpened} onClose={() => toggleDetailsPopUp(false)} />
+        {isDetailsPopUpOpened && (
+          <MatchScoresPopUp match={matchDetails} isOpen={isDetailsPopUpOpened} onClose={() => toggleDetailsPopUp(false)} />
+        )}
     </Layout>
   );
 };

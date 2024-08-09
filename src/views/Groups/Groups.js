@@ -1,7 +1,7 @@
 // Groups.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Layout from '../../components/Layout/Layout';
+import { groupsAPI } from '../../app/api/Groups';
+import Layout from '../../app/components/Layout';
 import { StatusMsg, LoadingStatusContainer, GroupsContainer, GroupTable, GroupHeader, TableRow, TableHeader, TableCell } from './Groups.style';
 
 const Groups = () => {
@@ -13,8 +13,8 @@ const Groups = () => {
     // Fetch groups data from API
     const fetchGroups = async () => {
       try {
-        const response = await axios.get('https://oncolympics-api.onrender.com/api/groups');
-        setGroupsData(response.data.data);
+        const response = await groupsAPI();
+        setGroupsData(response?.data);
         setLoading(false);
       } catch (error) {
         setError('Failed to fetch data');
@@ -26,7 +26,7 @@ const Groups = () => {
   }, []);
 
   if (loading) return <LoadingStatusContainer><StatusMsg>Loading ...</StatusMsg></LoadingStatusContainer>;
-  if (error) return <div><StatusMsg>{error}</StatusMsg></div>;
+  if (error) return <LoadingStatusContainer><StatusMsg>{error}</StatusMsg></LoadingStatusContainer>;
 
   return (
     <Layout>

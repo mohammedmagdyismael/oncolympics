@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import Layout from '../../components/Layout/Layout';
+import { loginAPI } from '../../app/api/User';
+import Layout from '../../app/components/Layout/Layout';
 import { LoginContainer, LoginForm, LoginInput, LoginButton } from './Login.style';
 
 const Login = () => {
@@ -16,17 +15,8 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post('https://oncolympics-api.onrender.com/api/users/login', {
-        username,
-        password,
-      });
-
-      if (response.data.status === 200) {
-        const { token, role } = response.data.data;
-        // Save to cookies
-        Cookies.set('token', token);
-        Cookies.set('username', username);
-        Cookies.set('role', role);
+      const response = await loginAPI(username, password);
+      if (response?.status === 200) {
         // Redirect to groups page
         window.location.href = '/groups'
       } else {

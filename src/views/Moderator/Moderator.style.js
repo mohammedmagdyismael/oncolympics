@@ -94,7 +94,6 @@ export const ActionBtn = styled.button`
   border-radius: 8px;
   background-color: #282c34;
   display: flex;
-  margin: 10px auto;
   cursor: pointer;
   :hover > p {
     color: #61dafb;
@@ -125,7 +124,7 @@ export const StatusMsg = styled.p`
 
 export const MatchQuestionContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
 `;
 
 export const MatchScoreContaint = styled(MatchQuestionContainer)``;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie'; // Make sure you have js-cookie installed
+import { matchScoresAPI } from '../../../app/api/Player';
 import {
     LoadingStatusContainer,
     StatusMsg,
@@ -22,12 +21,8 @@ const MatchScores = () => {
     useEffect(() => {
         const fetchScores = async () => {
             try {
-                const response = await axios.get('https://oncolympics-api.onrender.com/api/match/matchscores', {
-                    headers: {
-                        'token': Cookies.get('token')
-                    }
-                });
-                setScores(response.data.data);
+                const response = await matchScoresAPI();
+                setScores(response);
                 setLoading(false);
             } catch (err) {
                 setError(err);

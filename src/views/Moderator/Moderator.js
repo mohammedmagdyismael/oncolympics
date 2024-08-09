@@ -1,40 +1,45 @@
 // match?.js
 import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie'; // Make sure you have js-cookie installed
-
-import Layout from '../../components/Layout/Layout';
+import {
+    moderatorMatchDetailsAPI,
+    startMatchAPI,
+    nextQuestionAPI,
+    endMatchAPI,
+    resetMatchAPI,
+    stopAnswerAPI,
+    penaltyPlayerAPI,
+    rewardPlayerAPI,
+} from '../../app/api/Moderator';
+import Layout from '../../app/components/Layout/Layout';
 import { 
   ActionBtn,
   ActionBtnLabel,
   LoadingStatusContainer,
   StatusMsg,
   MatchQuestionContainer,
-  MatchScoreContaint,
 } from './Moderator.style';
-
-import axios from 'axios';
-import MatchDetails from './MatchDetails';
+import MatchDetails from '../../app/common/MatchDetails';
 import MatchQuestion from './MatchQuestion';
-import MatchScores from './MatchScores';
 
 const MatchModeratorView = () => {
     const [matchData, setMatchData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [numberOfQuestions, setNumberOfQuestions] = useState(0);
-
     const [isStopping, setStopAnswer] = useState(undefined);
+    const [isRestting, setRestting] = useState(undefined);
+
+    const [showNextBtn, toggleShowBtn] = useState(false);
 
     const fetchMatchData = async () => {
+        setLoading(true);
         try {
-            const response = await axios.get('https://oncolympics-api.onrender.com/api/match/moderatormatch', {
-                headers: {
-                    'token': Cookies.get('token'),
-                }
-            });
-            setMatchData(response.data.data);
+            const response = await moderatorMatchDetailsAPI();
+            setMatchData(response);
             setLoading(false);
             setStopAnswer(undefined);
+            setRestting(undefined);
+            toggleShowBtn(false);
         } catch (err) {
             setError(err);
             setLoading(false);
@@ -48,61 +53,72 @@ const MatchModeratorView = () => {
     const startMatch = async () => {
       setLoading(true);
       try {
-          await axios.get('https://oncolympics-api.onrender.com/api/match/startmatch',  {
-              headers: {
-                  'token': Cookies.get('token'),
-              }
-          });
+          await startMatchAPI();
           fetchMatchData();
       } catch (err) {
           console.error(err);
       }
-  };
-  
-  const nextQuestion = async () => {
-      setLoading(true);
-      try {
-          await axios.get('https://oncolympics-api.onrender.com/api/match/nextquestion', {
-              headers: {
-                  'token': Cookies.get('token'),
-              }
-          });
-          fetchMatchData();
-      } catch (err) {
-          console.error(err);
-      }
-  };
+    };
+    
+    const nextQuestion = async () => {
+        try {
+            await nextQuestionAPI();
+            fetchMatchData();
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
-  const stopAnswer = async () => {
-    setStopAnswer(true);
-    try {
-        await axios.get('https://oncolympics-api.onrender.com/api/match/stopanswer', {
-            headers: {
-                'token': Cookies.get('token'),
-            }
-        });
-        setStopAnswer(false);
+    const stopAnswer = async () => {
+        setStopAnswer(true);
+        try {
+            await stopAnswerAPI().then(() => {
+                toggleShowBtn(true);
+                setStopAnswer(false);
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    
+    const endMatch = async () => {
+        try {
+            await endMatchAPI();
+            fetchMatchData();
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
-    } catch (err) {
-        console.error(err);
-    }
-};
-  
-  const endMatch = async () => {
-      setLoading(true);
-      try {
-          await axios.get('https://oncolympics-api.onrender.com/api/match/endmatch', {
-              headers: {
-                  'token': Cookies.get('token'),
-              }
-          });
-          fetchMatchData();
-      } catch (err) {
-          console.error(err);
-      }
-  };
+    const resetMatch = async () => {
+        setRestting(true);
+        try {
+            await resetMatchAPI()
+            .then(() => {
+                fetchMatchData();
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
-    if (loading) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
+    const rewardTeam = async teamId => {
+        try {
+            await rewardPlayerAPI(teamId).then(() => fetchMatchData());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const penaltyTeam = async teamId => {
+        try {
+            await penaltyPlayerAPI(teamId).then(() => fetchMatchData());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    if (loading && matchData === null) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
     if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
 
     if (!matchData || matchData.length === 0) {
@@ -115,8 +131,10 @@ const MatchModeratorView = () => {
         return (
           <Layout>
             <div>
-                <MatchDetails match={match} />
-                <ActionBtn onClick={startMatch}><ActionBtnLabel>{loading ? 'Loading' : 'Start Match'}</ActionBtnLabel></ActionBtn>
+                <MatchDetails isAdmin match={match} />
+                <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                    <ActionBtn onClick={startMatch}><ActionBtnLabel>{loading ? 'Loading' : 'Start Match'}</ActionBtnLabel></ActionBtn>
+                </div>
             </div>
           </Layout>
         );
@@ -124,28 +142,45 @@ const MatchModeratorView = () => {
         return (
           <Layout>
             <MatchQuestionContainer>
-                <MatchDetails match={match} />
                 <div>
-                  <MatchQuestion setNumberOfQuestions={setNumberOfQuestions} questionFile={match?.question_file} currentQuestion={match?.current_question} />
+                    <MatchQuestion
+                        setNumberOfQuestions={setNumberOfQuestions}
+                        questionFile={match?.question_file}
+                        currentQuestion={match?.current_question}
+                        matchDetails={<MatchDetails isAdmin match={match} rewardTeam={rewardTeam} penaltyTeam={penaltyTeam}  />}
+                    />
                   
-                  <ActionBtn onClick={stopAnswer}>
-                    {isStopping === undefined && (
-                      <ActionBtnLabel>Stop Answer</ActionBtnLabel>
+                  <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                    {!showNextBtn && (
+                        <ActionBtn onClick={stopAnswer}>
+                            {isStopping === undefined && (
+                                <ActionBtnLabel>Stop Answer</ActionBtnLabel>
+                            )}
+                            {isStopping === true && (
+                                <ActionBtnLabel>Loading ...</ActionBtnLabel>
+                            )}
+                            {isStopping === false && (
+                                <ActionBtnLabel>Stopped</ActionBtnLabel>
+                            )}
+                        </ActionBtn>
                     )}
-                    {isStopping === true && (
-                      <ActionBtnLabel>Loading ...</ActionBtnLabel>
+
+                    {numberOfQuestions === match?.current_question + 1 ? (
+                        <div>
+                            {showNextBtn && (
+                                <ActionBtn onClick={endMatch}><ActionBtnLabel>{loading ? 'Loading' : 'End Match'}</ActionBtnLabel></ActionBtn>
+                            )}
+                        </div>
+                    ) : (
+                        <div>
+                            {showNextBtn && (
+                                <ActionBtn onClick={nextQuestion}><ActionBtnLabel>{loading ? 'Loading' : 'Next Question'}</ActionBtnLabel></ActionBtn>
+                            )}
+                        </div>
                     )}
-                    {isStopping === false && (
-                      <ActionBtnLabel>Stopped</ActionBtnLabel>
-                    )}
-                    
-                  </ActionBtn>
-                  {numberOfQuestions === match?.current_question + 1 ? (
-                    <ActionBtn onClick={endMatch}><ActionBtnLabel>{loading ? 'Loading' : 'End Match'}</ActionBtnLabel></ActionBtn>
-                  ) : (
-                    <ActionBtn onClick={nextQuestion}><ActionBtnLabel>{loading ? 'Loading' : 'Next Question'}</ActionBtnLabel></ActionBtn>
-                  )}
-                  
+                    <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset Match'}</ActionBtnLabel></ActionBtn>
+                  </div>
+                 
                 </div>
             </MatchQuestionContainer>
           </Layout>
@@ -153,10 +188,12 @@ const MatchModeratorView = () => {
     } else if (match?.match_status === 2) {
         return (
           <Layout>
-            <MatchScoreContaint>
-                <MatchDetails match={match} />
-                <MatchScores />
-            </MatchScoreContaint>
+            <div>
+                <MatchDetails isAdmin match={match} />
+                <div id='panel' style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                    <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset Match'}</ActionBtnLabel></ActionBtn>
+                </div>
+            </div>
           </Layout>
         );
     }

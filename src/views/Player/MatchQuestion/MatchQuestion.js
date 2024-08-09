@@ -7,12 +7,12 @@ import {
     Container,
     QuestionsCounter,
     AnswerJustification,
+    OptionsContainer,
+    TeamQuestionContainer,
+    TeamsDetailsContainer,
 } from './MatchQuestion.style';
-import CountdownStopwatch from '../../../components/CountDown/CountDown';
 
-
-
-const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match }) => {
+const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, matchDetails }) => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -39,7 +39,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
         fetchQuestions();
     }, [questionFile]);
 
-    if (loading) return <div>Loading...</div>;
+    // if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
     const question = questions[currentQuestion];
@@ -54,14 +54,18 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
 
     return (
         <Container>
-            <div style={{ marginBottom: '20px' }}>
-                <CountdownStopwatch isChanged={currentQuestion} />
-            </div>
-            <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
-
-            <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
-            <ul>
-                {question.answers.map((answer, index) => (
+            <TeamQuestionContainer>
+                <TeamsDetailsContainer>
+                    {matchDetails}
+                </TeamsDetailsContainer>
+                <div style={{ width: '100%' }}>
+                    <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
+                    <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
+                </div>
+            </TeamQuestionContainer>
+            
+            <OptionsContainer>
+                {question?.answers.map((answer, index) => (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <OptionContainer
                             onClick={() => onSelectOption(answer.correct, index)}
@@ -71,15 +75,14 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match })
                             key={index}>
                                 <Option>{answer.answer}</Option>
                         </OptionContainer>
-                        {(!canAnswer && answer?.reason) && (
-                            <AnswerJustification>
-                                {answer?.reason}
-                            </AnswerJustification>
-                        )}
                     </div>
-                    
                 ))}
-            </ul>
+            </OptionsContainer>
+            {(!canAnswer) && (
+                <AnswerJustification>
+                    {question?.answers.find(answer => answer?.correct)?.reason}
+                </AnswerJustification>
+            )}
         </Container>
     );
 };

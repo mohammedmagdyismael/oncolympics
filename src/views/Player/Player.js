@@ -1,62 +1,45 @@
 // Match.js
 import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie'; // Make sure you have js-cookie installed
-
-import Layout from '../../components/Layout/Layout';
+import { answerAPI, playerMatchDetails } from '../../app/api/Player';
+import Layout from '../../app/components/Layout/Layout';
 import { 
   LoadingStatusContainer,
   StatusMsg,
   MatchQuestionContainer,
-  MatchScoreContaint,
 } from './Player.style';
-
-import axios from 'axios';
-import MatchDetails from './MatchDetails';
+import MatchDetails from '../../app/common/MatchDetails';
 import MatchQuestion from './MatchQuestion';
-import MatchScores from './MatchScores';
 
 const PlayerView = () => {
     const [matchData, setMatchData] = useState(null);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
 
     const answerQuestion = async answer => {
-        await axios.post('https://oncolympics-api.onrender.com/api/match/answer', {
-            answer,
-        },{
-            headers: {
-                'token': Cookies.get('token'),
-            }
-        });
+        await answerAPI(answer)
     }
-
-    
 
     useEffect(() => {
         const fetchMatchData = async () => {
-            setLoading(true);
+            // setLoading(true);
             try {
-                const response = await axios.get('https://oncolympics-api.onrender.com/api/match/playermatch', {
-                    headers: {
-                        'token': Cookies.get('token'),
-                    }
-                });
-                if (response?.data?.data) {
-                    const match = response.data.data?.[0];
-                    
-                    if (!matchData) {
-                        setMatchData(response.data.data);
+                const matchDetails = await playerMatchDetails();
+                if (matchDetails) {
+                    const match = matchDetails;
+                    setMatchData([match]);
+                    /* if (!matchData) {
+                        setMatchData([matchDetails]);
                     } else if (match?.match_status !== matchData?.[0]?.match_status || match?.canAnswer !== matchData?.[0]?.canAnswer || match?.current_question !== matchData?.[0]?.current_question) {
-                        setMatchData(response.data.data);
-                    }
+                        setMatchData([matchDetails]);
+                    } */
                 } else {
                     setMatchData(null);
                 }
-                setLoading(false);
+                // setLoading(false);
             } catch (err) {
                 setError(err);
-                setLoading(false);
+                // setLoading(false);
             }
         };
 
@@ -66,16 +49,16 @@ const PlayerView = () => {
         return () => clearInterval(interval);
     }, [matchData]);
 
-    if (loading && !matchData?.length === 0) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
+    // if (loading && !matchData?.length === 0) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
     if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
 
-    if (!matchData || matchData.length === 0) {
+    if (matchData?.length === 0 ||  matchData === null) {
         return <Layout><LoadingStatusContainer><StatusMsg>No Matches Yet</StatusMsg></LoadingStatusContainer></Layout>;
     }
 
-    const match = matchData[0];
+    const match = matchData?.[0];
 
-    if (match.match_status === 0) {
+    if (match?.match_status === 0) {
         return (
           <Layout>
             <div>
@@ -83,24 +66,28 @@ const PlayerView = () => {
             </div>
           </Layout>
         );
-    } else if (match.match_status === 1) {
+    } else if (match?.match_status === 1) {
         return (
           <Layout>
             <MatchQuestionContainer>
-                <MatchDetails match={match} />
                 <div>
-                  <MatchQuestion match={match} answerQuestion={answerQuestion} questionFile={match?.question_file} currentQuestion={match?.current_question} />
+                  <MatchQuestion
+                    match={match}
+                    answerQuestion={answerQuestion}
+                    questionFile={match?.question_file}
+                    currentQuestion={match?.current_question} 
+                    matchDetails={<MatchDetails match={match} />}    
+                />
                 </div>
             </MatchQuestionContainer>
           </Layout>
         );
-    } else if (match.match_status === 2) {
+    } else if (match?.match_status === 2) {
         return (
           <Layout>
-            <MatchScoreContaint>
+            <div>
                 <MatchDetails match={match} />
-                <MatchScores />
-            </MatchScoreContaint>
+            </div>
           </Layout>
         );
     }

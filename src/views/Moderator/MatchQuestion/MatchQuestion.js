@@ -9,15 +9,22 @@ import {
     ActionBtn,
     ActionBtnLabel,
     AnswerJustification,
+    OptionsContainer,
+    TeamQuestionContainer,
+    TeamsDetailsContainer,
 } from './MatchQuestion.style';
-import CountdownStopwatch from '../../../components/CountDown/CountDown';
+import CountdownStopwatch from '../../../app/components/CountDown/CountDown';
 
 
-const MatchQuestion = ({ questionFile, currentQuestion, setNumberOfQuestions }) => {
+const MatchQuestion = ({ matchDetails, questionFile, currentQuestion, setNumberOfQuestions }) => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showRightAns, toggleRightAns] = useState(false);
+
+    useEffect(() => {
+        toggleRightAns(false);
+    }, [currentQuestion])
 
     useEffect(() => {
         const fetchQuestions = async () => {
@@ -42,23 +49,32 @@ const MatchQuestion = ({ questionFile, currentQuestion, setNumberOfQuestions }) 
 
     return (
         <Container>
-            <div style={{ marginBottom: '20px' }}>
-                <CountdownStopwatch />
-            </div>
-            <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
-            <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
-            <ul>
+            <TeamQuestionContainer>
+                <TeamsDetailsContainer>
+                    {matchDetails}
+                </TeamsDetailsContainer>
+                <div style={{ width: '100%' }}>
+                    <div style={{ marginBottom: '20px' }}>
+                        <CountdownStopwatch />
+                    </div>
+                    <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
+                    <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
+                </div>
+            </TeamQuestionContainer>
+            
+            
+            <OptionsContainer>
                 {question.answers.map((answer, index) => (
                     <div>
                         <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{answer.answer}</Option></OptionContainer>
-                        {showRightAns && (
-                            <AnswerJustification>
-                                {answer?.reason}
-                            </AnswerJustification>
-                        )}
                     </div>
                 ))}
-            </ul>
+            </OptionsContainer>
+            {showRightAns && (
+                <AnswerJustification>
+                    {question.answers.find(answer => answer?.correct)?.reason}
+                </AnswerJustification>
+            )}
             {!showRightAns && (
                 <ActionBtn onClick={() => toggleRightAns(!showRightAns)}><ActionBtnLabel>Show Right Answer</ActionBtnLabel></ActionBtn>
             )}

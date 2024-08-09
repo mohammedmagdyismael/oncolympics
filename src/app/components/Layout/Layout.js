@@ -1,7 +1,8 @@
 // Layout.js
 import React, { useEffect, useState } from 'react';
+import { getTabs } from '../../routes';
+import { userInfoAPI } from '../../api/User';
 import Cookies from 'js-cookie';
-import axios from 'axios';
 import { AuthPathes } from './helper';
 import { LogoutContainer,LayoutContainer, Tab, TabContainer, UserInfoContainr, UserLogo, UserName, UserInfoInnerContainr } from './Layout.style';
 
@@ -14,23 +15,14 @@ const Layout = ({ children }) => {
   }
 
   useEffect(() => {
-    // Fetch groups data from API
     const fetchUserInfo = async () => {
       try {
-        if (Cookies.get('token')) {
-          const response = await axios.get('https://oncolympics-api.onrender.com/api/users/userInfo', {
-            headers: {
-                'token': Cookies.get('token'),
-            }
-          });
-          console.log(response?.data?.data);
-          setUserInfo(response?.data?.data);
-        }
+        const response = await userInfoAPI();
+        setUserInfo(response?.data);
       } catch (error) {
         console.log(error);
       }
     };
-
     fetchUserInfo();
   }, []);
 
@@ -49,28 +41,16 @@ const Layout = ({ children }) => {
     window.location.href = '/login';
   };
 
+  const tabs = getTabs(role);
+
   return (
     <LayoutContainer>
       <TabContainer>
-        <Tab exact to="/groups" activeClassName="active">
-          Groups
-        </Tab>
-        <Tab exact to="/knockouts" activeClassName="active">
-          Knockouts
-        </Tab>
-        <Tab exact to="/matches" activeClassName="active">
-          Matches
-        </Tab>
-        {role === 'Admin' && (
-          <Tab exact to="/matchmoderator" activeClassName="active">
-            Match Moderator
+        {tabs?.map(tab => (
+          <Tab exact to={tab.route} activeClassName="active">
+            {tab.label}
           </Tab>
-        )}
-        {role === 'Team' && (
-          <Tab exact to="/currentmatch" activeClassName="active">
-            Current Match
-          </Tab>
-        )}
+        ))}
         {!!role && (
           <LogoutContainer onClick={handleLogout}>
             Logout
@@ -82,7 +62,6 @@ const Layout = ({ children }) => {
           </LogoutContainer>
         )}
 
-        
         <UserInfoContainr>
           {userInfo && (
             <UserInfoInnerContainr>
