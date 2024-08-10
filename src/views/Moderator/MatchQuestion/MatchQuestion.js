@@ -58,13 +58,13 @@ const MatchQuestion = ({ matchDetails, questionFile, currentQuestion, setNumberO
                         <CountdownStopwatch />
                     </div>
                     <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
-                    <QuestionContainer><Question>{question.question}</Question></QuestionContainer>
+                    <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
                 </div>
             </TeamQuestionContainer>
             
             
             <OptionsContainer>
-                {question.answers.map((answer, index) => (
+                {question?.answers.map((answer, index) => (
                     <div>
                         <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{answer.answer}</Option></OptionContainer>
                     </div>
@@ -72,7 +72,7 @@ const MatchQuestion = ({ matchDetails, questionFile, currentQuestion, setNumberO
             </OptionsContainer>
             {showRightAns && (
                 <AnswerJustification>
-                    {question.answers.find(answer => answer?.correct)?.reason}
+                    {question?.answers.find(answer => answer?.correct)?.reason}
                 </AnswerJustification>
             )}
             {!showRightAns && (

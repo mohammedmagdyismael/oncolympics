@@ -95,9 +95,12 @@ export const ActionBtn = styled.button`
   background-color: #282c34;
   display: flex;
   cursor: pointer;
-  margin: auto;
   :hover > p {
     color: #61dafb;
+  }
+  @media only screen and (max-width: 855px) {
+    margin: auto;
+
   }
 `;
 
