@@ -12,11 +12,12 @@ import {
     OptionsContainer,
     TeamQuestionContainer,
     TeamsDetailsContainer,
+    Stopwatch,
 } from './MatchQuestion.style';
 import CountdownStopwatch from '../../../app/components/CountDown/CountDown';
 
 
-const MatchQuestion = ({ matchDetails, questionFile, currentQuestion, setNumberOfQuestions }) => {
+const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDetails, questionFile, currentQuestion, setNumberOfQuestions }) => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -54,8 +55,13 @@ const MatchQuestion = ({ matchDetails, questionFile, currentQuestion, setNumberO
                     {matchDetails}
                 </TeamsDetailsContainer>
                 <div style={{ width: '100%' }}>
-                    <div style={{ marginBottom: '20px' }}>
-                        <CountdownStopwatch />
+                    <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+                        <div style={{     width: '110px' }}>
+                            <CountdownStopwatch />
+                        </div>
+                        {teamCanAnswer && (
+                            <Stopwatch onClick={stopAnswer} src='/assets/image/stopwatch.png' alt='stopwatch' />
+                        )}
                     </div>
                     <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
                     <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
@@ -75,9 +81,11 @@ const MatchQuestion = ({ matchDetails, questionFile, currentQuestion, setNumberO
                     {question?.answers.find(answer => answer?.correct)?.reason}
                 </AnswerJustification>
             )}
-            {!showRightAns && (
-                <ActionBtn onClick={() => toggleRightAns(!showRightAns)}><ActionBtnLabel>Show Right Answer</ActionBtnLabel></ActionBtn>
-            )}
+            
+            <ActionBtn onClick={() => {
+                    toggleRightAns(true);
+                    toggleDetailsPopUp(true)
+            }}><ActionBtnLabel>Show Right Answer</ActionBtnLabel></ActionBtn>
 
         </Container>
     );

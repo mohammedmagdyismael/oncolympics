@@ -16,8 +16,8 @@ const PlayerView = () => {
     const [error, setError] = useState(null);
 
 
-    const answerQuestion = async answer => {
-        await answerAPI(answer)
+    const answerQuestion = async (answer, index) => {
+        await answerAPI(answer, index)
     }
 
     useEffect(() => {

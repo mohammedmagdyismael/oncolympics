@@ -110,3 +110,17 @@ export const penaltyPlayerAPI = async teamId => {
         return '';
     }
 };
+
+export const questionDetailsAPI = async (matchId, questionId) => {
+    try {
+        const response = await axios.get(`${urls.questionanswers}?matchId=${matchId}&questionId=${questionId}`, {
+            headers: {
+                'token': Cookies.get('token'),
+            }
+        });
+        return response?.data?.data;
+    } catch (e) {
+        console.log(e);
+        return '';
+    }
+}

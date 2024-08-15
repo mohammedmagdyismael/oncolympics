@@ -9,6 +9,7 @@ export const urls = {
     playermatch: `${baseURL}/match/playermatch`,
     answer: `${baseURL}/match/answer`,
     matchscores: `${baseURL}/match/matchscores`,
+    questionanswers: `${baseURL}/match/questionanswers`,
 
     moderatormatch: `${baseURL}/match/moderatormatch`,
     startmatch: `${baseURL}/match/startmatch`,

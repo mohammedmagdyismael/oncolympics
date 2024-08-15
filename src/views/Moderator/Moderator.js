@@ -10,6 +10,8 @@ import {
     penaltyPlayerAPI,
     rewardPlayerAPI,
 } from '../../app/api/Moderator';
+import QuestionScoresPopUP from './QuestionScoresPopUP';
+
 import Layout from '../../app/components/Layout/Layout';
 import { 
   ActionBtn,
@@ -23,11 +25,12 @@ import MatchDetails from '../../app/common/MatchDetails';
 import MatchQuestion from './MatchQuestion';
 
 const MatchModeratorView = () => {
+    const [isDetailsPopUpOpened, toggleDetailsPopUp] = useState(false);
+
     const [matchData, setMatchData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [numberOfQuestions, setNumberOfQuestions] = useState(0);
-    const [isStopping, setStopAnswer] = useState(undefined);
     const [isRestting, setRestting] = useState(undefined);
     const [isProceeding, setProceeding] = useState(undefined);
 
@@ -38,7 +41,6 @@ const MatchModeratorView = () => {
             const response = await moderatorMatchDetailsAPI();
             setMatchData(response);
             setLoading(false);
-            setStopAnswer(undefined);
             setRestting(undefined);
             setProceeding(undefined);
         } catch (err) {
@@ -72,7 +74,6 @@ const MatchModeratorView = () => {
     };
 
     const stopAnswer = async () => {
-        setStopAnswer(true);
         try {
             await stopAnswerAPI().then(() => {
                 fetchMatchData();
@@ -147,6 +148,9 @@ const MatchModeratorView = () => {
             <MatchQuestionContainer>
                 <div>
                     <MatchQuestion
+                        toggleDetailsPopUp={toggleDetailsPopUp}
+                        teamCanAnswer={teamCanAnswer}
+                        stopAnswer={stopAnswer}
                         setNumberOfQuestions={setNumberOfQuestions}
                         questionFile={match?.question_file}
                         currentQuestion={match?.current_question}
@@ -154,20 +158,6 @@ const MatchModeratorView = () => {
                     />
                   
                   <BtnsPanel id='panel'>
-                    {teamCanAnswer && (
-                        <ActionBtn onClick={stopAnswer}>
-                            {isStopping === undefined && (
-                                <ActionBtnLabel>Stop Answer</ActionBtnLabel>
-                            )}
-                            {isStopping === true && (
-                                <ActionBtnLabel>Loading ...</ActionBtnLabel>
-                            )}
-                            {isStopping === false && (
-                                <ActionBtnLabel>Stopped</ActionBtnLabel>
-                            )}
-                        </ActionBtn>
-                    )}
-
                     {numberOfQuestions === match?.current_question + 1 ? (
                         <div>
                             {!teamCanAnswer && (
@@ -186,6 +176,9 @@ const MatchModeratorView = () => {
                  
                 </div>
             </MatchQuestionContainer>
+            {isDetailsPopUpOpened && (
+                <QuestionScoresPopUP match={match} isOpen={isDetailsPopUpOpened} onClose={() => toggleDetailsPopUp(false)} />
+            )}
           </Layout>
         );
     } else if (match?.match_status === 2) {

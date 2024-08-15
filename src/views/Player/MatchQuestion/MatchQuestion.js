@@ -46,7 +46,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
 
     const onSelectOption = (answer, index) => {
         if (canAnswer) {
-            answerQuestion(answer);
+            answerQuestion(answer, index);
             setSelectedOption(index)
         }
     }

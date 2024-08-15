@@ -104,4 +104,11 @@ export const TeamsDetailsContainer = styled.div`
   @media only screen and (max-width: 855px) {
     margin: 0px auto 35px auto;
   }
-`
+`;
+
+export const Stopwatch = styled.img`
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 0px 30px;
+`;
