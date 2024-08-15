@@ -40,7 +40,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
             setTeam2Answer(null);
             setLoaded(false);
         }
-    }, [isOpen, match]);
+    }, [current_question, id, isOpen, match, question_file]);
 
 
     return (
