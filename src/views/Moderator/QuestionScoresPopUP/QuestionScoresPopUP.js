@@ -18,6 +18,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
     const [team1Answer, setTeam1Answer] = useState(null);
     const [team2Answer, setTeam2Answer] = useState(null);
     const [isLoaded, setLoaded] = useState(false);
+    const [rightAnswer, setRightAnswer] = useState(null);
 
     useEffect(() => {
         if (isOpen) {
@@ -27,6 +28,8 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                     const questionnaire = await questionnareresponse.json();
                     const currentQuestionObject = questionnaire?.questions?.[current_question];
                     const questionDetailsresponse = await questionDetailsAPI(id, current_question);
+                    const rightAnswerObj = currentQuestionObject?.answers?.find(a => a.correct);
+                    setRightAnswer(rightAnswerObj)
                     setTeam1Answer(currentQuestionObject?.answers?.[questionDetailsresponse?.team1answerid])
                     setTeam2Answer(currentQuestionObject?.answers?.[questionDetailsresponse?.team2answerid])
                     setLoaded(true);
@@ -39,6 +42,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
             setTeam1Answer(null);
             setTeam2Answer(null);
             setLoaded(false);
+            setRightAnswer(null);
         }
     }, [current_question, id, isOpen, match, question_file]);
 
@@ -56,7 +60,6 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                             {isLoaded ? (
                                 <div>
                                     <AnswerLabel isRight={team1Answer?.correct} isWrong={team1Answer?.correct === false}>{team1Answer?.answer || '---'}</AnswerLabel>
-                                    <AnswerReson isRight={team1Answer?.correct} isWrong={team1Answer?.correct === false}>{team1Answer?.reason}</AnswerReson>
                                 </div>
                             ) : ''}
                         </div>
@@ -68,12 +71,19 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                             {isLoaded ? (
                                 <div>
                                     <AnswerLabel isRight={team2Answer?.correct} isWrong={team2Answer?.correct === false}>{team2Answer?.answer || '---'}</AnswerLabel>
-                                    <AnswerReson isRight={team2Answer?.correct} isWrong={team2Answer?.correct === false}>{team2Answer?.reason}</AnswerReson>
                                 </div>
                             ) : ''}
                         </div>
                     </div>
                 </TeamsContainer>
+
+                {rightAnswer && (
+                    <div style={{ padding: '30px 0' }}>
+                        <AnswerReson style={{ margin: '15px 0' }} isRight>Right Answer</AnswerReson>
+                        <AnswerReson style={{ margin: '0' }} isRight>{rightAnswer.answer}</AnswerReson>
+                        <AnswerReson style={{ margin: '0' }} isRight>{rightAnswer.reason}</AnswerReson>
+                    </div>
+                )}
                 
                 
             </div>
