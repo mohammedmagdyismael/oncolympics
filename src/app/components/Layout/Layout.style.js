@@ -6,12 +6,10 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-
   background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);
   width: 100%;
   height: 100vh;
   background-size: cover;
-
   background-position: center;
   background-attachment: fixed;
   overflow: hidden; 
@@ -20,45 +18,101 @@ export const LayoutContainer = styled.div`
 export const TabContainer = styled.div`
   display: flex;
   justify-content: space-around;
-
   @media only screen and (max-width: 855px) {
     display: none;
   }
 `;
 
 export const Tab = styled(NavLink)`
-  height: 87px;
-
-  color: #282c34;
-
+  border-radius: 8px;
+  text-align: center;
+  width: 150px;
   text-decoration: none;
-  font-size: 1.2rem;
-
-  display: flex;
   flex-direction: column;
+  margin: auto 0;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 3.625rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  height: 2.5rem;
   justify-content: center;
-
+  padding: 0px 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  font-family: "Source Sans Pro Paris2024", "Olympic Sans", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
   font-weight: bold;
-
+  color: #369DA0;
   &.active {
-    font-weight: bold;
-    border-bottom: 5px solid #282c34;
+    color: #ffff;
+    background: #369DA0;
   }
+`;
 
-  &:hover {
-    color: #61dafb;
-  }
+export const LoginContainer = styled.div`
+  margin: auto 0;
+  align-items: center;
+  border: none;
+  border-radius: 3.625rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  height: 2.5rem;
+  justify-content: center;
+  padding: 0px 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  font-family: "Source Sans Pro Paris2024", "Olympic Sans", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  font-weight: bold;
+  background: #890053;
+  color: #fff;
+  text-align: center;
+  width: 150px;
 `;
 
 export const LogoutContainer = styled.div`
     color: #282c34;
-    font-size: 1.2rem;
-    cursor: pointer;
-
-    display: flex;
     flex-direction: column;
+    margin: auto 0;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3.625rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    height: 2.5rem;
     justify-content: center;
+    padding: 0px 1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 1;
+    color: rgb(0, 0, 0);
+    font-family: "Source Sans Pro Paris2024", "Olympic Sans", Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
     font-weight: bold;
+    background: black;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    transition: top 0.7s;
 `;
 
 export const UserInfoContainr = styled.div`
@@ -66,12 +120,41 @@ export const UserInfoContainr = styled.div`
   flex-direction: column;
   justify-content: center;
   min-height: 48px;
+
+  color: #ffff;
+  font-family: "Source Sans Pro Paris2024", "Olympic Sans", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  font-weight: bold;
+  border-radius: 3.625rem;
+  box-sizing: border-box;
+  height: 2.5rem;
+  margin: auto 0;
+  min-width: 48px;
+  background: #890053;
+  cursor: pointer;
+  position: relative;
+
+  &:hover > #logout {
+    top: 3.3rem;
+  }
 `;
 
 export const UserInfoInnerContainr = styled.div`
   display: flex;
   flex-direction: row;  
   justify-content: center;
+
+  border-radius: 3.625rem;
+  box-sizing: border-box;
+  margin: auto 0;
+  background: #890053;
+  position: relative;
+  z-index: 5;
+
+  min-height: 45px;
+  min-width: 190px;
 `;
 
 export const UserLogo = styled.img`
@@ -81,7 +164,6 @@ export const UserLogo = styled.img`
   border-radius: 50%;
   padding: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
 `;
 
 export const UserName = styled.p`

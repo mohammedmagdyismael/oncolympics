@@ -31,7 +31,7 @@ const Groups = () => {
   return (
     <Layout>
       <GroupsContainer>
-        {Object.entries(groupsData).map(([groupName, teams], index) => (
+        {Object.entries(groupsData)?.map(([groupName, teams], index) => (
           <GroupTable key={index}>
             <GroupHeader>{groupName}</GroupHeader>
             <thead>

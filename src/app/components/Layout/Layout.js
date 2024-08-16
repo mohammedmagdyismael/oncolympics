@@ -5,7 +5,19 @@ import { userInfoAPI } from '../../api/User';
 import Cookies from 'js-cookie';
 import BurgerMenu from '../BurgerMenu';
 import { AuthPathes } from './helper';
-import { ChildrenContainer, OncoLogo, LogoutContainer,LayoutContainer, Tab, TabContainer, UserInfoContainr, UserLogo, UserName, UserInfoInnerContainr } from './Layout.style';
+import { 
+  LoginContainer, 
+  ChildrenContainer,
+  OncoLogo,
+  LogoutContainer,
+  LayoutContainer,
+  Tab,
+  TabContainer,
+  UserInfoContainr,
+  UserLogo,
+  UserName,
+  UserInfoInnerContainr, 
+} from './Layout.style';
 
 const Layout = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
@@ -56,25 +68,31 @@ const Layout = ({ children }) => {
             {tab.label}
           </Tab>
         ))}
-        {!!role && (
-          <LogoutContainer onClick={handleLogout}>
-            Logout
-          </LogoutContainer>
-        )}
         {!role && (
-          <LogoutContainer onClick={handleLogin}>
+          <LoginContainer onClick={handleLogin}>
             Login
-          </LogoutContainer>
+          </LoginContainer>
         )}
 
-        <UserInfoContainr>
-          {userInfo && (
-            <UserInfoInnerContainr>
-              <UserName>{`Hi! ${userInfo?.name}`}</UserName>
-              {!!userInfo.logo && (<UserLogo src={`/assets/teamslogos/${userInfo?.logo}`} alt='user_logo' />)}
-            </UserInfoInnerContainr>
+        {!!role && (
+          <UserInfoContainr>
+            {userInfo ? (
+              <UserInfoInnerContainr>
+                <UserName>{`Hi! ${userInfo?.name}`}</UserName>
+                {!!userInfo.logo && (<UserLogo src={`/assets/teamslogos/${userInfo?.logo}`} alt='user_logo' />)}
+              </UserInfoInnerContainr>
+            ): (
+              <UserInfoInnerContainr>
+                <UserName>{`. . .`}</UserName>
+              </UserInfoInnerContainr>
+            )}
+            {userInfo && (
+            <LogoutContainer id='logout' onClick={handleLogout}>
+              Logout
+            </LogoutContainer>
           )}
-        </UserInfoContainr>
+          </UserInfoContainr>
+        )}
       
       </TabContainer>
       
