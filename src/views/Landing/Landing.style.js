@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
-    background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.jpg);
+    background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -78,4 +78,25 @@ export const Tab = styled(NavLink)`
     padding: 3px 30px;
     font-size: 38px;
   }
+`;
+
+export const OncoLogo = styled.img`
+      width: 527px;
+      padding: 0 40px;
+
+      @media only screen and (max-width: 855px) {
+        width: 200px;
+      padding: 0 15px;
+      }
+`;
+
+export const AstraLogo = styled.img`
+      width: 630px;
+      height: 632px;
+      padding: 0 40px;
+
+      @media only screen and (max-width: 855px) {
+        width: 200px;
+      padding: 0 15px;
+      }
 `;

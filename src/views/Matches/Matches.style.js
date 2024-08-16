@@ -9,7 +9,6 @@ export const StandingsContainer = styled.div`
 
   align-items: center;
   padding: 2rem;
-  background-color: #f0f2f5;
 
   @media only screen and (max-width: 855px) {
     display: flex;

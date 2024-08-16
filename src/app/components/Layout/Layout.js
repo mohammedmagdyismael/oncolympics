@@ -5,7 +5,7 @@ import { userInfoAPI } from '../../api/User';
 import Cookies from 'js-cookie';
 import BurgerMenu from '../BurgerMenu';
 import { AuthPathes } from './helper';
-import { LogoutContainer,LayoutContainer, Tab, TabContainer, UserInfoContainr, UserLogo, UserName, UserInfoInnerContainr } from './Layout.style';
+import { ChildrenContainer, OncoLogo, LogoutContainer,LayoutContainer, Tab, TabContainer, UserInfoContainr, UserLogo, UserName, UserInfoInnerContainr } from './Layout.style';
 
 const Layout = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
@@ -48,6 +48,9 @@ const Layout = ({ children }) => {
     <LayoutContainer>
       <BurgerMenu items={tabs} title={`Hi! ${userInfo?.name || ''}`} isLogged={!!role} handleLogin={handleLogin} handleLogout={handleLogout} />
       <TabContainer>
+        <OncoLogo onClick={() => {
+          window.location.href = '/';
+        }} src={`/assets/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
         {tabs?.map(tab => (
           <Tab exact to={tab.route} activeClassName="active">
             {tab.label}
@@ -76,9 +79,9 @@ const Layout = ({ children }) => {
       </TabContainer>
       
 
-      <div style={{ background: '#f0f2f5', paddingTop: '20px' }}>
+      <ChildrenContainer>
         {children}
-      </div>
+      </ChildrenContainer>
     </LayoutContainer>
   );
 };

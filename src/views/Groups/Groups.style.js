@@ -21,7 +21,7 @@ export const GroupTable = styled.table`
   margin-bottom: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 18px auto;
-
+  background: #fff;
   @media only screen and (max-width: 855px) {
     margin: 5px auto;
   }
@@ -36,9 +36,7 @@ export const GroupHeader = styled.caption`
 `;
 
 export const TableRow = styled.tr`
-  &:nth-child(even) {
-    background-color: #f2f2f2;
-  }
+   
 `;
 
 export const TableHeader = styled.th`

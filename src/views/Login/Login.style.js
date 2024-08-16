@@ -5,8 +5,7 @@ export const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f2f5;
+  height: calc(100vh - 115px);
 `;
 
 export const LoginForm = styled.form`

@@ -57,7 +57,6 @@ export const Container = styled.div`
     display: none;
     @media only screen and (max-width: 855px) {
         display: block;
-        background-color: #fff;
         height: 73px;
         width: 100%;
         position: sticky;
@@ -106,4 +105,11 @@ export const Title = styled.p`
     width: 100%;
     text-align: center;
     color: #1A4870;
+`;
+
+export const OncoLogo = styled.img`
+    width: 116px;
+    margin: auto;
+    display: flex;
+    cursor: pointer;
 `;
