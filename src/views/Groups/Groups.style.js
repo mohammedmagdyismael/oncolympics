@@ -43,7 +43,7 @@ export const TableHeader = styled.th`
   border: 1px solid #ddd;
   padding: 0.5rem;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #EDAA20;
   color: white;
 `;
 
