@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
           {userInfo && (
             <UserInfoInnerContainr>
               <UserName>{`Hi! ${userInfo?.name}`}</UserName>
-              {!!userInfo.logo && (<UserLogo src={`/assets/image/${userInfo?.logo}`} alt='user_logo' />)}
+              {!!userInfo.logo && (<UserLogo src={`/assets/teamslogos/${userInfo?.logo}`} alt='user_logo' />)}
             </UserInfoInnerContainr>
           )}
         </UserInfoContainr>

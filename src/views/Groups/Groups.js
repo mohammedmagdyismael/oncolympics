@@ -50,7 +50,7 @@ const Groups = () => {
                     <div style={{ display: 'flex', gap: '15px' }}>
                       <div style={{ width: '30px' }}>
                         {team.logo && (
-                          <img style={{ width: '30px' }} src={`/assets/image/${team.logo}`} alt={team.logo} />
+                          <img style={{ width: '30px' }} src={`/assets/teamslogos/${team.logo}`} alt={team.logo} />
                         )}
                       </div>
                       <p style={{ margin: '0', lineHeight: '28px' }}>{team.teamName}</p>

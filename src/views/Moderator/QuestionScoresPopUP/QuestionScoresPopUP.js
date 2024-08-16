@@ -51,7 +51,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                 <TeamsContainer>
                     <div>
                         <div>
-                            <TeamLogo src={`/assets/image/${team1_logo}`} alt='team1_logo' />
+                            <TeamLogo src={`/assets/teamslogos/${team1_logo}`} alt='team1_logo' />
                             <TeamLabel>{team1_name}</TeamLabel>
                             {isLoaded ? (
                                 <div>
@@ -63,7 +63,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                     </div>
                     <div>
                         <div>
-                            <TeamLogo src={`/assets/image/${team2_logo}`} alt='team2_logo' />
+                            <TeamLogo src={`/assets/teamslogos/${team2_logo}`} alt='team2_logo' />
                             <TeamLabel>{team2_name}</TeamLabel>
                             {isLoaded ? (
                                 <div>
