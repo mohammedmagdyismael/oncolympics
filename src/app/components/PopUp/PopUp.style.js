@@ -22,6 +22,14 @@ export const Container = styled.div`
   max-height: 90vh;
   width: 100%;
   position: relative;
+
+  @media only screen and (max-width: 855px) {
+    max-width: unset;
+    width: 100%;
+    max-height: unset;
+    height: 100vh;
+    padding: 0px;
+  }
 `;
 
 export const CloseButton = styled.button`

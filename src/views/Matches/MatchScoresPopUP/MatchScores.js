@@ -14,6 +14,7 @@ import {
     TeamLabel,
     ScoreLabel,
     ScoresContainer,
+    InnerContainer,
 } from './MatchScores.style';
  
 
@@ -48,7 +49,7 @@ const MatchScores = ({ isOpen, onClose, match }) => {
         <PopUp isOpen={isOpen} onClose={onClose}>
              <div>
                 <LabelContainer><Label>Match Details</Label></LabelContainer>
-                <div style={{ display: 'flex' }}>
+                <InnerContainer>
                     <MatchDetails match={{
                         ...match,
                         match_status: match?.matchStatus,
@@ -70,7 +71,7 @@ const MatchScores = ({ isOpen, onClose, match }) => {
                             </QContainer>
                         ))}
                     </ScoresContainer>
-                </div>
+                </InnerContainer>
                 
             </div>
         </PopUp>

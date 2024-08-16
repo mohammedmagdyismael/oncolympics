@@ -64,4 +64,21 @@ export const ScoresContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
+
+    @media only screen and (max-width: 855px) {
+        display: flex;
+        flex-direction: column;
+    }
+`;
+
+export const InnerContainer = styled.div`
+    display: flex;
+    @media only screen and (max-width: 855px) {
+        max-width: unset;
+        width: 100%;
+        max-height: unset;
+        height: 95vh;
+        flex-direction: column;
+        gap: 30px;
+    }
 `;
