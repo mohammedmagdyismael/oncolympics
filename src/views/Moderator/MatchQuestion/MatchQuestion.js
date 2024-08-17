@@ -22,9 +22,11 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showRightAns, toggleRightAns] = useState(false);
+    const [stopCounter, setStopCounter] = useState(false);
 
     useEffect(() => {
         toggleRightAns(false);
+        setStopCounter(false);
     }, [currentQuestion])
 
     useEffect(() => {
@@ -57,10 +59,10 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
                 <div style={{ width: '100%' }}>
                     <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
                         <div style={{     width: '110px' }}>
-                            <CountdownStopwatch />
+                            <CountdownStopwatch isChanged={currentQuestion} stopCounter={stopCounter} />
                         </div>
                         {teamCanAnswer && (
-                            <Stopwatch onClick={stopAnswer} src='/assets/image/stopwatch.png' alt='stopwatch' />
+                            <Stopwatch onClick={() => {stopAnswer(); setStopCounter(true);}} src='/assets/image/stopwatch.png' alt='stopwatch' />
                         )}
                     </div>
                     <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>

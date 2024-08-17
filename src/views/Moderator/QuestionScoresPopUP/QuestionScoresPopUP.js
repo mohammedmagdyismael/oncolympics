@@ -9,6 +9,8 @@ import {
     TeamLabel,
     AnswerLabel,
     AnswerReson,
+    TeamContainer,
+    RightAnsContainer,
 } from './QuestionScoresPopUP.style';
  
 
@@ -53,7 +55,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                 <LabelContainer><Label>Teams answers</Label></LabelContainer>
                 
                 <TeamsContainer>
-                    <div>
+                    <TeamContainer>
                         <div>
                             <TeamLogo src={`/assets/teamslogos/${team1_logo}`} alt='team1_logo' />
                             <TeamLabel>{team1_name}</TeamLabel>
@@ -63,8 +65,8 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                                 </div>
                             ) : ''}
                         </div>
-                    </div>
-                    <div>
+                    </TeamContainer>
+                    <TeamContainer>
                         <div>
                             <TeamLogo src={`/assets/teamslogos/${team2_logo}`} alt='team2_logo' />
                             <TeamLabel>{team2_name}</TeamLabel>
@@ -74,15 +76,15 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                                 </div>
                             ) : ''}
                         </div>
-                    </div>
+                    </TeamContainer>
                 </TeamsContainer>
 
                 {rightAnswer && (
-                    <div style={{ padding: '30px 0' }}>
+                    <RightAnsContainer>
                         <AnswerReson style={{ margin: '15px 0' }} isRight>Right Answer</AnswerReson>
                         <AnswerReson style={{ margin: '0' }} isRight>{rightAnswer.answer}</AnswerReson>
                         <AnswerReson style={{ margin: '0' }} isRight>{rightAnswer.reason}</AnswerReson>
-                    </div>
+                    </RightAnsContainer>
                 )}
                 
                 
