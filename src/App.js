@@ -7,7 +7,7 @@ import Matches from './views/Matches';
 import Player from './views/Player';
 import Moderator from './views/Moderator';
 import knockouts from './views/knockouts';
-import Landing from './views/Landing';
+import Landing from './views/LandingV2';
 
 const App = () => {
   return (

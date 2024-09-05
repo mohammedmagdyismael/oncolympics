@@ -13,6 +13,9 @@ export const LayoutContainer = styled.div`
   background-position: center;
   background-attachment: fixed;
   overflow: hidden; 
+  background-size: 100vw 100vh;
+  background-position: center top;
+  background-repeat: no-repeat;
 `;
 
 export const TabContainer = styled.div`
@@ -181,7 +184,7 @@ export const OncoLogo = styled.img`
 `;
 
 export const ChildrenContainer = styled.div`
-  padding-top: 20px;
+  // padding-top: 20px;
   overflow: auto;
   ::-webkit-scrollbar {
     width: 8px;
