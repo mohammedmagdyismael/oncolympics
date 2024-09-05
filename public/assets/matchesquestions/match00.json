@@ -1,68 +1,240 @@
 {
     "questions": [
         {
-            "question": "What is the capital of France?",
+            "index": "question 1",
+            "question": "The most common genetic driver mutation in lung adenocarcinoma is:",
             "answers": [
                 {
-                    "answer": "Paris",
+                    "answer": "KRAS",
                     "correct": true,
-                    "reason": "blablablas"
+                    "reason": "Dearden S, Stevens J, Wu YL, Blowers D. Mutation incidence and coincidence in non small-cell lung cancer: meta-analyses by ethnicity and histology (mutMap). Ann Oncol. 2013;24(9):2371-2376. doi:10.1093/annonc/mdt205"
                 },
                 {
-                    "answer": "Cairo",
+                    "answer": "EGFR",
                     "correct": false
                 },
                 {
-                    "answer": "London",
+                    "answer": "ALK",
                     "correct": false
                 },
                 {
-                    "answer": "Tokyo",
+                    "answer": "BRAF",
                     "correct": false
                 }
             ]
         },
         {
-            "question": "Which planet is known as the Red Planet?",
+            "index": "question 2",
+            "question": "Neuroendocrine tumors of the lung are characterized by which of the following histological features?",
             "answers": [
                 {
-                    "answer": "Mars",
+                    "answer": "Large cells with prominent nucleoli",
+                    "correct": false
+                },
+                {
+                    "answer": "Small, round blue cells with scant cytoplasm",
+                    "correct": false
+                },
+                {
+                    "answer": "Solid nests of cells with peripheral palisading",
+                    "correct": false
+                },
+                {
+                    "answer": "Both b and c",
                     "correct": true,
-                    "reason": "blablablas"
+                    "reason": "Travis WD, Brambilla E, Burke AP, Marx A, Nicholson AG. WHO Classification of Tumours of the Lung, Pleura, Thymus and Heart. 4th ed. IARC; 2015."
+                }
+            ]
+        },
+        {
+            "index": "question 3",
+            "question": "The hallmark chromosomal rearrangement in ALK-positive NSCLC is:",
+            "answers": [
+                {
+                    "answer": "t(2;5)",
+                    "correct": true,
+                    "reason": "Soda M, Choi YL, Enomoto M, et al. Identification of the transforming EML4-ALK fusion gene in non-small-cell lung cancer. Nature. 2007;448(7153):561-566. doi:10.1038/nature05945"
                 },
                 {
-                    "answer": "Venus",
+                    "answer": "t(2;13)",
                     "correct": false
                 },
                 {
-                    "answer": "Jupiter",
+                    "answer": "inv(2)",
                     "correct": false
                 },
                 {
-                    "answer": "Saturn",
+                    "answer": "t(2;7)",
                     "correct": false
                 }
             ]
         },
         {
-            "question": "Who wrote 'To Kill a Mockingbird'?",
+            "index": "question 4",
+            "question": "Squamous cell carcinoma of the lung is most commonly associated with which of the following genetic alterations?",
             "answers": [
                 {
-                    "answer": "Harper Lee",
-                    "correct": true,
+                    "answer": "EGFR mutations",
+                    "correct": false,
                     "reason": "blablablas"
                 },
                 {
-                    "answer": "Mark Twain",
+                    "answer": "TP53 mutations",
+                    "correct": true,
+                    "reason": "Cancer Genome Atlas Research Network. Comprehensive genomic characterization of squamous cell lung cancers. Nature. 2012;489(7417):519-525. doi:10.1038/nature11404"
+                },
+                {
+                    "answer": "ALK rearrangements",
                     "correct": false
                 },
                 {
-                    "answer": "Ernest Hemingway",
+                    "answer": "KRAS mutations",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "index": "question 5",
+            "question": "Which of the following imaging modalities is considered the gold standard for initial staging of lung cancer?",
+            "answers": [
+                {
+                    "answer": "Chest radiography",
+                    "correct": false
+
+                },
+                {
+                    "answer": "Computed tomography (CT) scan",
+                    "correct": true,
+                    "reason": "National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines): Non-Small Cell Lung Cancer. Version 3.2023. Published March 14, 2023."
+                },
+                {
+                    "answer": "Positron emission tomography (PET) scan",
                     "correct": false
                 },
                 {
-                    "answer": "F. Scott Fitzgerald",
+                    "answer": "Magnetic resonance imaging (MRI)",
                     "correct": false
+                }
+            ]
+        },
+        {
+            "index": "question 6",
+            "question": "The presence of malignant pleural effusion indicates which stage of lung cancer?",
+            "answers": [
+                {
+                    "answer": "Stage I",
+                    "correct": false
+                },
+                {
+                    "answer": "Stage II",
+                    "correct": false
+                },
+                {
+                    "answer": "Stage III",
+                    "correct": false
+                },
+                {
+                    "answer": "Stage IV",
+                    "correct": true,
+                    "reason": "Detterbeck FC, Boffa DJ, Kim AW, Tanoue LT. The Eighth Edition Lung Cancer Stage Classification. Chest. 2017;151(1):193-203. doi:10.1016/j.chest.2016.10.010"  
+                    
+                }
+            ]
+        },
+        {
+            "index": "question 7",
+            "question": "Which of the following biomarkers is typically assessed in all patients with advanced NSCLC at diagnosis?",
+            "answers": [
+                {
+                    "answer": "EGFR",
+                    "correct": false
+
+                },
+                {
+                    "answer": "ALK",
+                    "correct": false
+                },
+                {
+                    "answer": "ROS1",
+                    "correct": false
+                },
+                {
+                    "answer": "All of the above",
+                    "correct": true,
+                    "reason": "National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines): Non-Small Cell Lung Cancer. Version 3.2023. Published March 14, 2023."
+                }
+            ]
+        },
+        {
+            "index": "question 8",
+            "question": "Liquid biopsy, or the analysis of circulating tumor DNA (ctDNA), is particularly useful for:",
+            "answers": [
+                {
+                    "answer": "Initial diagnosis of lung cancer",
+                    "correct": false
+
+                },
+                {
+                    "answer": "Monitoring response to treatment",
+                    "correct": false
+                },
+                {
+                    "answer": "Detecting resistance mutations",
+                    "correct": false
+                },
+                {
+                    "answer": "All of the above",
+                    "correct": true,
+                    "reason": "Rolfo C, Mack PC, Scagliotti GV, et al. Liquid Biopsy for Advanced Non-Small Cell Lung Cancer (NSCLC): A Statement Paper from the IASLC. J Thorac Oncol. 2021;16(9):1448-1477. doi:10.1016/j.jtho.2021.03.022"
+
+                }
+            ]
+        },
+        {
+            "index": "question 9",
+            "question": "According to the NCCN guidelines, which of the following EGFR-TKIs is the preferred first-line treatment for patients with EGFR-mutant advanced NSCLC?",
+            "answers": [
+                {
+                    "answer": "Gefitinib",
+                    "correct": false
+                },
+                {
+                    "answer": "Erlotinib",
+                    "correct": false
+                },
+                {
+                    "answer": "Afatinib",
+                    "correct": false
+                },
+                {
+                    "answer": "Osimertinib",
+                    "correct": true,
+                    "reason": "National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines): Non-Small Cell Lung Cancer. Version 3.2023. Published March 14, 2023."
+
+                }
+            ]
+        },
+        {
+            "index": "question 10",
+            "question": "The PACIFIC study demonstrated the benefit of which immune checkpoint inhibitor in patients with locally advanced, unresectable NSCLC after chemoradiation therapy?",
+            "answers": [
+                {
+                    "answer": "Nivolumab",
+                    "correct": false
+
+                },
+                {
+                    "answer": "Pembrolizumab",
+                    "correct": false
+                },
+                {
+                    "answer": "Atezolizumab",
+                    "correct": false
+                },
+                {
+                    "answer": "Durvalumab",
+                    "correct": true,
+                    "reason": "Antonia SJ, Villegas A, Daniel D, et al. Durvalumab after Chemoradiotherapy in Stage III Non-Small-Cell Lung Cancer. N Engl J Med. 2017;377(20):1919-1929. doi:10.1056/NEJMoa1709937"
                 }
             ]
         }
