@@ -7,6 +7,11 @@ export const GroupsContainer = styled.div`
   align-items: center;
   padding: 2rem;
 
+  > *:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
   @media only screen and (max-width: 855px) {
     display: flex;
     flex-direction: column;
@@ -18,6 +23,7 @@ export const GroupsContainer = styled.div`
 export const GroupTable = styled.table`
   border-collapse: collapse;
   width: 80%;
+  max-width: 740px;
   margin-bottom: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 18px auto;
@@ -36,7 +42,9 @@ export const GroupHeader = styled.caption`
 `;
 
 export const TableRow = styled.tr`
-   
+   > *:not(:first-child) {
+    text-align: center;
+  }
 `;
 
 export const TableHeader = styled.th`
