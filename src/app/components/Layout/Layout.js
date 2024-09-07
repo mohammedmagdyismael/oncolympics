@@ -19,7 +19,7 @@ import {
   UserInfoInnerContainr, 
 } from './Layout.style';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hidebackground }) => {
   const [userInfo, setUserInfo] = useState(null);
   const role = Cookies.get('role');
 
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
   const tabs = getTabs(role);
 
   return (
-    <LayoutContainer>
+    <LayoutContainer hidebackground={hidebackground}>
       <BurgerMenu items={tabs} title={`Hi! ${userInfo?.name || ''}`} isLogged={!!role} handleLogin={handleLogin} handleLogout={handleLogout} />
       <TabContainer>
         <OncoLogo onClick={() => {

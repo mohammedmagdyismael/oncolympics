@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AnswersLabel } from '../../../helper';
 import {
     QuestionContainer,
     Question,
@@ -55,13 +56,14 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
     return (
         <Container>
             <TeamQuestionContainer>
-                <TeamsDetailsContainer>
-                    {matchDetails}
-                </TeamsDetailsContainer>
+                
                 <div style={{ width: '100%' }}>
                     <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
                     <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
                 </div>
+                <TeamsDetailsContainer>
+                    {matchDetails}
+                </TeamsDetailsContainer>
             </TeamQuestionContainer>
             
             <OptionsContainer>
@@ -73,14 +75,14 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
                             isRight={answer.correct && !canAnswer}
                             isWrong={!answer.correct && !canAnswer && index === selectedOption}
                             key={index}>
-                                <Option>{answer.answer}</Option>
+                                <Option>{`${AnswersLabel[index]}${answer.answer}`}</Option>
                         </OptionContainer>
                     </div>
                 ))}
             </OptionsContainer>
             {(!canAnswer) && (
                 <AnswerJustification>
-                    {question?.answers.find(answer => answer?.correct)?.reason}
+                    {`${AnswersLabel[question?.answers.findIndex(answer => answer?.correct)]}${question?.answers.find(answer => answer?.correct)?.reason}`}
                 </AnswerJustification>
             )}
         </Container>

@@ -5,7 +5,10 @@ export const Container = styled.div`
     justify-content: center;
     padding: 40px;
     ${props => props.isMini && `
-        padding: 0 40px;
+        padding: 20px 40px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 25px rgb(0 0 0 / 25%);
     `};
 
     @media only screen and (max-width: 855px) {

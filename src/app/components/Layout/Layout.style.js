@@ -6,16 +6,20 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);
+  ${props => !props.hidebackground && `
+      background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 100vw 100vh;
+      background-position: center top;
+      background-repeat: no-repeat;
+
+  `}
   width: 100%;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  
   overflow: hidden; 
-  background-size: 100vw 100vh;
-  background-position: center top;
-  background-repeat: no-repeat;
 `;
 
 export const TabContainer = styled.div`
@@ -27,6 +31,7 @@ export const TabContainer = styled.div`
 `;
 
 export const Tab = styled(NavLink)`
+  box-shadow: 0 0 25px rgb(0 0 0 / 25%);
   border-radius: 8px;
   text-align: center;
   width: 150px;
@@ -186,6 +191,7 @@ export const OncoLogo = styled.img`
 export const ChildrenContainer = styled.div`
   // padding-top: 20px;
   overflow: auto;
+  margin-top: 20px;
   ::-webkit-scrollbar {
     width: 8px;
   }

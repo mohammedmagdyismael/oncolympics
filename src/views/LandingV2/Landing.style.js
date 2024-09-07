@@ -20,7 +20,9 @@ export const Video = styled.video`
   width: 100%;
 `;
 
-export const Source = styled.source``;
+export const Source = styled.source`
+  z-index: 10;
+`;
 
 // Styled components
 export const MenuContainer = styled.div`
