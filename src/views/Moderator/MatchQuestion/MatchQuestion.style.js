@@ -14,7 +14,7 @@ export const QuestionContainer = styled.div`
 
 export const Question = styled.p`
     font-size: 32px;
-    text-align: center;
+    text-align: unset;
     color: #333;
     font-weight: 700;
 
@@ -48,7 +48,7 @@ export const AnswerJustification = styled.p`
 
 export const QuestionsCounter = styled.div`
   font-size: 32px;
-  text-align: center;
+  text-align: unset;
   color: #333;
   font-weight: 700;
 

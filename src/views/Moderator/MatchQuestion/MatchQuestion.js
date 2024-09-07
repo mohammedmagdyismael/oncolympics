@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { AnswersLabel } from '../../../helper';
+
 import {
     QuestionContainer,
     Question,
@@ -53,34 +55,38 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
     return (
         <Container>
             <TeamQuestionContainer>
+                <div style={{ width: '100%' }}>
+                    <div style={{ display: 'flex' }}>
+
+                        <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
+                        <div style={{ margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+                            <div style={{     width: '110px' }}>
+                                <CountdownStopwatch isChanged={currentQuestion} stopCounter={stopCounter} />
+                            </div>
+                            {teamCanAnswer && (
+                                <Stopwatch onClick={() => {stopAnswer(); setStopCounter(true);}} src='/assets/image/stopwatch.png' alt='stopwatch' />
+                            )}
+                        </div>
+                    </div>
+                    
+                    <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
+                </div>
                 <TeamsDetailsContainer>
                     {matchDetails}
                 </TeamsDetailsContainer>
-                <div style={{ width: '100%' }}>
-                    <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-                        <div style={{     width: '110px' }}>
-                            <CountdownStopwatch isChanged={currentQuestion} stopCounter={stopCounter} />
-                        </div>
-                        {teamCanAnswer && (
-                            <Stopwatch onClick={() => {stopAnswer(); setStopCounter(true);}} src='/assets/image/stopwatch.png' alt='stopwatch' />
-                        )}
-                    </div>
-                    <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
-                    <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
-                </div>
             </TeamQuestionContainer>
             
             
             <OptionsContainer>
                 {question?.answers.map((answer, index) => (
                     <div>
-                        <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{answer.answer}</Option></OptionContainer>
+                        <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{`${AnswersLabel[index]}${answer.answer}`}</Option></OptionContainer>
                     </div>
                 ))}
             </OptionsContainer>
             {showRightAns && (
                 <AnswerJustification>
-                    {question?.answers.find(answer => answer?.correct)?.reason}
+                    {`${AnswersLabel[question?.answers?.findIndex(answer => answer?.correct)]} ${question?.answers.find(answer => answer?.correct)?.reason}`}
                 </AnswerJustification>
             )}
             

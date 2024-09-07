@@ -10,13 +10,13 @@ export const QuestionContainer = styled.div`
 
 export const Question = styled.p`
     font-size: 32px;
-    text-align: center;
+    // text-align: center;
     color: #333;
     font-weight: 700;
 `;
 
 export const OptionContainer = styled.div`
-
+    background-color: #fff;
   
     ${props => props.isSelected && `
       background-color: lightgray;
@@ -51,7 +51,7 @@ export const AnswerJustification = styled.p`
 
 export const QuestionsCounter = styled.div`
   font-size: 32px;
-  text-align: center;
+  // text-align: center;
   color: #333;
   font-weight: 700;
 `;

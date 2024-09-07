@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AnswersLabel } from '../../../helper';
 import { questionDetailsAPI } from '../../../app/api/Moderator';
 import PopUp from '../../../app/components/PopUp';
 import {
@@ -11,6 +12,9 @@ import {
     AnswerReson,
     TeamContainer,
     RightAnsContainer,
+    AnswerSectionLabel,
+    Answer,
+
 } from './QuestionScoresPopUP.style';
  
 
@@ -30,10 +34,25 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                     const questionnaire = await questionnareresponse.json();
                     const currentQuestionObject = questionnaire?.questions?.[current_question];
                     const questionDetailsresponse = await questionDetailsAPI(id, current_question);
-                    const rightAnswerObj = currentQuestionObject?.answers?.find(a => a.correct);
+
+
+                    let team1AnswerObj = currentQuestionObject?.answers?.[questionDetailsresponse?.team1answerid];
+                    let team1AnswerIndex = AnswersLabel?.[questionDetailsresponse?.team1answerid] || '';
+                    team1AnswerObj = { ...team1AnswerObj, answer: `${team1AnswerIndex}${team1AnswerObj?.answer || ''}` };
+
+                    let team2AnswerObj = currentQuestionObject?.answers?.[questionDetailsresponse?.team2answerid];
+                    let team2AnswerIndex = AnswersLabel?.[questionDetailsresponse?.team2answerid] || '';
+                    team2AnswerObj = { ...team2AnswerObj, answer: `${team2AnswerIndex}${team2AnswerObj?.answer  || ''}`  };
+
+                    let rightAnswerObj = currentQuestionObject?.answers?.find(a => a.correct);
+                    let rightAnswerIndex = AnswersLabel[currentQuestionObject?.answers?.findIndex(a => a.correct)];
+                    rightAnswerObj = { ...rightAnswerObj, answer: `${rightAnswerIndex}${rightAnswerObj.answer}` }
+
+
+
                     setRightAnswer(rightAnswerObj)
-                    setTeam1Answer(currentQuestionObject?.answers?.[questionDetailsresponse?.team1answerid])
-                    setTeam2Answer(currentQuestionObject?.answers?.[questionDetailsresponse?.team2answerid])
+                    setTeam1Answer(team1AnswerObj)
+                    setTeam2Answer(team2AnswerObj)
                     setLoaded(true);
                 } catch (err) {
                     console.log(err);
@@ -61,7 +80,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                             <TeamLabel>{team1_name}</TeamLabel>
                             {isLoaded ? (
                                 <div>
-                                    <AnswerLabel isRight={team1Answer?.correct} isWrong={team1Answer?.correct === false}>{team1Answer?.answer || '---'}</AnswerLabel>
+                                    <AnswerLabel isRight={team1Answer?.correct} isWrong={!team1Answer?.correct}>{team1Answer?.answer || 'N/A'}</AnswerLabel>
                                 </div>
                             ) : ''}
                         </div>
@@ -72,7 +91,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                             <TeamLabel>{team2_name}</TeamLabel>
                             {isLoaded ? (
                                 <div>
-                                    <AnswerLabel isRight={team2Answer?.correct} isWrong={team2Answer?.correct === false}>{team2Answer?.answer || '---'}</AnswerLabel>
+                                    <AnswerLabel isRight={team2Answer?.correct} isWrong={!team2Answer?.correct}>{team2Answer?.answer || 'N/A'}</AnswerLabel>
                                 </div>
                             ) : ''}
                         </div>
@@ -81,9 +100,12 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
 
                 {rightAnswer && (
                     <RightAnsContainer>
-                        <AnswerReson style={{ margin: '15px 0' }} isRight>Right Answer</AnswerReson>
-                        <AnswerReson style={{ margin: '0' }} isRight>{rightAnswer.answer}</AnswerReson>
-                        <AnswerReson style={{ margin: '0' }} isRight>{rightAnswer.reason}</AnswerReson>
+                        <div style={{ display: 'flex', gap: '0px'}}>
+                            <AnswerSectionLabel isRight>Right Answer:</AnswerSectionLabel>
+                            <Answer style={{ margin: '15px 0' }} isRight>{rightAnswer.answer}</Answer>
+                        </div>
+                        
+                        <AnswerReson isRight>{rightAnswer.reason}</AnswerReson>
                     </RightAnsContainer>
                 )}
                 

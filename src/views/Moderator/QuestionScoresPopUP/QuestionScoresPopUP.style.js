@@ -45,10 +45,27 @@ export const AnswerLabel = styled.p`
     color: ${props => props.isWrong && 'red'};
 `;
 
-export const AnswerReson = styled(AnswerLabel)`
+export const AnswerSectionLabel = styled(AnswerLabel)`
     font-weight: bold;
     font-size: 22px;
-    text-align: center;
+    text-align: unset;
+    color: unset;
+    margin: 15px 20px;
+`;
+
+export const Answer = styled(AnswerSectionLabel)`
+    font-weight: bold;
+    font-size: 22px;
+    text-align: unset;
+    
+    color: ${props => props.isRight && '#4CAF50'};
+    color: ${props => props.isWrong && 'red'};
+`;
+
+export const AnswerReson = styled(AnswerSectionLabel)`
+    font-weight: bold;
+    font-size: 22px;
+    text-align: unset;
     
     color: ${props => props.isRight && '#4CAF50'};
     color: ${props => props.isWrong && 'red'};
