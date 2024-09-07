@@ -30,21 +30,12 @@ const Landing = () => {
           poster="/assets/image/landing.png" 
           autoPlay 
           loop 
-          muted={isMuted} 
+          muted
           style={{ width: '100%', height: 'auto' }}
         >
           <source src="/assets/videos/landingvideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {isMuted && (
-          <button 
-            id="play_btn" 
-            ref={buttonRef} // Attach the ref to the button
-            onClick={handleUnmute}
-          >
-            Play with Sound
-          </button>
-        )}
       </div>
     </Layout>
   );
