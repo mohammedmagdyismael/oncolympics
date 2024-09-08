@@ -1,5 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
+export const extendChildContainer = css`
+  position: absolute;
+  margin-top: unset;
+  width: 100%;
+`;
 
 export const Container = styled.div`
     background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);

@@ -16,10 +16,11 @@ import {
   UserInfoContainr,
   UserLogo,
   UserName,
-  UserInfoInnerContainr, 
+  UserInfoInnerContainr,
+  ButtonsContainer,
 } from './Layout.style';
 
-const Layout = ({ children, hidebackground }) => {
+const Layout = ({ children, hidebackground, extendChildContainer }) => {
   const [userInfo, setUserInfo] = useState(null);
   const role = Cookies.get('role');
 
@@ -63,41 +64,45 @@ const Layout = ({ children, hidebackground }) => {
         <OncoLogo onClick={() => {
           window.location.href = '/';
         }} src={`/assets/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
-        {tabs?.map(tab => (
-          <Tab exact to={tab.route} activeClassName="active">
-            {tab.label}
-          </Tab>
-        ))}
-        {!role && (
-          <LoginContainer onClick={handleLogin}>
-            Login
-          </LoginContainer>
-        )}
-
-        {!!role && (
-          <UserInfoContainr>
-            {userInfo ? (
-              <UserInfoInnerContainr>
-                <UserName>{`Hi! ${userInfo?.name}`}</UserName>
-                {!!userInfo.logo && (<UserLogo src={`/assets/teamslogos/${userInfo?.logo}`} alt='user_logo' />)}
-              </UserInfoInnerContainr>
-            ): (
-              <UserInfoInnerContainr>
-                <UserName>{`. . .`}</UserName>
-              </UserInfoInnerContainr>
-            )}
-            {userInfo && (
-            <LogoutContainer id='logout' onClick={handleLogout}>
-              Logout
-            </LogoutContainer>
+        
+        <ButtonsContainer>
+          {tabs?.map(tab => (
+            <Tab exact to={tab.route} activeClassName="active">
+              {tab.label}
+            </Tab>
+          ))}
+          {!role && (
+            <LoginContainer onClick={handleLogin}>
+              Login
+            </LoginContainer>
           )}
-          </UserInfoContainr>
-        )}
+
+          {!!role && (
+            <UserInfoContainr>
+              {userInfo ? (
+                <UserInfoInnerContainr>
+                  <UserName>{`Hi! ${userInfo?.name}`}</UserName>
+                  {!!userInfo.logo && (<UserLogo src={`/assets/teamslogos/${userInfo?.logo}`} alt='user_logo' />)}
+                </UserInfoInnerContainr>
+              ): (
+                <UserInfoInnerContainr>
+                  <UserName>{`. . .`}</UserName>
+                </UserInfoInnerContainr>
+              )}
+              {userInfo && (
+              <LogoutContainer id='logout' onClick={handleLogout}>
+                Logout
+              </LogoutContainer>
+            )}
+            </UserInfoContainr>
+          )}
+        </ButtonsContainer>
+        
       
       </TabContainer>
       
 
-      <ChildrenContainer>
+      <ChildrenContainer extendChildContainer={extendChildContainer}> 
         {children}
       </ChildrenContainer>
     </LayoutContainer>

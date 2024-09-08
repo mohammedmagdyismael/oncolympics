@@ -24,10 +24,16 @@ export const LayoutContainer = styled.div`
 
 export const TabContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  position: relative;
   @media only screen and (max-width: 855px) {
     display: none;
   }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin: 26px auto;
 `;
 
 export const Tab = styled(NavLink)`
@@ -184,14 +190,17 @@ export const UserName = styled.p`
 export const OncoLogo = styled.img`
     width: 140px;
     display: flex;
-    margin-top: 10px;
+    margin: 10px 0px 0px 100px;
     cursor: pointer;
+    position: absolute;
+    z-index: 20;
 `;
 
 export const ChildrenContainer = styled.div`
   // padding-top: 20px;
   overflow: auto;
   margin-top: 20px;
+  ${props => props.extendChildContainer || ''};
   ::-webkit-scrollbar {
     width: 8px;
   }

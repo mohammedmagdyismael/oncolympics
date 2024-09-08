@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Layout from '../../app/components/Layout';
+import { extendChildContainer } from './Landing.style';
 
 const Landing = () => {
   const videoRef = useRef(null);
@@ -23,8 +24,8 @@ const Landing = () => {
   }, []); */
 
   return (
-    <Layout hidebackground>
-      <div style={{ marginTop: '20px' }}>
+    <Layout hidebackground extendChildContainer={extendChildContainer}>
+      <div>
         <video 
           ref={videoRef}
           poster="/assets/image/landing.png" 
