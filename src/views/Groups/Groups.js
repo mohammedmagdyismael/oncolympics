@@ -46,7 +46,7 @@ const Groups = () => {
             <tbody>
               {teams.map((team, index) => (
                 <TableRow key={index}>
-                  <TableCell style={{ width: '60%' }}>
+                  <TableCell>
                     <div style={{ display: 'flex', gap: '15px' }}>
                       <div style={{ width: '30px' }}>
                         {team.logo && (

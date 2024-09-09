@@ -42,8 +42,14 @@ export const GroupHeader = styled.caption`
 `;
 
 export const TableRow = styled.tr`
+
+    > :first-child {
+      width: 60%;
+    }
+
    > *:not(:first-child) {
     text-align: center;
+    width: 10%;
   }
 `;
 
