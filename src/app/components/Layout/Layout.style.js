@@ -7,7 +7,7 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
   height: 100vh;
   ${props => !props.hidebackground && `
-      background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);
+      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(/assets/image/landing.png);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
