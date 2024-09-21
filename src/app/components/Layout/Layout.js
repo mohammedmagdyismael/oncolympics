@@ -20,7 +20,7 @@ import {
   ButtonsContainer,
 } from './Layout.style';
 
-const Layout = ({ children, hidebackground, extendChildContainer }) => {
+const Layout = ({ children, hidebackground, extendChildContainer, isMatch }) => {
   const [userInfo, setUserInfo] = useState(null);
   const role = Cookies.get('role');
 
@@ -58,7 +58,7 @@ const Layout = ({ children, hidebackground, extendChildContainer }) => {
   const tabs = getTabs(role);
 
   return (
-    <LayoutContainer hidebackground={hidebackground}>
+    <LayoutContainer hidebackground={hidebackground} isMatch={isMatch}>
       <BurgerMenu items={tabs} title={`Hi! ${userInfo?.name || ''}`} isLogged={!!role} handleLogin={handleLogin} handleLogout={handleLogout} />
       <TabContainer>
         <OncoLogo onClick={() => {

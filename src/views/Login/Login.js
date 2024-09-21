@@ -20,10 +20,10 @@ const Login = () => {
         // Redirect to groups page
         window.location.href = '/groups'
       } else {
-        setError('Something went wrong');
+        setError('Wrong Email or Password, Try Again!');
       }
     } catch (err) {
-      setError('Something went wrong');
+      setError('Wrong Email or Password, Try Again!');
     } finally {
       setLoading(false);
     }

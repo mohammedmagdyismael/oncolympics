@@ -121,10 +121,10 @@ const MatchModeratorView = () => {
     };
 
     // if (loading && matchData === null) return <Layout><LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer></Layout>;
-    if (error) return <Layout><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
+    if (error) return <Layout isMatch><LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer></Layout>;
 
     if (matchData?.length === 0) {
-        return <Layout><LoadingStatusContainer><StatusMsg>No Matches Yet</StatusMsg></LoadingStatusContainer></Layout>;
+        return <Layout isMatch><LoadingStatusContainer><StatusMsg>No Matches Yet</StatusMsg></LoadingStatusContainer></Layout>;
     }
 
     const match = matchData?.[0];
@@ -133,7 +133,7 @@ const MatchModeratorView = () => {
 
     if (match?.match_status === 0) {
         return (
-          <Layout>
+          <Layout isMatch>
             <div>
                 <MatchDetails isAdmin match={match} />
                 <BtnsPanel id='panel'>
@@ -144,7 +144,7 @@ const MatchModeratorView = () => {
         );
     } else if (match?.match_status === 1) {
         return (
-          <Layout>
+          <Layout isMatch>
             <MatchQuestionContainer>
                 <div>
                     <MatchQuestion
@@ -183,7 +183,7 @@ const MatchModeratorView = () => {
         );
     } else if (match?.match_status === 2) {
         return (
-          <Layout>
+          <Layout isMatch>
             <div>
                 <MatchDetails isAdmin match={match} />
                 <BtnsPanel id='panel'BtnsPanel>

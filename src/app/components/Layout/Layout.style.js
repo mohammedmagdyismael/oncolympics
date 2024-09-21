@@ -6,7 +6,7 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  ${props => !props.hidebackground && `
+  ${props => (!props.hidebackground && !props.isMatch) && `
       background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(/assets/image/landing.png);
       background-size: cover;
       background-position: center;
@@ -14,7 +14,15 @@ export const LayoutContainer = styled.div`
       background-size: 100vw 100vh;
       background-position: center top;
       background-repeat: no-repeat;
-
+  `}
+  ${props => (!props.hidebackground && props.isMatch) && `
+      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(/assets/image/matchBG.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 100vw 100vh;
+      background-position: center top;
+      background-repeat: no-repeat;
   `}
   width: 100%;
   height: 100vh;
