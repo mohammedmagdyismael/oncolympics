@@ -19,7 +19,7 @@ export const OptionContainer = styled.div`
     background-color: #fff;
   
     ${props => props.isSelected && `
-      background-color: lightgray;
+      background-color: #979595;
     `};
 
     background-color: ${props => props.isRight && '#4CAF50'};
