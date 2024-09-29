@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../../../app/components/Button';
+// import Button from '../../../app/components/Button';
 import {
-    MatchDate,
+    /* MatchDate,
     NextLabel,
     TeamLabel,
     TeamLogo,
@@ -13,7 +13,7 @@ import {
     extendPenatlyBtn,
     RewardsPanelContainer,
     TeamScore,
-    TeamLabelLogoContainer,
+    TeamLabelLogoContainer, */
     ScoreBoardContainer,
     ScoreBoardTemp,
     Team1Logo,
@@ -31,7 +31,7 @@ import {
 import { displayDateTime } from './helper';
 
 const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
-    const showDate = match.match_status === 0;
+    // const showDate = match.match_status === 0;
     const showScores = (match.match_status === 1 || match.match_status === 2);
     const showRewardBtns = match.match_status === 1 && isAdmin;
 
