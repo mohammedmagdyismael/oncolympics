@@ -14,6 +14,19 @@ import {
     RewardsPanelContainer,
     TeamScore,
     TeamLabelLogoContainer,
+    ScoreBoardContainer,
+    ScoreBoardTemp,
+    Team1Logo,
+    Team2Logo,
+    Team1Name,
+    Team2Name,
+    MatchStatusLabel,
+    Award1Action,
+    Award2Action,
+    Penalty1Action,
+    Penalty2Action,
+    ScoreContainer,
+    ScoreItem,
 } from './MatchDetails.style';
 import { displayDateTime } from './helper';
 
@@ -43,7 +56,8 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
     }
 
     return (
-        <Container isMini={match.match_status === 1}>
+        <>
+        {/* <Container isMini={match.match_status === 1}>
             <InnerContainer>
                 <div>
                     {match.match_status === 0 && (<NextLabel>Next</NextLabel>)}
@@ -93,7 +107,57 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
                     </div>
                 )}
             </InnerContainer>
-        </Container>
+        </Container> */}
+
+        <ScoreBoardContainer>
+                {showRewardBtns ? (
+                    <ScoreBoardTemp src='/assets/image/SCOREBOARD.png' alt='score-board' />
+                ) : (
+                    <ScoreBoardTemp src='/assets/image/SCOREBOARD2.png' alt='score-board' />
+                )}
+
+                {/** Team 1 Logo */}
+                <Team1Logo src={team1Logo} alt='team1_logo' />
+
+                {/** Team 2 Logo */}
+                <Team2Logo src={team2Logo} alt='team2_logo' />
+
+                {/** Team 1 Name */}
+                <Team1Name>{team1Name}</Team1Name>
+
+                {/** Team 2 Name */}
+                <Team2Name>{team2Name}</Team2Name>
+
+                {/** Score */}
+                {showScores ? (
+                    <ScoreContainer>
+                        <ScoreItem>{team1Score}</ScoreItem>
+                        <ScoreItem>-</ScoreItem>
+                        <ScoreItem>{team2Score}</ScoreItem>
+                    </ScoreContainer>
+                ) : (
+                    <ScoreContainer>
+                        {displayDateTime(match?.date_time)}
+                    </ScoreContainer>
+                )}
+
+                {/** Status */}
+                {match.match_status === 0 && (<MatchStatusLabel>NEXT</MatchStatusLabel>)}
+                {match.match_status === 1 && (<MatchStatusLabel isMini={match.match_status === 1}>LIVE</MatchStatusLabel>)}
+                {match.match_status === 2 && (<MatchStatusLabel>ENDED</MatchStatusLabel>)}
+
+                {/** Panel Action */}
+                {showRewardBtns && (<Award1Action onClick={() => onRewardHandler(match.team1_id)} />)}
+                {showRewardBtns && (<Award2Action onClick={() => onRewardHandler(match.team2_id)} />)}
+                
+                {showRewardBtns && (<Penalty1Action onClick={() => onPenaltyHandler(match.team1_id)} />)}
+                {showRewardBtns && (<Penalty2Action onClick={() => onPenaltyHandler(match.team2_id)} />)}
+
+                
+
+            </ScoreBoardContainer>
+        </>
+        
     );
 };
 

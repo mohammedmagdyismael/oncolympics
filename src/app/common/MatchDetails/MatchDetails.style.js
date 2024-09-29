@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
     display: flex;
     justify-content: center;
+    flex-direction: column;
     padding: 40px;
     ${props => props.isMini && `
         padding: 20px 40px;
@@ -129,4 +130,118 @@ export const RewardsPanelContainer = styled.div`
     gap: 5px;
     justify-content: center;
     margin-top: 10px;
+`;
+
+export const ScoreBoardContainer = styled.div`
+    position: relative;
+`;
+
+export const ScoreBoardTemp = styled.img`
+    width: 600px;
+`;
+
+///
+
+export const MatchStatus = styled.p``;
+
+
+// Logos
+export const TeamsLogo = styled.img`
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 52px;
+`;
+
+export const Team1Logo = styled(TeamsLogo)`
+    left: 35px;    
+`;
+
+export const Team2Logo = styled(TeamsLogo)`
+    right: 35px;
+`;
+
+// Teams Names
+export const TeamsNames = styled.p`
+    width: fit-content;
+    margin: 0;
+    font-weight: 900;
+    color: #843891;
+    position: absolute;
+    top: 189px;
+`;
+
+export const Team1Name = styled(TeamsNames)`
+    left: 155px;
+`;
+
+export const Team2Name = styled(TeamsNames)`
+    right: 155px;
+`;
+
+export const MatchStatusLabel = styled.p`
+    width: 80px;
+    text-align: center;
+    margin: 0;
+    font-weight: 900;
+    color: #843891;
+    position: absolute;
+    top: 189px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: white;
+`;
+
+// Award
+export const AwardAction = styled.div`
+    width: 20px;
+    height: 33px;
+    position: absolute;
+    bottom: 18px;
+    cursor: pointer;
+`;
+
+export const Award1Action = styled(AwardAction)`
+    left: 49px;
+`;
+
+export const Award2Action = styled(AwardAction)`
+    right: 49px;
+`;
+
+
+// Penalty
+export const PenaltyAction = styled.div`
+    width: 20px;
+    height: 45px;
+    position: absolute;
+    bottom: 4px;
+    cursor: pointer;
+`;
+
+export const Penalty1Action = styled(PenaltyAction)`
+    left: 73px;
+`;
+
+export const Penalty2Action = styled(PenaltyAction)`
+    right: 73px;
+`;
+
+// Scores
+export const ScoreContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    min-width: 100px;
+    position: absolute;
+    top: 96px;
+    left: 249px;
+`;
+
+export const ScoreItem = styled.p`
+    font-weight: 900;
+    color: #843891;
+    max-width: 10px;
+    margin: 0;
+    font-size: 24px;
 `;
