@@ -132,6 +132,8 @@ export const RewardsPanelContainer = styled.div`
     margin-top: 10px;
 `;
 
+///
+
 export const ScoreBoardContainer = styled.div`
     position: relative;
     width: fit-content;
@@ -142,9 +144,11 @@ export const ScoreBoardContainer = styled.div`
 
 export const ScoreBoardTemp = styled.img`
     width: 600px;
-`;
 
-///
+    @media only screen and (max-width: 855px) {
+        width: 350px;
+    }
+`;
 
 export const MatchStatus = styled.p``;
 
@@ -155,14 +159,27 @@ export const TeamsLogo = styled.img`
     height: 120px;
     position: absolute;
     top: 52px;
+
+    @media only screen and (max-width: 855px) {
+        width: 65px;
+        height: 65px;
+        top: 34px;
+    }
 `;
 
 export const Team1Logo = styled(TeamsLogo)`
     left: 35px;    
+
+    @media only screen and (max-width: 855px) {
+        left: 23px; 
+    }
 `;
 
 export const Team2Logo = styled(TeamsLogo)`
     right: 35px;
+    @media only screen and (max-width: 855px) {
+        right: 23px; 
+    }
 `;
 
 // Teams Names
@@ -175,14 +192,27 @@ export const TeamsNames = styled.p`
     width: 119px;
     text-align: center;
     font-size: 17px;
+
+    @media only screen and (max-width: 855px) {
+        top: 107px;
+        width: 93px;
+    }
 `;
 
 export const Team1Name = styled(TeamsNames)`
     left: 105px;
+    @media only screen and (max-width: 855px) {
+        left: 50px;
+        font-size: 12px;
+    }
 `;
 
 export const Team2Name = styled(TeamsNames)`
     right: 105px;
+    @media only screen and (max-width: 855px) {
+        right: 50px;
+        font-size: 12px;
+    }
 `;
 
 export const MatchStatusLabel = styled.p`
@@ -196,6 +226,11 @@ export const MatchStatusLabel = styled.p`
     left: 50%;
     transform: translate(-50%, 0%);
     background-color: white;
+
+    @media only screen and (max-width: 855px) {
+        top: 107px;
+        font-size: 12px;
+    }
 `;
 
 // Award
@@ -205,14 +240,26 @@ export const AwardAction = styled.div`
     position: absolute;
     bottom: 18px;
     cursor: pointer;
+    @media only screen and (max-width: 855px) {
+        width: 13px;
+        bottom: 13px;
+    }
 `;
 
 export const Award1Action = styled(AwardAction)`
     left: 49px;
+
+    @media only screen and (max-width: 855px) {
+        left: 27px;
+    }
 `;
 
 export const Award2Action = styled(AwardAction)`
     right: 49px;
+
+    @media only screen and (max-width: 855px) {
+        right: 27px;
+    }
 `;
 
 
@@ -223,14 +270,28 @@ export const PenaltyAction = styled.div`
     position: absolute;
     bottom: 4px;
     cursor: pointer;
+
+    background-color: yellow;
+
+    @media only screen and (max-width: 855px) {
+        width: 13px;
+        bottom: 3px;
+    }
 `;
 
 export const Penalty1Action = styled(PenaltyAction)`
     left: 73px;
+
+    @media only screen and (max-width: 855px) {
+        left: 43px;
+    }
 `;
 
 export const Penalty2Action = styled(PenaltyAction)`
     right: 73px;
+    @media only screen and (max-width: 855px) {
+        right: 43px;
+    }
 `;
 
 // Scores
@@ -240,8 +301,10 @@ export const ScoreContainer = styled.div`
     width: fit-content;
     min-width: 100px;
     position: absolute;
-    top: 94px;
-    left: 249px;
+    top: 55px;
+    
+    left: 50%;
+    transform: translate(-50%, 0%);
 `;
 
 export const ScoreItem = styled.p`
@@ -250,6 +313,10 @@ export const ScoreItem = styled.p`
     max-width: 10px;
     margin: 0;
     font-size: 30px;
+
+    @media only screen and (max-width: 855px) {
+        font-size: 18px;
+    }
 `;
 
 
@@ -259,6 +326,11 @@ export const DateTimeContainer = styled.div`
     top: 96px;
     position: absolute;
     width: 200px;
+
+    @media only screen and (max-width: 855px) {
+        top: 45px;
+        width: 150px;
+    }
 `;
 
 
@@ -267,4 +339,8 @@ export const DateTimeString = styled.p`
     font-weight: 900;
     color: #843891;
     text-align: center;
+
+    @media only screen and (max-width: 855px) {
+        font-size: 12px;
+    }
 `;
