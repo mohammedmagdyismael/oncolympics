@@ -174,6 +174,7 @@ export const TeamsNames = styled.p`
     top: 189px;
     width: 119px;
     text-align: center;
+    font-size: 17px;
 `;
 
 export const Team1Name = styled(TeamsNames)`
@@ -239,7 +240,7 @@ export const ScoreContainer = styled.div`
     width: fit-content;
     min-width: 100px;
     position: absolute;
-    top: 96px;
+    top: 94px;
     left: 249px;
 `;
 
@@ -248,7 +249,7 @@ export const ScoreItem = styled.p`
     color: #843891;
     max-width: 10px;
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
 `;
 
 
