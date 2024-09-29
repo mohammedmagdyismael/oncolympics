@@ -134,6 +134,10 @@ export const RewardsPanelContainer = styled.div`
 
 export const ScoreBoardContainer = styled.div`
     position: relative;
+    width: fit-content;
+    ${props => props.notStarted && `
+        margin: 4% auto;
+    `}
 `;
 
 export const ScoreBoardTemp = styled.img`
@@ -163,20 +167,21 @@ export const Team2Logo = styled(TeamsLogo)`
 
 // Teams Names
 export const TeamsNames = styled.p`
-    width: fit-content;
     margin: 0;
     font-weight: 900;
     color: #843891;
     position: absolute;
     top: 189px;
+    width: 119px;
+    text-align: center;
 `;
 
 export const Team1Name = styled(TeamsNames)`
-    left: 155px;
+    left: 105px;
 `;
 
 export const Team2Name = styled(TeamsNames)`
-    right: 155px;
+    right: 105px;
 `;
 
 export const MatchStatusLabel = styled.p`
@@ -244,4 +249,21 @@ export const ScoreItem = styled.p`
     max-width: 10px;
     margin: 0;
     font-size: 24px;
+`;
+
+
+export const DateTimeContainer = styled.div`
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 96px;
+    position: absolute;
+    width: 200px;
+`;
+
+
+export const DateTimeString = styled.p`
+    margin: 0;
+    font-weight: 900;
+    color: #843891;
+    text-align: center;
 `;

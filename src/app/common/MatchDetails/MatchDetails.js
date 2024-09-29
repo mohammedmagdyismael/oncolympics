@@ -27,6 +27,8 @@ import {
     Penalty2Action,
     ScoreContainer,
     ScoreItem,
+    DateTimeString,
+    DateTimeContainer,
 } from './MatchDetails.style';
 import { displayDateTime } from './helper';
 
@@ -109,7 +111,7 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
             </InnerContainer>
         </Container> */}
 
-        <ScoreBoardContainer>
+        <ScoreBoardContainer notStarted={match.match_status === 0 || match.match_status === 2}>
                 {showRewardBtns ? (
                     <ScoreBoardTemp src='/assets/image/SCOREBOARD.png' alt='score-board' />
                 ) : (
@@ -136,9 +138,11 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
                         <ScoreItem>{team2Score}</ScoreItem>
                     </ScoreContainer>
                 ) : (
-                    <ScoreContainer>
-                        {displayDateTime(match?.date_time)}
-                    </ScoreContainer>
+                    <DateTimeContainer>
+                        <DateTimeString>
+                            {displayDateTime(match?.date_time)}
+                        </DateTimeString>
+                    </DateTimeContainer>
                 )}
 
                 {/** Status */}
