@@ -299,10 +299,14 @@ export const ScoreContainer = styled.div`
     width: fit-content;
     min-width: 100px;
     position: absolute;
-    top: 55px;
+    top: 89px;
     
     left: 50%;
     transform: translate(-50%, 0%);
+
+    @media only screen and (max-width: 855px) {
+        top: 55px;
+    }
 `;
 
 export const ScoreItem = styled.p`
