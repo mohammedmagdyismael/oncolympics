@@ -271,8 +271,6 @@ export const PenaltyAction = styled.div`
     bottom: 4px;
     cursor: pointer;
 
-    background-color: yellow;
-
     @media only screen and (max-width: 855px) {
         width: 13px;
         bottom: 3px;
