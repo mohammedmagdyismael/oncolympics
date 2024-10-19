@@ -137,7 +137,7 @@ export const RewardsPanelContainer = styled.div`
 export const ScoreBoardContainer = styled.div`
     position: relative;
     width: fit-content;
-    z-index: -3;
+    z-index: 1;
     ${props => props.notStarted && `
         margin: 4% auto;
     `}
