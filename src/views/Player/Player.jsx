@@ -1,5 +1,5 @@
 // Match.js
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { answerAPI, playerMatchDetails } from '../../app/api/Player';
 import Layout from '../../app/components/Layout/Layout';
 import { 

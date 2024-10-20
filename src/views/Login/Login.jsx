@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { loginAPI } from '../../app/api/User';
 import Layout from '../../app/components/Layout/Layout';
 import { LoginContainer, LoginForm, LoginInput, LoginButton } from './Login.style';
@@ -23,6 +23,7 @@ const Login = () => {
         setError('Wrong Email or Password, Try Again!');
       }
     } catch (err) {
+      console.log(err);
       setError('Wrong Email or Password, Try Again!');
     } finally {
       setLoading(false);

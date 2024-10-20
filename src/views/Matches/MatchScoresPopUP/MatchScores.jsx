@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { matchDetailsAPI } from '../../../app/api/Matches';
 import PopUp from '../../../app/components/PopUp';
 import MatchDetails from '../../../app/common/MatchDetails';

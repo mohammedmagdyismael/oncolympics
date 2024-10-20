@@ -8,7 +8,7 @@ export const extendChildContainer = css`
 `;
 
 export const Container = styled.div`
-    background-image: linear-gradient(to right, white, transparent 125%), url(/assets/image/landing.png);
+    background-image: linear-gradient(to right, white, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/landing.png);
     width: 100%;
     height: 100vh;
     background-size: cover;

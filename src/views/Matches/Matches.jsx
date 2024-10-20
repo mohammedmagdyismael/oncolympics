@@ -1,5 +1,5 @@
 // Standings.js
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { allMatchesAPI } from '../../app/api/Matches';
 import Layout from '../../app/components/Layout';
 import MatchScoresPopUp from './MatchScoresPopUP';
@@ -22,6 +22,7 @@ const Standings = () => {
         setMatches(formattedMatchesResponse);
         setLoading(false);
       } catch (error) {
+        console.log(error);
         setError('Failed to fetch data');
         setLoading(false);
       }

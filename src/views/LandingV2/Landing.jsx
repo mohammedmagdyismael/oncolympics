@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import Layout from '../../app/components/Layout';
 import LandingDevice from '../Landing/Landing';
 import { extendChildContainer, ShowDesktop, ShowDevice } from './Landing.style';
@@ -32,13 +32,13 @@ const Landing = () => {
         <div>
           <video 
             ref={videoRef}
-            poster="/assets/image/landing.png" 
+            poster={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/landing.png`} 
             autoPlay 
             loop 
             muted
             style={{ width: '100%', height: 'auto' }}
           >
-            <source src="/assets/videos/landingvideo.mp4" type="video/mp4" />
+            <source src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/videos/landingvideo.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

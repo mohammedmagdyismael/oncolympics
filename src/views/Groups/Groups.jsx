@@ -1,5 +1,5 @@
 // Groups.js
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { groupsAPI } from '../../app/api/Groups';
 import Layout from '../../app/components/Layout';
 import { StatusMsg, LoadingStatusContainer, GroupsContainer, GroupTable, GroupHeader, TableRow, TableHeader, TableCell } from './Groups.style';
@@ -17,6 +17,7 @@ const Groups = () => {
         setGroupsData(response?.data);
         setLoading(false);
       } catch (error) {
+        console.log(error)
         setError('Failed to fetch data');
         setLoading(false);
       }
@@ -50,7 +51,7 @@ const Groups = () => {
                     <div style={{ display: 'flex', gap: '15px' }}>
                       <div style={{ width: '30px' }}>
                         {team.logo && (
-                          <img style={{ width: '30px' }} src={`/assets/teamslogos/${team.logo}`} alt={team.logo} />
+                          <img style={{ width: '30px' }} src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/teamslogos/${team.logo}`} alt={team.logo} />
                         )}
                       </div>
                       <p style={{ margin: '0', lineHeight: '28px' }}>{team.teamName}</p>

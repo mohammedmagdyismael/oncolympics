@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AnswersLabel } from '../../../helper';
 
 import {
@@ -20,6 +20,9 @@ import CountdownStopwatch from '../../../app/components/CountDown/CountDown';
 
 
 const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDetails, questionFile, currentQuestion, setNumberOfQuestions }) => {
+
+    console.log(matchDetails);
+
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -34,7 +37,7 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`/assets/matchesquestions/${questionFile}`);
+                const response = await fetch(`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/matchesquestions/${questionFile}`);
                 const data = await response.json();
                 setQuestions(data.questions);
                 setNumberOfQuestions(data?.questions?.length)
@@ -64,7 +67,7 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
                                 <CountdownStopwatch isChanged={currentQuestion} stopCounter={stopCounter} />
                             </div>
                             {teamCanAnswer && (
-                                <Stopwatch onClick={() => {stopAnswer(); setStopCounter(true);}} src='/assets/image/stopwatch.png' alt='stopwatch' />
+                                <Stopwatch onClick={() => {stopAnswer(); setStopCounter(true);}} src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/stopwatch.png`} alt='stopwatch' />
                             )}
                         </div>
                     </div>
@@ -79,7 +82,7 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
             
             <OptionsContainer>
                 {question?.answers.map((answer, index) => (
-                    <div>
+                    <div key={index}>
                         <OptionContainer isRight={answer.correct && showRightAns} key={index}><Option>{`${AnswersLabel[index]}${answer.answer}`}</Option></OptionContainer>
                     </div>
                 ))}

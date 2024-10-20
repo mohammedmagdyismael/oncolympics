@@ -1,5 +1,5 @@
 // BurgerMenu.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   BurgerIcon,
   Container,
@@ -23,12 +23,12 @@ const BurgerMenu = ({ items, title, isLogged, handleLogout, handleLogin }) => {
       
       <OncoLogo onClick={() => {
           window.location.href = '/';
-        }} src={`/assets/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
+        }} src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
 
       <SideMenu isOpen={isOpen}>
             <MenuTitle>{title}</MenuTitle>
-            {items?.map(tab => (
-                <Tab exact to={tab.route} activeClassName="active">
+            {items?.map((tab, i) => (
+                <Tab exact to={tab.route} activeClassName="active" key={i}>
                     {tab.label}
                 </Tab>
             ))}

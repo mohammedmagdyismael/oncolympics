@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AnswersLabel } from '../../../helper';
 import { questionDetailsAPI } from '../../../app/api/Moderator';
 import PopUp from '../../../app/components/PopUp';
@@ -30,7 +30,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
         if (isOpen) {
             const fetchScores = async () => {
                 try {
-                    const questionnareresponse = await fetch(`/assets/matchesquestions/${question_file}`);
+                    const questionnareresponse = await fetch(`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/matchesquestions/${question_file}`);
                     const questionnaire = await questionnareresponse.json();
                     const currentQuestionObject = questionnaire?.questions?.[current_question];
                     const questionDetailsresponse = await questionDetailsAPI(id, current_question);
@@ -76,7 +76,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                 <TeamsContainer>
                     <TeamContainer>
                         <div>
-                            <TeamLogo src={`/assets/teamslogos/${team1_logo}`} alt='team1_logo' />
+                            <TeamLogo src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/teamslogos/${team1_logo}`} alt='team1_logo' />
                             <TeamLabel>{team1_name}</TeamLabel>
                             {isLoaded ? (
                                 <div>
@@ -87,7 +87,7 @@ const QuestionScoresPopUP = ({ isOpen, onClose, match }) => {
                     </TeamContainer>
                     <TeamContainer>
                         <div>
-                            <TeamLogo src={`/assets/teamslogos/${team2_logo}`} alt='team2_logo' />
+                            <TeamLogo src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/teamslogos/${team2_logo}`} alt='team2_logo' />
                             <TeamLabel>{team2_name}</TeamLabel>
                             {isLoaded ? (
                                 <div>

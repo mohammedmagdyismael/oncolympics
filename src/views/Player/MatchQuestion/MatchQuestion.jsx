@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AnswersLabel } from '../../../helper';
 import {
     QuestionContainer,
@@ -28,7 +28,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`/assets/matchesquestions/${questionFile}`);
+                const response = await fetch(`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/matchesquestions/${questionFile}`);
                 const data = await response.json();
                 setQuestions(data.questions);
                 // setLoading(false);
@@ -68,7 +68,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
             
             <OptionsContainer>
                 {question?.answers.map((answer, index) => (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }} key={index}>
                         <OptionContainer
                             onClick={() => onSelectOption(answer.correct, index)}
                             isSelected={index === selectedOption}

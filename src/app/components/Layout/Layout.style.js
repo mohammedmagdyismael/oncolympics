@@ -7,7 +7,7 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
   height: 100vh;
   ${props => (!props.hidebackground && !props.isMatch) && `
-      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(/assets/image/landing.png);
+      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/landing.png);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -16,7 +16,7 @@ export const LayoutContainer = styled.div`
       background-repeat: no-repeat;
   `}
   ${props => (!props.hidebackground && props.isMatch) && `
-      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(/assets/image/matchBG.png);
+      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/matchBG.png);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;

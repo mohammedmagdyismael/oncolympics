@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { matchScoresAPI } from '../../../app/api/Player';
+import { useState, useEffect } from 'react';
+import { matchScoresAPI } from '../../api/Player';
 import {
     LoadingStatusContainer,
     StatusMsg,

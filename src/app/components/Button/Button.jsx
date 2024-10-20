@@ -1,4 +1,3 @@
-import React from "react";
 import Loader from "../Loader";
 import { ButtonContainer, Label } from './Button.style';
 

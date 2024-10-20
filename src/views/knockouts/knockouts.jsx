@@ -1,5 +1,4 @@
 // knockouts.js
-import React from 'react';
 import Layout from '../../app/components/Layout/Layout';
 import { Container, KnockOutsImg } from './knockouts.style';
  
@@ -7,7 +6,7 @@ const Groups = () => {
   return (
     <Layout>
       <Container>
-        <KnockOutsImg src='assets/image/knockouts.png' alt='knockouts' />
+        <KnockOutsImg src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/knockouts.png`} alt='knockouts' />
       </Container>
     </Layout>
   );

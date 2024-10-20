@@ -1,4 +1,3 @@
-import React from 'react';
 import { getTabs } from '../../app/routes';
 import { Container, MenuContainer, Tab, OncoLogo } from './Landing.style';
  
@@ -9,10 +8,10 @@ const Landing = () => {
     <Container>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <MenuContainer>
-        <OncoLogo src={`/assets/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
+        <OncoLogo src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
 
         {tabs?.map((tab, index) => (
-          <Tab exact to={tab.route} activeClassName="active">
+          <Tab exact to={tab.route} activeClassName="active" key={index}>
             {tab.label}
           </Tab>
         ))}
