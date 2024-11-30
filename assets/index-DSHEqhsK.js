@@ -968,7 +968,9 @@ Error generating stack: `+i.message+`
     background-color: ${e=>e.isRight&&"#4CAF50"};
     background-color: ${e=>e.isWrong&&"red"};
 
-    color: ${e=>e.isRight?"#ffffff":"#333"};
+    color: #333;
+    color: ${e=>e.isRight&&"#ffffff"};
+    color: ${e=>e.isWrong&&"#ffffff"};
 
     cursor: pointer;
 
@@ -982,10 +984,12 @@ Error generating stack: `+i.message+`
 `,Bw=v.p`
     
 `,Hw=v.p`
-    padding: 0 40px;
+    padding: 40px;
     font-size: 25px;
     color: darkgreen;
     font-weight: 700;
+
+    background-color: #ffffff7d;
 `,Ww=v.div`
   font-size: 32px;
   // text-align: center;
@@ -1228,10 +1232,12 @@ Error generating stack: `+i.message+`
 `,gS=v.p`
     
 `,yS=v.p`
-    padding: 0 40px;
+    padding: 40px;
     font-size: 25px;
     color: darkgreen;
     font-weight: 700;
+
+    background-color: #ffffff7d;
 `,vS=v.div`
   font-size: 32px;
   text-align: unset;
