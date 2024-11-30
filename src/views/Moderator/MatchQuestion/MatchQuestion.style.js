@@ -40,10 +40,12 @@ export const Option = styled.p`
 `;
 
 export const AnswerJustification = styled.p`
-    padding: 0 40px;
+    padding: 40px;
     font-size: 25px;
     color: darkgreen;
     font-weight: 700;
+
+    background-color: #ffffff7d;
 `;
 
 export const QuestionsCounter = styled.div`
