@@ -37,7 +37,7 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/matchesquestions/${questionFile}`);
+                const response = await fetch(`/public/assets/matchesquestions/${questionFile}`);
                 const data = await response.json();
                 setQuestions(data.questions);
                 setNumberOfQuestions(data?.questions?.length)
@@ -63,7 +63,7 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
 
                         <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
                         <div style={{ margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
-                            <div style={{     width: '110px' }}>
+                            <div style={{     width: '145px' }}>
                                 <CountdownStopwatch isChanged={currentQuestion} stopCounter={stopCounter} />
                             </div>
                             {teamCanAnswer && (

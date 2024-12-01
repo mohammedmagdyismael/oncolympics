@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import PlayImg from './play-button.png';
+import PauseImg from './pause-button.png';
 
-// Styled-component for the timer display
+const Container = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 const TimerDisplay = styled.div`
   font-size: 28px;
   font-weight: bold;
@@ -14,16 +20,24 @@ const TimerDisplay = styled.div`
   }
 `;
 
+const PlayPauseBtn = styled.img`
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+`;
+
 const CountdownStopwatch = ({ isChanged, stopCounter }) => {
   const [seconds, setSeconds] = useState(60);
+  const [isPause, setPause] = useState(false);
+
   useEffect(() => {
-    if (seconds > 0) {
+    if (seconds > 0 && isPause) {
       const intervalId = setInterval(() => {
         setSeconds(prevSeconds => prevSeconds - 1);
       }, 1000);
       return () => clearInterval(intervalId);
     }
-  }, [seconds]);
+  }, [seconds, isPause]);
 
   useEffect(() => {
     
@@ -32,9 +46,17 @@ const CountdownStopwatch = ({ isChanged, stopCounter }) => {
     } else {
       setSeconds(60);
     }
-  }, [isChanged, stopCounter])
+  }, [isChanged, stopCounter]);
 
-  return <TimerDisplay>{`${seconds === 0 ? 'Timeout!' : `${seconds} sec`}`}</TimerDisplay>;
+  return (
+    <Container>
+      <TimerDisplay>{`${seconds === 0 ? 'Timeout!' : `${seconds} sec`}`}</TimerDisplay>
+      {isPause ? (
+        <PlayPauseBtn onClick={() => setPause(!isPause)} src={PauseImg} alt="PauseImg"/>
+      ) : (
+        <PlayPauseBtn onClick={() => setPause(!isPause)} src={PlayImg} alt="PlayImg"/>
+      )}
+    </Container>);
 };
 
 export default CountdownStopwatch;
