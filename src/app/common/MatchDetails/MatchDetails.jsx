@@ -1,6 +1,6 @@
-// import Button from '../../../app/components/Button';
+import Button from '../../../app/components/Button';
 import {
-    /* MatchDate,
+    MatchDate,
     NextLabel,
     TeamLabel,
     TeamLogo,
@@ -12,7 +12,7 @@ import {
     extendPenatlyBtn,
     RewardsPanelContainer,
     TeamScore,
-    TeamLabelLogoContainer, */
+    TeamLabelLogoContainer,
     ScoreBoardContainer,
     ScoreBoardTemp,
     Team1Logo,
@@ -32,7 +32,7 @@ import {
 import { displayDateTime } from './helper';
 
 const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
-    // const showDate = match.match_status === 0;
+    const showDate = match.match_status === 0;
     const showScores = (match.match_status === 1 || match.match_status === 2);
     const showRewardBtns = match.match_status === 1 && isAdmin;
 
@@ -43,6 +43,7 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
     const team2Score = match?.score_team2;
     const team2Logo = `${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/teamslogos/${match.team2_logo}`;
 
+    const showOldScoreBoard = match.match_status === 0 || match.match_status === 2;
 
     const onRewardHandler = teamId => {
         if (rewardTeam) {
@@ -56,9 +57,9 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
         }
     }
 
-    return (
-        <>
-        {/* <Container isMini={match.match_status === 1}>
+    const oldScoreBoard = () => {
+        return (
+            <Container isMini={match.match_status === 1}>
             <InnerContainer>
                 <div>
                     {match.match_status === 0 && (<NextLabel>Next</NextLabel>)}
@@ -108,9 +109,13 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
                     </div>
                 )}
             </InnerContainer>
-        </Container> */}
+        </Container>
+        );
+    };
 
-        <ScoreBoardContainer notStarted={match.match_status === 0 || match.match_status === 2}>
+    const newScoreBoard = () => {
+        return (
+            <ScoreBoardContainer notStarted={match.match_status === 0 || match.match_status === 2}>
                 {showRewardBtns ? (
                     <ScoreBoardTemp src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/SCOREBOARD.png`} alt='score-board' />
                 ) : (
@@ -159,6 +164,16 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
                 
 
             </ScoreBoardContainer>
+        );
+    }
+
+
+
+    return (
+        <>
+        {/*  */}
+
+        {showOldScoreBoard ? oldScoreBoard() : newScoreBoard()}
         </>
         
     );

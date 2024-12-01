@@ -25,6 +25,7 @@ export const InnerContainer = styled.div`
 
 export const TeamsContainer = styled.div`
     display: flex;
+    justify-content: center;
     gap: 100px;
     ${props => props.isMini && `
         gap: 55px;
@@ -36,6 +37,7 @@ export const TeamContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    min-width: 410px;
 
     ${props => props.isRtL && `
         direction: rtl;
@@ -94,6 +96,10 @@ export const TeamLogo = styled.img`
     width: 120px;
     height: 120px;
     margin: auto;
+
+    background: #fff;
+    border-radius: 50%;
+    border: 10px solid #fff;
     ${props => props.isMini && `
         width: 50px
         height: 50px;
