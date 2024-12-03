@@ -1,242 +1,73 @@
 {
     "questions": [
-        {
-            "index": "question 1",
-            "question": "The most common genetic driver mutation in lung adenocarcinoma is:",
-            "answers": [
-                {
-                    "answer": "KRAS",
-                    "correct": true,
-                    "reason": "Dearden S, Stevens J, Wu YL, Blowers D. Mutation incidence and coincidence in non small-cell lung cancer: meta-analyses by ethnicity and histology (mutMap). Ann Oncol. 2013;24(9):2371-2376. doi:10.1093/annonc/mdt205"
-                },
-                {
-                    "answer": "EGFR",
-                    "correct": false
-                },
-                {
-                    "answer": "ALK",
-                    "correct": false
-                },
-                {
-                    "answer": "BRAF",
-                    "correct": false
-                }
-            ]
-        },
-        {
-            "index": "question 2",
-            "question": "Neuroendocrine tumors of the lung are characterized by which of the following histological features?",
-            "answers": [
-                {
-                    "answer": "Large cells with prominent nucleoli",
-                    "correct": false
-                },
-                {
-                    "answer": "Small, round blue cells with scant cytoplasm",
-                    "correct": false
-                },
-                {
-                    "answer": "Solid nests of cells with peripheral palisading",
-                    "correct": false
-                },
-                {
-                    "answer": "Both b and c",
-                    "correct": true,
-                    "reason": "Travis WD, Brambilla E, Burke AP, Marx A, Nicholson AG. WHO Classification of Tumours of the Lung, Pleura, Thymus and Heart. 4th ed. IARC; 2015."
-                }
-            ]
-        },
-        {
-            "index": "question 3",
-            "question": "The hallmark chromosomal rearrangement in ALK-positive NSCLC is:",
-            "answers": [
-                {
-                    "answer": "t(2;5)",
-                    "correct": true,
-                    "reason": "Soda M, Choi YL, Enomoto M, et al. Identification of the transforming EML4-ALK fusion gene in non-small-cell lung cancer. Nature. 2007;448(7153):561-566. doi:10.1038/nature05945"
-                },
-                {
-                    "answer": "t(2;13)",
-                    "correct": false
-                },
-                {
-                    "answer": "inv(2)",
-                    "correct": false
-                },
-                {
-                    "answer": "t(2;7)",
-                    "correct": false
-                }
-            ]
-        },
-        {
-            "index": "question 4",
-            "question": "Squamous cell carcinoma of the lung is most commonly associated with which of the following genetic alterations?",
-            "answers": [
-                {
-                    "answer": "EGFR mutations",
-                    "correct": false,
-                    "reason": "blablablas"
-                },
-                {
-                    "answer": "TP53 mutations",
-                    "correct": true,
-                    "reason": "Cancer Genome Atlas Research Network. Comprehensive genomic characterization of squamous cell lung cancers. Nature. 2012;489(7417):519-525. doi:10.1038/nature11404"
-                },
-                {
-                    "answer": "ALK rearrangements",
-                    "correct": false
-                },
-                {
-                    "answer": "KRAS mutations",
-                    "correct": false
-                }
-            ]
-        },
-        {
-            "index": "question 5",
-            "question": "Which of the following imaging modalities is considered the gold standard for initial staging of lung cancer?",
-            "answers": [
-                {
-                    "answer": "Chest radiography",
-                    "correct": false
-
-                },
-                {
-                    "answer": "Computed tomography (CT) scan",
-                    "correct": true,
-                    "reason": "National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines): Non-Small Cell Lung Cancer. Version 3.2023. Published March 14, 2023."
-                },
-                {
-                    "answer": "Positron emission tomography (PET) scan",
-                    "correct": false
-                },
-                {
-                    "answer": "Magnetic resonance imaging (MRI)",
-                    "correct": false
-                }
-            ]
-        },
-        {
-            "index": "question 6",
-            "question": "The presence of malignant pleural effusion indicates which stage of lung cancer?",
-            "answers": [
-                {
-                    "answer": "Stage I",
-                    "correct": false
-                },
-                {
-                    "answer": "Stage II",
-                    "correct": false
-                },
-                {
-                    "answer": "Stage III",
-                    "correct": false
-                },
-                {
-                    "answer": "Stage IV",
-                    "correct": true,
-                    "reason": "Detterbeck FC, Boffa DJ, Kim AW, Tanoue LT. The Eighth Edition Lung Cancer Stage Classification. Chest. 2017;151(1):193-203. doi:10.1016/j.chest.2016.10.010"  
-                    
-                }
-            ]
-        },
-        {
-            "index": "question 7",
-            "question": "Which of the following biomarkers is typically assessed in all patients with advanced NSCLC at diagnosis?",
-            "answers": [
-                {
-                    "answer": "EGFR",
-                    "correct": false
-
-                },
-                {
-                    "answer": "ALK",
-                    "correct": false
-                },
-                {
-                    "answer": "ROS1",
-                    "correct": false
-                },
-                {
-                    "answer": "All of the above",
-                    "correct": true,
-                    "reason": "National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines): Non-Small Cell Lung Cancer. Version 3.2023. Published March 14, 2023."
-                }
-            ]
-        },
-        {
-            "index": "question 8",
-            "question": "Liquid biopsy, or the analysis of circulating tumor DNA (ctDNA), is particularly useful for:",
-            "answers": [
-                {
-                    "answer": "Initial diagnosis of lung cancer",
-                    "correct": false
-
-                },
-                {
-                    "answer": "Monitoring response to treatment",
-                    "correct": false
-                },
-                {
-                    "answer": "Detecting resistance mutations",
-                    "correct": false
-                },
-                {
-                    "answer": "All of the above",
-                    "correct": true,
-                    "reason": "Rolfo C, Mack PC, Scagliotti GV, et al. Liquid Biopsy for Advanced Non-Small Cell Lung Cancer (NSCLC): A Statement Paper from the IASLC. J Thorac Oncol. 2021;16(9):1448-1477. doi:10.1016/j.jtho.2021.03.022"
-
-                }
-            ]
-        },
-        {
-            "index": "question 9",
-            "question": "According to the NCCN guidelines, which of the following EGFR-TKIs is the preferred first-line treatment for patients with EGFR-mutant advanced NSCLC?",
-            "answers": [
-                {
-                    "answer": "Gefitinib",
-                    "correct": false
-                },
-                {
-                    "answer": "Erlotinib",
-                    "correct": false
-                },
-                {
-                    "answer": "Afatinib",
-                    "correct": false
-                },
-                {
-                    "answer": "Osimertinib",
-                    "correct": true,
-                    "reason": "National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines): Non-Small Cell Lung Cancer. Version 3.2023. Published March 14, 2023."
-
-                }
-            ]
-        },
-        {
-            "index": "question 10",
-            "question": "The PACIFIC study demonstrated the benefit of which immune checkpoint inhibitor in patients with locally advanced, unresectable NSCLC after chemoradiation therapy?",
-            "answers": [
-                {
-                    "answer": "Nivolumab",
-                    "correct": false
-
-                },
-                {
-                    "answer": "Pembrolizumab",
-                    "correct": false
-                },
-                {
-                    "answer": "Atezolizumab",
-                    "correct": false
-                },
-                {
-                    "answer": "Durvalumab",
-                    "correct": true,
-                    "reason": "Antonia SJ, Villegas A, Daniel D, et al. Durvalumab after Chemoradiotherapy in Stage III Non-Small-Cell Lung Cancer. N Engl J Med. 2017;377(20):1919-1929. doi:10.1056/NEJMoa1709937"
-                }
-            ]
+      {
+        "index": 1,
+        "question": "A 55-year-old woman with recurrent uterine serous carcinoma presents to the oncology clinic with fatigue, poor appetite, bloating, and ascites. Her initial diagnosis was stage IB uterine serous carcinoma, treated with surgery, followed by adjuvant carboplatin/paclitaxel for six cycles and vaginal brachytherapy. She was doing well with no evidence of disease until 2 years later when she presented with the above symptoms; CT scan identifies ascites and peritoneal carcinomatosis. CT-guided biopsy of peritoneal disease confirms recurrent endometrial serous carcinoma; tumor tissue is HER2 negative, mismatch repair proficient (pMMR), and microsatellite stable (MSS). She is started on carboplatin/paclitaxel and bevacizumab; initial response shows resolution of ascites and interval decrease in the size of her peritoneal disease. However, follow-up CT scans after the six cycle show disease progression and worsening carcinomatosis. Her Eastern Cooperative Oncology Group (ECOG) performance status is 0 and she is interested in further cancer-directed therapy. Which of the following is the most appropriate next step?",
+        "answers": [
+          {
+            "answer": "Hormonal therapy with letrozole and everolimus",
+            "correct": false
+          },
+          {
+            "answer": "Immunotherapy with pembrolizumab",
+            "correct": false
+          },
+          {
+            "answer": "Pembrolizumab/lenvatinib combination therapy",
+            "correct": true,
+            "reason": "The combination of immune checkpoint inhibitor pembrolizumab and VEGF receptor inhibitor lenvatinib was approved by the FDA in August 2022 for treatment of advanced endometrial cancer that: does not have high microsatellite instability (MSI-H) or MMR deficiency (dMMR); is progressive on prior systemic therapy; and is not amenable to curative surgery or radiation. Approval was based on data from a single-arm phase 2 trial, which showed promising activity with an objective response rate of 38%. The anti-PD1 antibody pembrolizumab should be used to treat women who have dMMR or high tumor mutational burden (TMB) endometrial carcinoma and have progressed on platinum-based chemotherapy. Hormonal therapy is typically used for lower-grade endometrioid histology, and preferably in patients with small tumor volume or an indolent growth pace. Ixabepilone is indicated for treatment of metastatic or locally advanced breast cancer (in combination with capecitabine) resistant to an anthracycline and a taxane, or that is taxane-resistant and when further anthracycline therapy is contraindicated.\n\nReferences:\n• Makker V, Colombo N, Casado Herraez A, et al. Lenvatinib plus pembrolizumab for advanced endometrial cancer. N Engl J Med. 2022;386(5):437-448. doi:10.1056/NEJMoa2108330\n• National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology. Uterine Neoplasms. Version 1.2024. https://www.nccn.org/"
+          },
+          {
+            "answer": "Single-agent chemotherapy with ixabepilone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "question": "A 72-year-old woman presented with postmenopausal vaginal bleeding lasting 6 months. Endometrial biopsy showed FIGO grade 3 endometrioid adenocarcinoma of the endometrium. She underwent robotic-assisted total laparoscopic hysterectomy, bilateral salpingo-oophorectomy, and bilateral pelvic sentinel lymph node sampling for surgical staging. Final surgical pathology showed stage IB, grade 3 endometrioid adenocarcinoma of the endometrium with 70% depth of myometrial invasion and foci of lymphovascular space invasion (LVSI). Which of the following is the most important diagnostic test to determine escalation of adjuvant therapy?",
+        "answers": [
+          {
+            "answer": "PD-L1 immunohistochemical staining",
+            "correct": false
+          },
+          {
+            "answer": "Mismatch repair (MMR) immunohistochemistry",
+            "correct": false
+          },
+          {
+            "answer": "Next-generation sequencing for POLE mutation",
+            "correct": true,
+            "reason": "Molecular analysis of endometrial carcinoma has identified four clinically significant molecular subgroups associated with differing clinical prognoses: POLE mutations, high microsatellite instability (MSI-H) or mismatch repair deficiency (dMMR), no specific molecular profile (NSMP), and abnormal p53. Retrospective analyses indicate that these four molecular subgroups may respond to therapy differently and therefore may require escalation or de-escalation of therapy compared to previous guidelines. This patient presented with surgically staged IB, grade 3 high-intermediate-risk endometrial adenocarcinoma (age older than 70 years, deep myometrial invasion, and LVSI), which warranted postoperative adjuvant therapy according to the previous guidelines. However, if her tumor tests positive for POLE mutation, current literature and several society guidelines recommend de-escalating adjuvant therapy to close observation. PD-L1, dMMR, and EGFR mutation could offer further treatment options but not de-escalation of adjuvant therapy.\n\nReferences:\n• National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology. Uterine Neoplasms. Version 1.2024. https://www.nccn.org/\n• Murali R, Delair DF, Bean SM, Abu-Rustum NR, Soslow RA. Evolving roles of histologic evaluation and molecular/genomic profiling in the management of endometrial cancer. J Natl Compr Canc Netw. 2018;16(2):201-209. doi:10.6004/jnccn.2017.7066\n• Jamieson A, McAlpine JN. Molecular profiling of endometrial cancer from TCGA to clinical practice. J Natl Compr Canc Netw. 2023;21(2):210-216. doi:10.6004/jnccn.2022.7096"
+          },
+          {
+            "answer": "Next-generation sequencing for EGFR mutation",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "question": "A 72-year-old woman diagnosed 5 years ago with a history of stage IIIC ovarian cancer underwent optimal cytoreduction and adjuvant treatment with six cycles of carboplatin and paclitaxel. At the time of her diagnosis, she underwent genetic counseling and testing, and she was found to have a deleterious BRCA1 mutation. She has no residual adverse effects from her initial treatment. She had been doing well until 3 weeks ago when she developed mild abdominal pressure, bloating, and an occasional cough. She has had no fever, chills, sweating, or shortness of breath. Her primary care provider ordered a CT scan of the chest, abdomen, and pelvis, demonstrating moderate ascites within the abdomen, a moderate left pleural effusion, and three lesions in the liver (the largest measuring 4-cm) suspicious for malignancy. She has some thickening in the mesentery that is concerning for carcinomatosis and enlarged retroperitoneal and pelvic lymph nodes. Fine-needle aspiration of one of the liver lesions is notable for malignant cells consistent with serous carcinoma. Which of the following is the most appropriate next step?",
+        "answers": [
+          {
+            "answer": "Intravenous carboplatin combination therapy",
+            "correct": true,
+            "reason": "The patient has platinum-sensitive disease with more than 1-year interval from completion of prior platinum chemotherapy. While recent data suggest benefits with optimal cytoreduction in the setting of platinum-sensitive recurrent ovarian cancer, this patient has apparent metastatic disease, and it is unlikely that all disease could be resected. The data suggest that a suboptimal surgery results in worse outcomes than no surgery at all. The standard of care is to proceed with platinum doublet therapy. While this patient has a BRCA mutation, FDA approval of olaparib was withdrawn in August 2022 for fourth-line treatment of BRCA1/2-mutated recurrent disease and is no longer a treatment option. However, olaparib could be used as maintenance therapy after completion of chemotherapy if she responds well.\n\nReferences:\n• Pujade-Lauraine E, Ledermann JA, Selle F, et al. Olaparib tablets as maintenance therapy in patients with platinum-sensitive, relapsed ovarian cancer and a BRCA1/2 mutation (SOLO2/ENGOT-Ov21): a double-blind, randomised, placebo-controlled, phase 3 trial. Lancet Oncol. 2017;18(9):1274-1284. doi:10.1016/S1470-2045(17)30469-2\n• Bois AD, Sehouli J, Vergote I, et al. Randomized phase III study to evaluate the impact of secondary cytoreductive surgery in recurrent ovarian cancer: final analysis of AGO DESKTOP III/ENGOT-ov20. J Clin Oncol. 2020;38(15_suppl):6000. doi: 10.1200/JCO.2020.38.15_suppl.6000\n• Pujade-Lauraine E, Wagner U, Aavall-Lundqvist E, et al. Pegylated liposomal doxorubicin and carboplatin compared with paclitaxel and carboplatin for patients with platinum-sensitive ovarian cancer in late relapse. J Clin Oncol. 2010;28(20):3323-3329. doi:10.1200/JCO.2009.25.7519"
+          },
+          {
+            "answer": "Olaparib",
+            "correct": false
+          },
+          {
+            "answer": "Olaparib and bevacizumab",
+            "correct": false
+          },
+          {
+            "answer": "Surgical exploration with cytoreduction, followed by adjuvant intraperitoneal/intravenous chemotherapy",
+            "correct": false
         }
     ]
+  }
+]
 }
