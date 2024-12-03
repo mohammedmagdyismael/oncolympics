@@ -158,6 +158,8 @@ export const UserInfoContainr = styled.div`
   height: 2.5rem;
   margin: ${props => props.isMatch ? '26px 0' : 'auto 0'};
   min-width: 48px;
+  width: ${props => props.isMatch ? '190px' : 'unset'};
+
   background: #890053;
   cursor: pointer;
   position: relative;
@@ -197,6 +199,10 @@ export const UserName = styled.p`
   margin: auto 16px;
   font-size: 18px;
   height: fit-content;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const OncoLogo = styled.img`
@@ -211,6 +217,8 @@ export const OncoLogo = styled.img`
 
 export const ChildrenContainer = styled.div`
   // padding-top: 20px;
+
+  width: 100%;
   overflow: auto;
   margin-top: 20px;
   ${props => props.extendChildContainer || ''};

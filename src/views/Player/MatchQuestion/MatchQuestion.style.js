@@ -9,7 +9,7 @@ export const QuestionContainer = styled.div`
 `;
 
 export const Question = styled.p`
-    font-size: 32px;
+    font-size: 22px;
     // text-align: center;
     color: #333;
     font-weight: 700;
@@ -46,7 +46,7 @@ export const Option = styled.p`
 
 export const AnswerJustification = styled.p`
     padding: 40px;
-    font-size: 25px;
+    font-size: 22px;
     color: darkgreen;
     font-weight: 700;
 
