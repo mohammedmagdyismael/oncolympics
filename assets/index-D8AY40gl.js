@@ -281,6 +281,8 @@ Error generating stack: `+i.message+`
   height: 2.5rem;
   margin: ${e=>e.isMatch?"26px 0":"auto 0"};
   min-width: 48px;
+  width: ${e=>e.isMatch?"190px":"unset"};
+
   background: #890053;
   cursor: pointer;
   position: relative;
@@ -314,6 +316,10 @@ Error generating stack: `+i.message+`
   margin: auto 16px;
   font-size: 18px;
   height: fit-content;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `,iw=v.img`
     width: 140px;
     display: flex;
@@ -324,6 +330,8 @@ Error generating stack: `+i.message+`
     margin: ${e=>e.isMatch?"20px 30px 0px 30px":"10px 0px 0px 100px"};
 `,sw=v.div`
   // padding-top: 20px;
+
+  width: 100%;
   overflow: auto;
   margin-top: 20px;
   ${e=>e.extendChildContainer||""};
@@ -1004,7 +1012,7 @@ Error generating stack: `+i.message+`
 `,oS=v.div`
     margin-bottom: 1.5rem;
 `,iS=v.p`
-    font-size: 32px;
+    font-size: 22px;
     // text-align: center;
     color: #333;
     font-weight: 700;
@@ -1035,7 +1043,7 @@ Error generating stack: `+i.message+`
     
 `,aS=v.p`
     padding: 40px;
-    font-size: 25px;
+    font-size: 22px;
     color: darkgreen;
     font-weight: 700;
 
