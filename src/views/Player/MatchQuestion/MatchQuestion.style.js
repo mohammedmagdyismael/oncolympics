@@ -13,6 +13,7 @@ export const Question = styled.p`
     // text-align: center;
     color: #333;
     font-weight: 700;
+    white-space: pre-line;
 `;
 
 export const OptionContainer = styled.div`
@@ -49,7 +50,7 @@ export const AnswerJustification = styled.p`
     font-size: 22px;
     color: darkgreen;
     font-weight: 700;
-
+    white-space: pre-line;
     background-color: #ffffff7d;
 `;
 

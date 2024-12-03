@@ -17,7 +17,7 @@ export const Question = styled.p`
     text-align: unset;
     color: #333;
     font-weight: 700;
-
+    white-space: pre-line;
     @media only screen and (max-width: 855px) {
       font-size: 18px;
     }
@@ -44,7 +44,7 @@ export const AnswerJustification = styled.p`
     font-size: 22px;
     color: darkgreen;
     font-weight: 700;
-
+    white-space: pre-line;
     background-color: #ffffff7d;
 `;
 
