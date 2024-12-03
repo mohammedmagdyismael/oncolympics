@@ -1016,6 +1016,7 @@ Error generating stack: `+i.message+`
     // text-align: center;
     color: #333;
     font-weight: 700;
+    white-space: pre-line;
 `,sS=v.div`
     background-color: #fff;
   
@@ -1046,7 +1047,7 @@ Error generating stack: `+i.message+`
     font-size: 22px;
     color: darkgreen;
     font-weight: 700;
-
+    white-space: pre-line;
     background-color: #ffffff7d;
 `,uS=v.div`
   font-size: 32px;
@@ -1273,7 +1274,7 @@ Error generating stack: `+i.message+`
     text-align: unset;
     color: #333;
     font-weight: 700;
-
+    white-space: pre-line;
     @media only screen and (max-width: 855px) {
       font-size: 18px;
     }
@@ -1294,7 +1295,7 @@ Error generating stack: `+i.message+`
     font-size: 22px;
     color: darkgreen;
     font-weight: 700;
-
+    white-space: pre-line;
     background-color: #ffffff7d;
 `,IS=v.div`
   font-size: 32px;
