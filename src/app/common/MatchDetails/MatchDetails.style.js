@@ -150,7 +150,7 @@ export const ScoreBoardContainer = styled.div`
 `;
 
 export const ScoreBoardTemp = styled.img`
-    width: 600px;
+    width: 450px;
 
     @media only screen and (max-width: 855px) {
         width: 350px;
@@ -162,10 +162,10 @@ export const MatchStatus = styled.p``;
 
 // Logos
 export const TeamsLogo = styled.img`
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     position: absolute;
-    top: 52px;
+    top: 39px;
 
     @media only screen and (max-width: 855px) {
         width: 65px;
@@ -175,7 +175,7 @@ export const TeamsLogo = styled.img`
 `;
 
 export const Team1Logo = styled(TeamsLogo)`
-    left: 35px;    
+    left: 26px;    
 
     @media only screen and (max-width: 855px) {
         left: 23px; 
@@ -183,7 +183,7 @@ export const Team1Logo = styled(TeamsLogo)`
 `;
 
 export const Team2Logo = styled(TeamsLogo)`
-    right: 35px;
+    right: 26px;
     @media only screen and (max-width: 855px) {
         right: 23px; 
     }
@@ -195,8 +195,8 @@ export const TeamsNames = styled.p`
     font-weight: 900;
     color: #843891;
     position: absolute;
-    top: 189px;
-    width: 119px;
+    top: 141px;
+    width: 89px;
     text-align: center;
     font-size: 17px;
 
@@ -207,7 +207,7 @@ export const TeamsNames = styled.p`
 `;
 
 export const Team1Name = styled(TeamsNames)`
-    left: 105px;
+    left: 78px;
     @media only screen and (max-width: 855px) {
         left: 50px;
         font-size: 12px;
@@ -215,7 +215,7 @@ export const Team1Name = styled(TeamsNames)`
 `;
 
 export const Team2Name = styled(TeamsNames)`
-    right: 105px;
+    right: 78px;
     @media only screen and (max-width: 855px) {
         right: 50px;
         font-size: 12px;
@@ -223,13 +223,13 @@ export const Team2Name = styled(TeamsNames)`
 `;
 
 export const MatchStatusLabel = styled.p`
-    width: 80px;
+    width: 60px;
     text-align: center;
     margin: 0;
     font-weight: 900;
     color: #843891;
     position: absolute;
-    top: 189px;
+    top: 141px;
     left: 50%;
     transform: translate(-50%, 0%);
     background-color: white;
@@ -242,10 +242,10 @@ export const MatchStatusLabel = styled.p`
 
 // Award
 export const AwardAction = styled.div`
-    width: 20px;
-    height: 33px;
+    width: 15px;
+    height: 24px;
     position: absolute;
-    bottom: 18px;
+    bottom: 13px;
     cursor: pointer;
     @media only screen and (max-width: 855px) {
         width: 13px;
@@ -254,7 +254,7 @@ export const AwardAction = styled.div`
 `;
 
 export const Award1Action = styled(AwardAction)`
-    left: 49px;
+    left: 36px;
 
     @media only screen and (max-width: 855px) {
         left: 27px;
@@ -262,7 +262,7 @@ export const Award1Action = styled(AwardAction)`
 `;
 
 export const Award2Action = styled(AwardAction)`
-    right: 49px;
+    right: 36px;
 
     @media only screen and (max-width: 855px) {
         right: 27px;
@@ -272,10 +272,10 @@ export const Award2Action = styled(AwardAction)`
 
 // Penalty
 export const PenaltyAction = styled.div`
-    width: 20px;
-    height: 45px;
+    width: 15px;
+    height: 24px;
     position: absolute;
-    bottom: 4px;
+    bottom: 3px;
     cursor: pointer;
 
     @media only screen and (max-width: 855px) {
@@ -285,7 +285,7 @@ export const PenaltyAction = styled.div`
 `;
 
 export const Penalty1Action = styled(PenaltyAction)`
-    left: 73px;
+    left: 54px;
 
     @media only screen and (max-width: 855px) {
         left: 43px;
@@ -293,7 +293,7 @@ export const Penalty1Action = styled(PenaltyAction)`
 `;
 
 export const Penalty2Action = styled(PenaltyAction)`
-    right: 73px;
+    right: 54px;
     @media only screen and (max-width: 855px) {
         right: 43px;
     }
@@ -306,7 +306,7 @@ export const ScoreContainer = styled.div`
     width: fit-content;
     min-width: 100px;
     position: absolute;
-    top: 89px;
+    top: 66px;
     
     left: 50%;
     transform: translate(-50%, 0%);
@@ -332,9 +332,9 @@ export const ScoreItem = styled.p`
 export const DateTimeContainer = styled.div`
     left: 50%;
     transform: translate(-50%, 0%);
-    top: 96px;
+    top: 72px;
     position: absolute;
-    width: 200px;
+    width: 150px;
 
     @media only screen and (max-width: 855px) {
         top: 45px;

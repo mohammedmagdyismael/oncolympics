@@ -4,7 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 export const LayoutContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${props => props.isMatch ? 'row' : 'column'};
+
+
+
   height: 100vh;
   ${props => (!props.hidebackground && !props.isMatch) && `
       background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/landing.png);
@@ -39,19 +42,20 @@ export const TabContainer = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
+  flex-direction: ${props => !props.isMatch ? 'row' : 'column'};
   display: flex;
   gap: 10px;
-  margin: 26px auto;
+  margin: ${props => !props.isMatch ? '26px auto' : '125px 0 0 8px'};
 `;
 
 export const Tab = styled(NavLink)`
   box-shadow: 0 0 25px rgb(0 0 0 / 25%);
   border-radius: 8px;
   text-align: center;
-  width: 150px;
+  width: ${props => props.isMatch ? '190px' : '150px'};
   text-decoration: none;
   flex-direction: column;
-  margin: auto 0;
+  margin: ${props => props.isMatch ? '26px 0' : 'auto 0'};
   align-items: center;
   background-color: rgb(255, 255, 255);
   border: none;
@@ -152,7 +156,7 @@ export const UserInfoContainr = styled.div`
   border-radius: 3.625rem;
   box-sizing: border-box;
   height: 2.5rem;
-  margin: auto 0;
+  margin: ${props => props.isMatch ? '26px 0' : 'auto 0'};
   min-width: 48px;
   background: #890053;
   cursor: pointer;
@@ -198,10 +202,11 @@ export const UserName = styled.p`
 export const OncoLogo = styled.img`
     width: 140px;
     display: flex;
-    margin: 10px 0px 0px 100px;
     cursor: pointer;
     position: absolute;
     z-index: 20;
+
+    margin: ${props => !props.isMatch ? '10px 0px 0px 100px' : '20px 30px 0px 30px'};
 `;
 
 export const ChildrenContainer = styled.div`

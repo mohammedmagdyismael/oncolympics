@@ -61,13 +61,17 @@ const Layout = ({ children, hidebackground, extendChildContainer, isMatch }) => 
     <LayoutContainer hidebackground={hidebackground} isMatch={isMatch}>
       <BurgerMenu items={tabs} title={`Hi! ${userInfo?.name || ''}`} isLogged={!!role} handleLogin={handleLogin} handleLogout={handleLogout} />
       <TabContainer>
-        <OncoLogo onClick={() => {
-          window.location.href = '/';
-        }} src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/Oncolympics Logo.png`} alt='Oncolympics_Logo' />
+        <OncoLogo
+          isMatch={isMatch}
+          onClick={() => {
+            window.location.href = '/';
+          }}
+          src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/Oncolympics Logo.png`} alt='Oncolympics_Logo'
+        />
         
-        <ButtonsContainer>
+        <ButtonsContainer isMatch={isMatch}>
           {tabs?.map((tab, i) => (
-            <Tab exact to={tab.route} activeClassName="active" key={i}>
+            <Tab isMatch={isMatch} exact to={tab.route} activeClassName="active" key={i}>
               {tab.label}
             </Tab>
           ))}
@@ -78,7 +82,7 @@ const Layout = ({ children, hidebackground, extendChildContainer, isMatch }) => 
           )}
 
           {!!role && (
-            <UserInfoContainr>
+            <UserInfoContainr isMatch={isMatch}>
               {userInfo ? (
                 <UserInfoInnerContainr>
                   <UserName>{`Hi! ${userInfo?.name}`}</UserName>
