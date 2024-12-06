@@ -1080,6 +1080,11 @@ Error generating stack: `+i.message+`
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
   padding: 0;
+
+  @media only screen and (max-width: 1315px) {
+      display: flex;
+      flex-direction: column;
+  }
 `,uS=v.div`
   display: flex;
   justify-content: center;
@@ -1355,10 +1360,10 @@ Error generating stack: `+i.message+`
     height: 40px;
     cursor: pointer;
     margin: 0px 30px;
-`,BS="/assets/play-button-BnJzDZ_o.png",HS="/assets/pause-button-B4y1qv28.png",WS=v.div`
+`,BS=v.div`
   display: flex;
   gap: 10px;
-`,VS=v.div`
+`,HS=v.div`
   font-size: 28px;
   font-weight: bold;
   color: red;
@@ -1372,13 +1377,13 @@ Error generating stack: `+i.message+`
     width: 40px;
     height: 40px;
     cursor: pointer;
-`,QS=({isChanged:e,stopCounter:t})=>{const[n,r]=A.useState(60),[o,i]=A.useState(!1);return A.useEffect(()=>{if(n>0&&o){const s=setInterval(()=>{r(l=>l-1)},1e3);return()=>clearInterval(s)}},[n,o]),A.useEffect(()=>{r(t?0:60)},[e,t]),f.jsxs(WS,{children:[f.jsx(VS,{children:`${n===0?"Timeout!":`${n} sec`}`}),o?f.jsx(nd,{onClick:()=>i(!o),src:HS,alt:"PauseImg"}):f.jsx(nd,{onClick:()=>i(!o),src:BS,alt:"PlayImg"})]})},KS=({toggleDetailsPopUp:e,teamCanAnswer:t,stopAnswer:n,matchDetails:r,questionFile:o,currentQuestion:i,setNumberOfQuestions:s})=>{var p,g;console.log(r);const[l,a]=A.useState([]),[u,c]=A.useState(!0),[d,m]=A.useState(null),[w,y]=A.useState(!1),[x,C]=A.useState(!1);if(A.useEffect(()=>{y(!1),C(!1)},[i]),A.useEffect(()=>{(async()=>{var _;try{const j=await(await fetch(`/public/assets/matchesquestions/${o}`)).json();a(j.questions),s((_=j==null?void 0:j.questions)==null?void 0:_.length),c(!1)}catch(k){m(k),c(!1)}})()},[o,s]),u)return f.jsx("div",{children:"Loading..."});if(d)return f.jsxs("div",{children:["Error: ",d.message]});const h=l[i];return f.jsxs(TS,{children:[f.jsxs(FS,{children:[f.jsxs("div",{style:{width:"100%"},children:[f.jsxs("div",{style:{display:"flex"},children:[f.jsx(zS,{children:`${i+1} / ${l==null?void 0:l.length}`}),f.jsxs("div",{style:{margin:"0 auto",display:"flex",justifyContent:"center"},children:[f.jsx("div",{style:{width:"145px"},children:f.jsx(QS,{isChanged:i,stopCounter:x})}),t&&f.jsx(US,{onClick:()=>{n(),C(!0)},src:"https://oncolympics-assets.expression-egy.com/assets/image/stopwatch.png",alt:"stopwatch"})]})]}),f.jsx(OS,{children:f.jsx($S,{children:h==null?void 0:h.question})})]}),f.jsx(bS,{children:r})]}),f.jsx(DS,{children:h==null?void 0:h.answers.map((S,_)=>f.jsx("div",{children:f.jsx(NS,{isRight:S.correct&&w,children:f.jsx(LS,{children:`${ut[_]}${S.answer}`})},_)},_))}),w&&f.jsx(AS,{children:`${ut[(p=h==null?void 0:h.answers)==null?void 0:p.findIndex(S=>S==null?void 0:S.correct)]} ${(g=h==null?void 0:h.answers.find(S=>S==null?void 0:S.correct))==null?void 0:g.reason}`}),f.jsx(MS,{onClick:()=>{y(!0),e(!0)},children:f.jsx(IS,{children:"Show Right Answer"})})]})},qS=()=>{const[e,t]=A.useState(!1),[n,r]=A.useState(null),[o,i]=A.useState(!0),[s,l]=A.useState(null),[a,u]=A.useState(0),[c,d]=A.useState(void 0),[m,w]=A.useState(void 0),y=async()=>{i(!0);try{const P=await pS();r(P),i(!1),d(void 0),w(void 0)}catch(P){l(P),i(!1)}};A.useEffect(()=>{y()},[]);const x=async()=>{i(!0);try{await hS(),y()}catch(P){console.error(P)}},C=async()=>{w(!0);try{await mS(),y()}catch(P){console.error(P)}},h=async()=>{try{await yS().then(()=>{y()})}catch(P){console.error(P)}},p=async()=>{try{await gS(),y()}catch(P){console.error(P)}},g=async()=>{d(!0);try{await vS().then(()=>{y()})}catch(P){console.error(P)}},S=async P=>{try{await xS(P).then(()=>y())}catch(b){console.error(b)}},_=async P=>{try{await wS(P).then(()=>y())}catch(b){console.error(b)}};if(s)return f.jsx(Pe,{isMatch:!0,children:f.jsx(ed,{children:f.jsxs(td,{children:["Error: ",s.message]})})});if((n==null?void 0:n.length)===0)return f.jsx(Pe,{isMatch:!0,children:f.jsx(ed,{children:f.jsx(td,{children:"No Matches Yet"})})});const k=n==null?void 0:n[0],j=(k==null?void 0:k.canAnswer)===1;if((k==null?void 0:k.match_status)===0)return f.jsx(Pe,{isMatch:!0,children:f.jsxs("div",{children:[f.jsx(wn,{isAdmin:!0,match:k}),f.jsx(ll,{id:"panel",children:f.jsx(Or,{onClick:x,children:f.jsx($r,{children:o?"Loading":"Start Match"})})})]})});if((k==null?void 0:k.match_status)===1)return f.jsxs(Pe,{isMatch:!0,children:[f.jsx(Pm,{children:f.jsxs("div",{children:[f.jsx(KS,{toggleDetailsPopUp:t,teamCanAnswer:j,stopAnswer:h,setNumberOfQuestions:u,questionFile:k==null?void 0:k.question_file,currentQuestion:k==null?void 0:k.current_question,matchDetails:f.jsx(wn,{isAdmin:!0,match:k,rewardTeam:S,penaltyTeam:_})}),f.jsxs(ll,{id:"panel",children:[a===(k==null?void 0:k.current_question)+1?f.jsx("div",{children:!j&&f.jsx(Or,{onClick:p,children:f.jsx($r,{children:"End Match"})})}):f.jsx("div",{children:!j&&f.jsx(Or,{onClick:C,children:f.jsx($r,{children:m?"Loading ...":"Next"})})}),f.jsx(Or,{onClick:g,children:f.jsx($r,{children:c?"Resetting ...":"Reset"})})]})]})}),e&&f.jsx(PS,{match:k,isOpen:e,onClose:()=>t(!1)})]});if((k==null?void 0:k.match_status)===2)return f.jsx(Pe,{isMatch:!0,children:f.jsxs("div",{children:[f.jsx(wn,{isAdmin:!0,match:k}),f.jsx(ll,{id:"panel",BtnsPanel:!0,children:f.jsx(Or,{onClick:g,children:f.jsx($r,{children:c?"Resetting ...":"Reset Match"})})})]})})},YS=v.div`
+`,WS=({isChanged:e,stopCounter:t})=>{const[n,r]=A.useState(60),[o,i]=A.useState(!1);return A.useEffect(()=>{if(n>0&&o){const s=setInterval(()=>{r(l=>l-1)},1e3);return()=>clearInterval(s)}},[n,o]),A.useEffect(()=>{i(!1),r(t?0:60)},[e,t]),f.jsxs(BS,{children:[f.jsx(HS,{children:`${n===0?"Timeout!":`${n} sec`}`}),!t&&f.jsx(f.Fragment,{children:o?f.jsx(nd,{onClick:()=>i(!o),src:"https://oncolympics-assets.expression-egy.com/assets/image/pause-button.png",alt:"PauseImg"}):f.jsx(nd,{onClick:()=>i(!o),src:"https://oncolympics-assets.expression-egy.com/assets/image/play-button.png",alt:"PlayImg"})})]})},VS=({toggleDetailsPopUp:e,teamCanAnswer:t,stopAnswer:n,matchDetails:r,questionFile:o,currentQuestion:i,setNumberOfQuestions:s})=>{var p,g;const[l,a]=A.useState([]),[u,c]=A.useState(!0),[d,m]=A.useState(null),[w,y]=A.useState(!1),[x,C]=A.useState(!1);if(A.useEffect(()=>{y(!1),C(!1)},[i]),A.useEffect(()=>{(async()=>{var _;try{const j=await(await fetch(`/public/assets/matchesquestions/${o}`)).json();a(j.questions),s((_=j==null?void 0:j.questions)==null?void 0:_.length),c(!1)}catch(k){m(k),c(!1)}})()},[o,s]),u)return f.jsx("div",{children:"Loading..."});if(d)return f.jsxs("div",{children:["Error: ",d.message]});const h=l[i];return f.jsxs(TS,{children:[f.jsxs(FS,{children:[f.jsxs("div",{style:{width:"100%"},children:[f.jsxs("div",{style:{display:"flex"},children:[f.jsx(zS,{children:`${i+1} / ${l==null?void 0:l.length}`}),f.jsxs("div",{style:{margin:"0 auto",display:"flex",justifyContent:"center"},children:[f.jsx("div",{style:{width:"145px"},children:f.jsx(WS,{isChanged:i,stopCounter:x})}),t&&f.jsx(US,{onClick:()=>{n(),C(!0)},src:"https://oncolympics-assets.expression-egy.com/assets/image/stopwatch.png",alt:"stopwatch"})]})]}),f.jsx(OS,{children:f.jsx($S,{children:h==null?void 0:h.question})})]}),f.jsx(bS,{children:r})]}),f.jsx(DS,{children:h==null?void 0:h.answers.map((S,_)=>f.jsx("div",{children:f.jsx(NS,{isRight:S.correct&&w,children:f.jsx(LS,{children:`${ut[_]}${S.answer}`})},_)},_))}),w&&f.jsx(AS,{children:`${ut[(p=h==null?void 0:h.answers)==null?void 0:p.findIndex(S=>S==null?void 0:S.correct)]} ${(g=h==null?void 0:h.answers.find(S=>S==null?void 0:S.correct))==null?void 0:g.reason}`}),f.jsx(MS,{onClick:()=>{y(!0),e(!0)},children:f.jsx(IS,{children:"Show Right Answer"})})]})},QS=()=>{const[e,t]=A.useState(!1),[n,r]=A.useState(null),[o,i]=A.useState(!0),[s,l]=A.useState(null),[a,u]=A.useState(0),[c,d]=A.useState(void 0),[m,w]=A.useState(void 0),y=async()=>{i(!0);try{const P=await pS();r(P),i(!1),d(void 0),w(void 0)}catch(P){l(P),i(!1)}};A.useEffect(()=>{y()},[]);const x=async()=>{i(!0);try{await hS(),y()}catch(P){console.error(P)}},C=async()=>{w(!0);try{await mS(),y()}catch(P){console.error(P)}},h=async()=>{try{await yS().then(()=>{y()})}catch(P){console.error(P)}},p=async()=>{try{await gS(),y()}catch(P){console.error(P)}},g=async()=>{d(!0);try{await vS().then(()=>{y()})}catch(P){console.error(P)}},S=async P=>{try{await xS(P).then(()=>y())}catch(b){console.error(b)}},_=async P=>{try{await wS(P).then(()=>y())}catch(b){console.error(b)}};if(s)return f.jsx(Pe,{isMatch:!0,children:f.jsx(ed,{children:f.jsxs(td,{children:["Error: ",s.message]})})});if((n==null?void 0:n.length)===0)return f.jsx(Pe,{isMatch:!0,children:f.jsx(ed,{children:f.jsx(td,{children:"No Matches Yet"})})});const k=n==null?void 0:n[0],j=(k==null?void 0:k.canAnswer)===1;if((k==null?void 0:k.match_status)===0)return f.jsx(Pe,{isMatch:!0,children:f.jsxs("div",{children:[f.jsx(wn,{isAdmin:!0,match:k}),f.jsx(ll,{id:"panel",children:f.jsx(Or,{onClick:x,children:f.jsx($r,{children:o?"Loading":"Start Match"})})})]})});if((k==null?void 0:k.match_status)===1)return f.jsxs(Pe,{isMatch:!0,children:[f.jsx(Pm,{children:f.jsxs("div",{children:[f.jsx(VS,{toggleDetailsPopUp:t,teamCanAnswer:j,stopAnswer:h,setNumberOfQuestions:u,questionFile:k==null?void 0:k.question_file,currentQuestion:k==null?void 0:k.current_question,matchDetails:f.jsx(wn,{isAdmin:!0,match:k,rewardTeam:S,penaltyTeam:_})}),f.jsxs(ll,{id:"panel",children:[a===(k==null?void 0:k.current_question)+1?f.jsx("div",{children:!j&&f.jsx(Or,{onClick:p,children:f.jsx($r,{children:"End Match"})})}):f.jsx("div",{children:!j&&f.jsx(Or,{onClick:C,children:f.jsx($r,{children:m?"Loading ...":"Next"})})}),f.jsx(Or,{onClick:g,children:f.jsx($r,{children:c?"Resetting ...":"Reset"})})]})]})}),e&&f.jsx(PS,{match:k,isOpen:e,onClose:()=>t(!1)})]});if((k==null?void 0:k.match_status)===2)return f.jsx(Pe,{isMatch:!0,children:f.jsxs("div",{children:[f.jsx(wn,{isAdmin:!0,match:k}),f.jsx(ll,{id:"panel",BtnsPanel:!0,children:f.jsx(Or,{onClick:g,children:f.jsx($r,{children:c?"Resetting ...":"Reset Match"})})})]})})},KS=v.div`
   display: flex;
   padding: 60px 0;
-`,GS=v.img`
+`,qS=v.img`
     width: 70%;
     margin: auto;
-`,XS=()=>f.jsx(Pe,{children:f.jsx(YS,{children:f.jsx(GS,{src:"https://oncolympics-assets.expression-egy.com/assets/image/knockouts.png",alt:"knockouts"})})}),JS=v.div`
+`,YS=()=>f.jsx(Pe,{children:f.jsx(KS,{children:f.jsx(qS,{src:"https://oncolympics-assets.expression-egy.com/assets/image/knockouts.png",alt:"knockouts"})})}),GS=v.div`
     background-image: linear-gradient(to right, white, transparent 125%), url(${"https://oncolympics-assets.expression-egy.com/assets"}/videos/Animation.gif);
     width: 100%;
     height: 100vh;
@@ -1389,7 +1394,7 @@ Error generating stack: `+i.message+`
     opacity: 1;
     transform: translateX(0);
   }
-`,ZS=v.div`
+`,XS=v.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1412,7 +1417,7 @@ Error generating stack: `+i.message+`
     padding: 0 30px;
     margin: 40px 0px 0 0;
   }
-`;const ek=v(hr)`
+`;const JS=v(hr)`
   height: 80px;
   color: black;
   text-decoration: none;
@@ -1444,7 +1449,7 @@ Error generating stack: `+i.message+`
     padding: 3px 30px;
     font-size: 38px;
   }
-`,tk=v.img`
+`,ZS=v.img`
       width: 527px;
       padding: 0 40px;
 
@@ -1461,7 +1466,7 @@ Error generating stack: `+i.message+`
         width: 200px;
       padding: 0 15px;
       }
-`;const nk=()=>{const e=Yh();return f.jsx(JS,{children:f.jsx("div",{style:{display:"flex",justifyContent:"space-between"},children:f.jsxs(ZS,{children:[f.jsx(tk,{src:"https://oncolympics-assets.expression-egy.com/assets/image/Oncolympics Logo.png",alt:"Oncolympics_Logo"}),e==null?void 0:e.map((t,n)=>f.jsx(ek,{exact:!0,to:t.route,activeClassName:"active",children:t.label},n))]})})})},rk=Co`
+`;const ek=()=>{const e=Yh();return f.jsx(GS,{children:f.jsx("div",{style:{display:"flex",justifyContent:"space-between"},children:f.jsxs(XS,{children:[f.jsx(ZS,{src:"https://oncolympics-assets.expression-egy.com/assets/image/Oncolympics Logo.png",alt:"Oncolympics_Logo"}),e==null?void 0:e.map((t,n)=>f.jsx(JS,{exact:!0,to:t.route,activeClassName:"active",children:t.label},n))]})})})},tk=Co`
   position: absolute;
   margin-top: unset;
   width: 100%;
@@ -1552,11 +1557,11 @@ Error generating stack: `+i.message+`
         width: 200px;
       padding: 0 15px;
       }
-`;const ok=v.div`
+`;const nk=v.div`
   @media only screen and (max-width: 1315px) {
     display: none;
   }
-`,ik=v.div`
+`,rk=v.div`
   @media only screen and (min-width: 1315px) {
     display: none;
   }
@@ -1578,4 +1583,4 @@ Error generating stack: `+i.message+`
         transform: translate(-50%, -50%);
         z-index: -1;
     }
-`;const sk=()=>{const e=A.useRef(null);return f.jsxs(f.Fragment,{children:[f.jsx(ok,{children:f.jsx(Pe,{hidebackground:!0,extendChildContainer:rk,children:f.jsx("div",{children:f.jsxs("video",{ref:e,poster:"https://oncolympics-assets.expression-egy.com/assets/image/landing.png",autoPlay:!0,loop:!0,muted:!0,style:{width:"100%",height:"auto"},children:[f.jsx("source",{src:"https://oncolympics-assets.expression-egy.com/assets/videos/landingvideo.mp4",type:"video/mp4"}),"Your browser does not support the video tag."]})})})}),f.jsx(ik,{children:f.jsx(nk,{})})]})},lk=()=>f.jsx(xh,{children:f.jsxs(mu,{children:[f.jsx(at,{exact:!0,path:"/",component:sk}),f.jsx(at,{exact:!0,path:"/login",component:cw}),f.jsx(at,{path:"/groups",component:mw}),f.jsx(at,{path:"/knockouts",component:XS}),f.jsx(at,{path:"/schedule",component:tS}),f.jsx(at,{path:"/yourmatch",component:dS}),f.jsx(at,{path:"/matchmoderator",component:qS}),f.jsx(us,{to:"/"})]})});mh(document.getElementById("root")).render(f.jsx(lk,{}));
+`;const ok=()=>{const e=A.useRef(null);return f.jsxs(f.Fragment,{children:[f.jsx(nk,{children:f.jsx(Pe,{hidebackground:!0,extendChildContainer:tk,children:f.jsx("div",{children:f.jsxs("video",{ref:e,poster:"https://oncolympics-assets.expression-egy.com/assets/image/landing.png",autoPlay:!0,loop:!0,muted:!0,style:{width:"100%",height:"auto"},children:[f.jsx("source",{src:"https://oncolympics-assets.expression-egy.com/assets/videos/landingvideo.mp4",type:"video/mp4"}),"Your browser does not support the video tag."]})})})}),f.jsx(rk,{children:f.jsx(ek,{})})]})},ik=()=>f.jsx(xh,{children:f.jsxs(mu,{children:[f.jsx(at,{exact:!0,path:"/",component:ok}),f.jsx(at,{exact:!0,path:"/login",component:cw}),f.jsx(at,{path:"/groups",component:mw}),f.jsx(at,{path:"/knockouts",component:YS}),f.jsx(at,{path:"/schedule",component:tS}),f.jsx(at,{path:"/yourmatch",component:dS}),f.jsx(at,{path:"/matchmoderator",component:QS}),f.jsx(us,{to:"/"})]})});mh(document.getElementById("root")).render(f.jsx(ik,{}));
