@@ -22,7 +22,7 @@ export const LabelContainer = styled.div`
 `;
 
 export const Label = styled.p`
-    font-size: 32px;
+    font-size: 26px;
     text-align: center;
     color: #333;
     font-weight: 700;
