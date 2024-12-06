@@ -846,7 +846,7 @@ Error generating stack: `+i.message+`
 `,Bw=v.div`
     margin-bottom: 1.5rem;
 `,Hw=v.p`
-    font-size: 32px;
+    font-size: 26px;
     text-align: center;
     color: #333;
     font-weight: 700;
@@ -1315,7 +1315,7 @@ Error generating stack: `+i.message+`
 
     @media only screen and (max-width: 1315px) {
       padding: 5px;
-  }
+    }
 `,OS=v.div`
     margin-bottom: 1.5rem;
 `,$S=v.p`
