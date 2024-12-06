@@ -1411,7 +1411,7 @@ Error generating stack: `+i.message+`
     width: 70%;
     margin: auto;
 `,YS=()=>f.jsx(Pe,{children:f.jsx(KS,{children:f.jsx(qS,{src:"https://oncolympics-assets.expression-egy.com/assets/image/knockouts.png",alt:"knockouts"})})}),GS=v.div`
-    background-image: linear-gradient(to right, white, transparent 125%), url(${"https://oncolympics-assets.expression-egy.com/assets"}/videos/Animation.gif);
+    background-image: linear-gradient(to right, white, transparent 125%), url(${"https://oncolympics-assets.expression-egy.com/assets"}/videos/Animation1.gif);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -1610,4 +1610,4 @@ Error generating stack: `+i.message+`
         transform: translate(-50%, -50%);
         z-index: -1;
     }
-`;const ok=()=>{const e=A.useRef(null);return f.jsxs(f.Fragment,{children:[f.jsx(nk,{children:f.jsx(Pe,{hidebackground:!0,extendChildContainer:tk,children:f.jsx("div",{children:f.jsxs("video",{ref:e,poster:"https://oncolympics-assets.expression-egy.com/assets/image/landing.png",autoPlay:!0,loop:!0,muted:!0,style:{width:"100%",height:"auto"},children:[f.jsx("source",{src:"https://oncolympics-assets.expression-egy.com/assets/videos/landingvideo.mp4",type:"video/mp4"}),"Your browser does not support the video tag."]})})})}),f.jsx(rk,{children:f.jsx(ek,{})})]})},ik=()=>f.jsx(xh,{children:f.jsxs(mu,{children:[f.jsx(at,{exact:!0,path:"/",component:ok}),f.jsx(at,{exact:!0,path:"/login",component:cw}),f.jsx(at,{path:"/groups",component:mw}),f.jsx(at,{path:"/knockouts",component:YS}),f.jsx(at,{path:"/schedule",component:tS}),f.jsx(at,{path:"/yourmatch",component:dS}),f.jsx(at,{path:"/matchmoderator",component:QS}),f.jsx(us,{to:"/"})]})});mh(document.getElementById("root")).render(f.jsx(ik,{}));
+`;const ok=()=>{const e=A.useRef(null);return f.jsxs(f.Fragment,{children:[f.jsx(nk,{children:f.jsx(Pe,{hidebackground:!0,extendChildContainer:tk,children:f.jsx("div",{children:f.jsxs("video",{ref:e,poster:"https://oncolympics-assets.expression-egy.com/assets/image/landing.png",autoPlay:!0,loop:!0,muted:!0,style:{width:"100%",height:"auto"},children:[f.jsx("source",{src:"https://oncolympics-assets.expression-egy.com/assets/videos/landingvideo11.mp4",type:"video/mp4"}),"Your browser does not support the video tag."]})})})}),f.jsx(rk,{children:f.jsx(ek,{})})]})},ik=()=>f.jsx(xh,{children:f.jsxs(mu,{children:[f.jsx(at,{exact:!0,path:"/",component:ok}),f.jsx(at,{exact:!0,path:"/login",component:cw}),f.jsx(at,{path:"/groups",component:mw}),f.jsx(at,{path:"/knockouts",component:YS}),f.jsx(at,{path:"/schedule",component:tS}),f.jsx(at,{path:"/yourmatch",component:dS}),f.jsx(at,{path:"/matchmoderator",component:QS}),f.jsx(us,{to:"/"})]})});mh(document.getElementById("root")).render(f.jsx(ik,{}));
