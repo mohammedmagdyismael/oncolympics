@@ -571,7 +571,7 @@ Error generating stack: `+i.message+`
     `};
 
     @media only screen and (max-width: 1315px) {
-        padding: 0 20px;
+        padding: 0px;
     }
 `,Rw=v.div`
     display: flex;
@@ -584,6 +584,9 @@ Error generating stack: `+i.message+`
     ${e=>e.isMini&&`
         gap: 55px;
     `};
+    @media only screen and (max-width: 1315px) {
+        gap: 0px;
+    }
 `,qo=v.div`
     display: flex;
     flex-direction: column;
@@ -598,6 +601,10 @@ Error generating stack: `+i.message+`
         flex-direction: row;
         gap: 15px;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        min-width: 200px;
+    }
 `,ol=v.p`
     font-weight: bold;
     font-size: 28px;
@@ -606,6 +613,10 @@ Error generating stack: `+i.message+`
         font-size: 18px;
         margin: 10px;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        font-size: 24px;
+    }
 `,Ld=v.div`
     display: flex;
     flex-direction: column;
@@ -629,6 +640,10 @@ Error generating stack: `+i.message+`
         font-size: 18px;
         margin: 13px 0;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        font-size: 18px;
+    }
 `,Ad=v(ga)`
     ${e=>e.isMini&&`
         font-size: 18px
@@ -645,10 +660,19 @@ Error generating stack: `+i.message+`
         width: 50px
         height: 50px;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        width: 100px;
+        height: 100px;
+    }
 `,Tw=v.p`
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+
+    @media only screen and (max-width: 1315px) {
+        font-size: 16px;
+    }
 `,Md=Co`
     font-size: 16px;
     font-weight: 700;
