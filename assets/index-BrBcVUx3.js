@@ -166,6 +166,10 @@ Error generating stack: `+i.message+`
   height: 100vh;
   
   overflow: hidden; 
+
+  @media only screen and (max-width: 1315px) {
+    flex-direction: column;
+  }
 `,Jx=v.div`
   display: flex;
   position: relative;
