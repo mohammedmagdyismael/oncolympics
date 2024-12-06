@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
-    background-image: linear-gradient(to right, white, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/videos/Animation.gif);
+    background-image: linear-gradient(to right, white, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/videos/Animation1.gif);
     width: 100%;
     height: 100vh;
     background-size: cover;

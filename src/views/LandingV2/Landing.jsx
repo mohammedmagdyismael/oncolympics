@@ -38,7 +38,7 @@ const Landing = () => {
             muted
             style={{ width: '100%', height: 'auto' }}
           >
-            <source src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/videos/landingvideo.mp4`} type="video/mp4" />
+            <source src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/videos/landingvideo11.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
