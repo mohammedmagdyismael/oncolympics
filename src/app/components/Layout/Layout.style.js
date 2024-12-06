@@ -31,6 +31,10 @@ export const LayoutContainer = styled.div`
   height: 100vh;
   
   overflow: hidden; 
+
+  @media only screen and (max-width: 1315px) {
+    flex-direction: column;
+  }
 `;
 
 export const TabContainer = styled.div`
