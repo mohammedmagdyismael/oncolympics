@@ -171,7 +171,7 @@ const MatchModeratorView = () => {
                             )}
                         </div>
                     )}
-                    <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset'}</ActionBtnLabel></ActionBtn>
+                    <ActionBtn bgColor='red' onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset'}</ActionBtnLabel></ActionBtn>
                   </BtnsPanel>
                  
                 </div>
@@ -187,7 +187,7 @@ const MatchModeratorView = () => {
             <div>
                 <MatchDetails isAdmin match={match} />
                 <BtnsPanel id='panel'BtnsPanel>
-                    <ActionBtn onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset Match'}</ActionBtnLabel></ActionBtn>
+                    <ActionBtn bgColor='red' onClick={resetMatch}><ActionBtnLabel>{isRestting ? 'Resetting ...' : 'Reset Match'}</ActionBtnLabel></ActionBtn>
                 </BtnsPanel>
             </div>
           </Layout>

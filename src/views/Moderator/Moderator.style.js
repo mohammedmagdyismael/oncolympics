@@ -92,7 +92,7 @@ export const ActionBtn = styled.button`
   height: 60px;
   border: unset;
   border-radius: 8px;
-  background-color: #282c34;
+  background-color: ${props => props.bgColor || '#282c34'};
   display: flex;
   cursor: pointer;
   :hover > p {
