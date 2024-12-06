@@ -18,6 +18,8 @@ export const Question = styled.p`
     color: #333;
     font-weight: 700;
     white-space: pre-line;
+    background-color: #ffffff7d;
+    padding: 15px;
     @media only screen and (max-width: 1315px) {
       font-size: 18px;
     }
