@@ -1142,7 +1142,7 @@ Error generating stack: `+i.message+`
     font-weight: bold;
     font-size: 22px;
     text-align: unset;
-    
+    white-space: pre-line;
     color: ${e=>e.isRight&&"#4CAF50"};
     color: ${e=>e.isWrong&&"red"};
 `,Zf=v.div`
