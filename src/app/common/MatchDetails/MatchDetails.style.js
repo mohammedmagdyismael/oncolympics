@@ -13,7 +13,7 @@ export const Container = styled.div`
     `};
 
     @media only screen and (max-width: 1315px) {
-        padding: 0 20px;
+        padding: 0px;
     }
 `;
 
@@ -30,6 +30,9 @@ export const TeamsContainer = styled.div`
     ${props => props.isMini && `
         gap: 55px;
     `};
+    @media only screen and (max-width: 1315px) {
+        gap: 0px;
+    }
 `;
 
 
@@ -47,6 +50,10 @@ export const TeamContainer = styled.div`
         flex-direction: row;
         gap: 15px;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        min-width: 200px;
+    }
 `;
 
 export const NextLabel = styled.p`
@@ -57,6 +64,10 @@ export const NextLabel = styled.p`
         font-size: 18px;
         margin: 10px;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        font-size: 24px;
+    }
 `;
 
 export const TeamLabelLogoContainer = styled.div`
@@ -84,6 +95,10 @@ export const TeamLabel = styled.p`
         font-size: 18px;
         margin: 13px 0;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        font-size: 18px;
+    }
 `;
 
 export const TeamScore = styled(TeamLabel)`
@@ -104,12 +119,21 @@ export const TeamLogo = styled.img`
         width: 50px
         height: 50px;
     `};
+
+    @media only screen and (max-width: 1315px) {
+        width: 100px;
+        height: 100px;
+    }
 `;
 
 export const MatchDate = styled.p`
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+
+    @media only screen and (max-width: 1315px) {
+        font-size: 16px;
+    }
 `;
 
 export const extendRewardBtn = css`
