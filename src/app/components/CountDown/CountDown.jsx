@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import PlayImg from './play-button.png';
-import PauseImg from './pause-button.png';
 import {
   Container,
   PlayPauseBtn,
@@ -21,7 +19,7 @@ const CountdownStopwatch = ({ isChanged, stopCounter }) => {
   }, [seconds, isPause]);
 
   useEffect(() => {
-    
+    setPause(false);
     if (stopCounter) {
       setSeconds(0);
     } else {
@@ -32,11 +30,16 @@ const CountdownStopwatch = ({ isChanged, stopCounter }) => {
   return (
     <Container>
       <TimerDisplay>{`${seconds === 0 ? 'Timeout!' : `${seconds} sec`}`}</TimerDisplay>
-      {isPause ? (
-        <PlayPauseBtn onClick={() => setPause(!isPause)} src={PauseImg} alt="PauseImg"/>
-      ) : (
-        <PlayPauseBtn onClick={() => setPause(!isPause)} src={PlayImg} alt="PlayImg"/>
+      {!stopCounter && (
+        <>
+          {isPause ? (
+            <PlayPauseBtn onClick={() => setPause(!isPause)} src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/pause-button.png`} alt="PauseImg"/>
+          ) : (
+            <PlayPauseBtn onClick={() => setPause(!isPause)} src={`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/play-button.png`} alt="PlayImg"/>
+          )}
+        </>
       )}
+      
     </Container>);
 };
 

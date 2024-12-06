@@ -87,6 +87,11 @@ export const OptionsContainer = styled.ul`
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
   padding: 0;
+
+  @media only screen and (max-width: 1315px) {
+      display: flex;
+      flex-direction: column;
+  }
 `;
 
 export const TeamQuestionContainer = styled.div`

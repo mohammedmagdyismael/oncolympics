@@ -20,9 +20,6 @@ import CountdownStopwatch from '../../../app/components/CountDown/CountDown';
 
 
 const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDetails, questionFile, currentQuestion, setNumberOfQuestions }) => {
-
-    console.log(matchDetails);
-
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
