@@ -109,6 +109,9 @@ export const ActionBtnLabel = styled.p`
   font-size: 18px;
   font-weight: bold;
   color: #fff;
+  @media only screen and (max-width: 1315px) {
+    font-size: 14px;
+  }
 `;
 
 export const LoadingStatusContainer = styled.div`

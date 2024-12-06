@@ -39,6 +39,10 @@ export const OptionContainer = styled.div`
     text-align: left;
     font-size: 20px;
     font-weight: 700;
+
+    @media only screen and (max-width: 1315px) {
+      font-size: 17px;
+    }
 `;
 
 export const Option = styled.p`

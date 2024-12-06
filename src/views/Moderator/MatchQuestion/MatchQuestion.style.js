@@ -33,6 +33,9 @@ export const OptionContainer = styled.div`
     text-align: left;
     font-size: 20px;
     font-weight: 700;
+    @media only screen and (max-width: 1315px) {
+      font-size: 17px;
+    }
 `;
 
 export const Option = styled.p`
@@ -78,6 +81,9 @@ export const ActionBtnLabel = styled.p`
   font-size: 18px;
   font-weight: bold;
   color: #fff;
+  @media only screen and (max-width: 1315px) {
+    font-size: 14px;
+  }
 `;
 
 export const OptionsContainer = styled.ul`
@@ -96,7 +102,7 @@ export const TeamQuestionContainer = styled.div`
   display: flex;
   @media only screen and (max-width: 1315px) {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
   }
 `;

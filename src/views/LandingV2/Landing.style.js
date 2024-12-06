@@ -54,7 +54,7 @@ export const WebTitle = styled.p`
   padding: 0px 70px;
 
   @media only screen and (max-width: 1315px) {
-    font-size: 38px;
+    font-size: 30px;
     padding: 0 30px;
     margin: 40px 0px 0 0;
   }
@@ -90,7 +90,7 @@ export const Tab = styled(NavLink)`
 
   @media only screen and (max-width: 1315px) {
     padding: 3px 30px;
-    font-size: 38px;
+    font-size: 30px;
   }
 `;
 

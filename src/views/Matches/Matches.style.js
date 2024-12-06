@@ -39,6 +39,7 @@ export const TeamName = styled.p`
 export const MatchDate = styled.div`
   margin-top: 0.5rem;
   color: #777;
+  text-align: center;
 `;
 
 export const LoadingStatusContainer = styled.div`
