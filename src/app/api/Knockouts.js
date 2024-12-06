@@ -1,2 +1,2 @@
 // import axios from 'axios';
-// import { urls } from './urls';
+// import { urls } from 'app/configs/urls';

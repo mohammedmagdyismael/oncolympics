@@ -1,7 +1,7 @@
 // Groups.js
 import { useState, useEffect } from 'react';
-import { groupsAPI } from '../../app/api/Groups';
-import Layout from '../../app/components/Layout';
+import { groupsAPI } from 'app/api/Groups';
+import Layout from 'app/components/Layout';
 import { StatusMsg, LoadingStatusContainer, GroupsContainer, GroupTable, GroupHeader, TableRow, TableHeader, TableCell } from './Groups.style';
 
 const Groups = () => {

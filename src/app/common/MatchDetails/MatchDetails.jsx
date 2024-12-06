@@ -1,4 +1,4 @@
-import Button from '../../../app/components/Button';
+import Button from 'app/components/Button';
 import {
     MatchDate,
     NextLabel,
@@ -29,7 +29,7 @@ import {
     DateTimeString,
     DateTimeContainer,
 } from './MatchDetails.style';
-import { displayDateTime } from './helper';
+import { getLocalizedDateTime } from 'app/utils/Time';
 
 const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
     const showDate = match.match_status === 0;
@@ -105,7 +105,7 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
                 
                 {showDate && (
                     <div>
-                        <MatchDate>{displayDateTime(match?.date_time)}</MatchDate>
+                        <MatchDate>{getLocalizedDateTime(match?.date_time)}</MatchDate>
                     </div>
                 )}
             </InnerContainer>
@@ -144,7 +144,7 @@ const MatchDetails = ({ match, penaltyTeam, rewardTeam, isAdmin }) => {
                 ) : (
                     <DateTimeContainer>
                         <DateTimeString>
-                            {displayDateTime(match?.date_time)}
+                            {getLocalizedDateTime(match?.date_time)}
                         </DateTimeString>
                     </DateTimeContainer>
                 )}

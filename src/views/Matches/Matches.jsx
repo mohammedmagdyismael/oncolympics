@@ -1,8 +1,8 @@
 // Standings.js
 import { useState, useEffect } from 'react';
-import { allMatchesAPI } from '../../app/api/Matches';
-import Layout from '../../app/components/Layout';
-import MatchScoresPopUp from './MatchScoresPopUP';
+import { allMatchesAPI } from 'app/api/Matches';
+import Layout from 'app/components/Layout';
+import MatchScoresPopUp from 'views/Matches/MatchScoresPopUP';
 import { LoadingStatusContainer, StatusMsg, StandingsContainer, MatchCard, TeamName, MatchDate, Deatils } from './Matches.style';
 
 const Standings = () => {

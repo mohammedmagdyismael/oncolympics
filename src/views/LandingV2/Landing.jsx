@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import Layout from '../../app/components/Layout';
-import LandingDevice from '../Landing/Landing';
+import Layout from 'app/components/Layout';
+import LandingDevice from 'views/Landing/Landing';
 import { extendChildContainer, ShowDesktop, ShowDevice } from './Landing.style';
 
 const Landing = () => {
@@ -9,7 +9,6 @@ const Landing = () => {
   // const [isMuted, setIsMuted] = useState(true);
 
   /* const handleUnmute = () => {
-    console.log('clicked');
     setIsMuted(false);
     if (videoRef.current) {
       videoRef.current.muted = false;  // Unmute video

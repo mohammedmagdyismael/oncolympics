@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { AnswersLabel } from '../../../helper';
-import { questionDetailsAPI } from '../../../app/api/Moderator';
-import PopUp from '../../../app/components/PopUp';
+import { AnswersLabel } from 'app/constants/Match';
+import { questionDetailsAPI } from 'app/api/Moderator';
+import PopUp from 'app/components/PopUp';
 import {
     LabelContainer,
     Label,

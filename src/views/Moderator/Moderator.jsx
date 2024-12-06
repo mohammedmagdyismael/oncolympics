@@ -9,10 +9,10 @@ import {
     stopAnswerAPI,
     penaltyPlayerAPI,
     rewardPlayerAPI,
-} from '../../app/api/Moderator';
-import QuestionScoresPopUP from './QuestionScoresPopUP';
+} from 'app/api/Moderator';
+import QuestionScoresPopUP from 'views/Moderator/QuestionScoresPopUP';
 
-import Layout from '../../app/components/Layout/Layout';
+import Layout from 'app/components/Layout/Layout';
 import { 
   ActionBtn,
   ActionBtnLabel,
@@ -21,8 +21,8 @@ import {
   MatchQuestionContainer,
   BtnsPanel,
 } from './Moderator.style';
-import MatchDetails from '../../app/common/MatchDetails';
-import MatchQuestion from './MatchQuestion';
+import MatchDetails from 'app/common/MatchDetails';
+import MatchQuestion from 'views/Moderator/MatchQuestion';
 
 const MatchModeratorView = () => {
     const [isDetailsPopUpOpened, toggleDetailsPopUp] = useState(false);

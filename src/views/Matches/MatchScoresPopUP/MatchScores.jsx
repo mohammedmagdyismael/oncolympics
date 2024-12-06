@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { matchDetailsAPI } from '../../../app/api/Matches';
-import PopUp from '../../../app/components/PopUp';
-import MatchDetails from '../../../app/common/MatchDetails';
+import { matchDetailsAPI } from 'app/api/Matches';
+import PopUp from 'app/components/PopUp';
+import MatchDetails from 'app/common/MatchDetails';
 import {
     LoadingStatusContainer,
     StatusMsg,
@@ -46,7 +46,6 @@ const MatchScores = ({ isOpen, onClose, match }) => {
     if (loading) return <LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer>;
     if (error) return <LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer>;
 
-    console.log(match);
     return (
         <PopUp isOpen={isOpen} onClose={onClose}>
              <div>

@@ -1,4 +1,4 @@
-import { getTabs } from '../../app/routes';
+import { getTabs } from 'app/routes';
 import { Container, MenuContainer, Tab, OncoLogo } from './Landing.style';
  
 const Landing = () => {

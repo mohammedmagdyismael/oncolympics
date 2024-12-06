@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AnswersLabel } from '../../../helper';
+import { AnswersLabel } from 'app/constants/Match';
 import {
     // QuestionContainer,
     // Question,

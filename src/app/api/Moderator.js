@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { urls } from './urls';
+import { urls } from 'app/configs/urls';
 
 export const moderatorMatchDetailsAPI = async () => {
     try {

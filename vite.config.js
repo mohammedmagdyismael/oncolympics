@@ -6,5 +6,11 @@ export default defineConfig({
   build: {
     outDir: 'build'
   },
+  resolve: {
+    alias: {
+      'app': '/src/app',
+      'views': '/src/views'
+    }
+  },
   plugins: [react()],
 })

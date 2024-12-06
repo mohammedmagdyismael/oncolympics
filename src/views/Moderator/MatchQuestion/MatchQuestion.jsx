@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AnswersLabel } from '../../../helper';
+import { AnswersLabel } from 'app/constants/Match';
 
 import {
     QuestionContainer,
@@ -16,7 +16,7 @@ import {
     TeamsDetailsContainer,
     Stopwatch,
 } from './MatchQuestion.style';
-import CountdownStopwatch from '../../../app/components/CountDown/CountDown';
+import CountdownStopwatch from 'app/components/CountDown/CountDown';
 
 
 const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDetails, questionFile, currentQuestion, setNumberOfQuestions }) => {
@@ -34,7 +34,7 @@ const MatchQuestion = ({ toggleDetailsPopUp, teamCanAnswer, stopAnswer, matchDet
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/matchesquestions/${questionFile}`);
+                const response = await fetch(`/public/assets/matchesquestions/${questionFile}`);
                 const data = await response.json();
                 setQuestions(data.questions);
                 setNumberOfQuestions(data?.questions?.length)

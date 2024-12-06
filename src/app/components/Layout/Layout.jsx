@@ -1,10 +1,10 @@
 // Layout.js
 import { useEffect, useState } from 'react';
-import { getTabs } from '../../routes';
-import { userInfoAPI } from '../../api/User';
+import { getTabs } from 'app/routes';
+import { userInfoAPI } from 'app/api/User';
 import Cookies from 'js-cookie';
 import BurgerMenu from '../BurgerMenu';
-import { AuthPathes } from './helper';
+import { AuthPathes } from 'app/configs/Auth';
 import { 
   LoginContainer, 
   ChildrenContainer,

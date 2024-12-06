@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { loginAPI } from '../../app/api/User';
-import Layout from '../../app/components/Layout/Layout';
+import { redirectionPathAfterLogin } from 'app/configs/Login';
+import { loginAPI } from 'app/api/User';
+import Layout from 'app/components/Layout/Layout';
 import { LoginContainer, LoginForm, LoginInput, LoginButton } from './Login.style';
 
 const Login = () => {
@@ -17,8 +18,7 @@ const Login = () => {
     try {
       const response = await loginAPI(username, password);
       if (response?.status === 200) {
-        // Redirect to groups page
-        window.location.href = '/groups'
+        window.location.href = redirectionPathAfterLogin;
       } else {
         setError('Wrong Email or Password, Try Again!');
       }

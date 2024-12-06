@@ -1,4 +1,4 @@
-export const displayDateTime = dateTimeString => {
+export const getLocalizedDateTime = dateTimeString => {
     let localTimeString = dateTimeString.replace('Z', '');
     let localDate = new Date(localTimeString);
     return localDate?.toLocaleDateString('en-Eg', {

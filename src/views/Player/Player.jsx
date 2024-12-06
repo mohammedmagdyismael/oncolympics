@@ -1,14 +1,14 @@
 // Match.js
 import { useState, useEffect } from 'react';
-import { answerAPI, playerMatchDetails } from '../../app/api/Player';
-import Layout from '../../app/components/Layout/Layout';
+import { answerAPI, playerMatchDetails } from 'app/api/Player';
+import Layout from 'app/components/Layout/Layout';
 import { 
   LoadingStatusContainer,
   StatusMsg,
   MatchQuestionContainer,
 } from './Player.style';
-import MatchDetails from '../../app/common/MatchDetails';
-import MatchQuestion from './MatchQuestion';
+import MatchDetails from 'app/common/MatchDetails';
+import MatchQuestion from 'views/Player/MatchQuestion';
 
 const PlayerView = () => {
     const [matchData, setMatchData] = useState(null);
