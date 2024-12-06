@@ -66,7 +66,7 @@ export const AnswerReson = styled(AnswerSectionLabel)`
     font-weight: bold;
     font-size: 22px;
     text-align: unset;
-    
+    white-space: pre-line;
     color: ${props => props.isRight && '#4CAF50'};
     color: ${props => props.isWrong && 'red'};
 `;
