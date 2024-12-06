@@ -491,11 +491,13 @@ Error generating stack: `+i.message+`
   width: 100%;
   position: relative;
 
+  margin: 10px 5px;
+
   @media only screen and (max-width: 1315px) {
     max-width: unset;
     width: 100%;
     max-height: unset;
-    height: 100vh;
+    height: 95vh;
     padding: 0px;
   }
 `,ww=v.button`
