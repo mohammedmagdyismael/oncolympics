@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { AnswersLabel } from '../../../helper';
 import {
-    QuestionContainer,
-    Question,
+    // QuestionContainer,
+    // Question,
     OptionContainer,
     Option,
     Container,
-    QuestionsCounter,
+    // QuestionsCounter,
     AnswerJustification,
     OptionsContainer,
     TeamQuestionContainer,
@@ -28,7 +28,7 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/matchesquestions/${questionFile}`);
+                const response = await fetch(`/public/assets/matchesquestions/${questionFile}`);
                 const data = await response.json();
                 setQuestions(data.questions);
                 // setLoading(false);
@@ -57,10 +57,10 @@ const MatchQuestion = ({ questionFile, currentQuestion, answerQuestion, match, m
         <Container>
             <TeamQuestionContainer>
                 
-                <div style={{ width: '100%' }}>
+                {/* <div style={{ width: '100%' }}>
                     <QuestionsCounter>{`${currentQuestion + 1} / ${questions?.length}`}</QuestionsCounter>
                     <QuestionContainer><Question>{question?.question}</Question></QuestionContainer>
-                </div>
+                </div> */}
                 <TeamsDetailsContainer>
                     {matchDetails}
                 </TeamsDetailsContainer>

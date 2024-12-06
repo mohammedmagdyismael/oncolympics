@@ -91,6 +91,7 @@ export const OptionsContainer = styled.ul`
 
 export const TeamQuestionContainer = styled.div`
   display: flex;
+  justify-content: center;
   @media only screen and (max-width: 855px) {
     display: flex;
     flex-direction: column;

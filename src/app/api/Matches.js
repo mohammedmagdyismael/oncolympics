@@ -10,6 +10,8 @@ export const allMatchesAPI = async () => {
             return ({
             team1: match.team1_name,
             team2: match.team2_name,
+            team1abbrev: match.team1_abbrev,
+            team2abbrev: match.team2_abbrev,
             date: localDate.toLocaleString('en-EG', {
               weekday: 'long',
               day: 'numeric',

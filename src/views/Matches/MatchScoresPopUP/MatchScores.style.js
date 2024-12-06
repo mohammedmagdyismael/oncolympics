@@ -73,6 +73,7 @@ export const ScoresContainer = styled.div`
 
 export const InnerContainer = styled.div`
     display: flex;
+    flex-direction: column;
     @media only screen and (max-width: 855px) {
         max-width: unset;
         width: 100%;
@@ -81,4 +82,9 @@ export const InnerContainer = styled.div`
         flex-direction: column;
         gap: 30px;
     }
+`;
+
+export const MatchScoreBoardContainer = styled.div`
+    display: flex;
+    justify-content: center;
 `;

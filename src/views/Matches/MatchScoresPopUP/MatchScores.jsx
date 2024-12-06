@@ -15,6 +15,7 @@ import {
     ScoreLabel,
     ScoresContainer,
     InnerContainer,
+    MatchScoreBoardContainer,
 } from './MatchScores.style';
  
 
@@ -45,28 +46,32 @@ const MatchScores = ({ isOpen, onClose, match }) => {
     if (loading) return <LoadingStatusContainer><StatusMsg>Loading...</StatusMsg></LoadingStatusContainer>;
     if (error) return <LoadingStatusContainer><StatusMsg>Error: {error.message}</StatusMsg></LoadingStatusContainer>;
 
+    console.log(match);
     return (
         <PopUp isOpen={isOpen} onClose={onClose}>
              <div>
                 <LabelContainer><Label>Match Details</Label></LabelContainer>
                 <InnerContainer>
-                    <MatchDetails match={{
-                        ...match,
-                        match_status: match?.matchStatus,
-                        team1_name: match?.team1,
-                        team1_logo: match?.team1Logo,
-                        score_team1: match?.team1Score,
-                        team2_name: match?.team2,
-                        team2_logo: match?.team2Logo,
-                        score_team2: match?.team2Score,
-                    }} />
+                    <MatchScoreBoardContainer>
+                        <MatchDetails match={{
+                            ...match,
+                            match_status: match?.matchStatus,
+                            team1_name: match?.team1abbrev,
+                            team1_logo: match?.team1Logo,
+                            score_team1: match?.team1Score,
+                            team2_name: match?.team2abbrev,
+                            team2_logo: match?.team2Logo,
+                            score_team2: match?.team2Score,
+                        }} />
+                    </MatchScoreBoardContainer>
+                    
                     <ScoresContainer>
                         {scores?.map((score, index) => (
                             <QContainer key={index}>
                                 <Qlabel>Question {score.questionId + 1}</Qlabel>
                                 <ScoreContainer>
-                                    <TeamScoreContainer><TeamLabel>{score.team1_name}:</TeamLabel> <ScoreLabel>{score.score_team1}</ScoreLabel></TeamScoreContainer>
-                                    <TeamScoreContainer><ScoreLabel>{score.score_team2}</ScoreLabel> <TeamLabel>:{score.team2_name}</TeamLabel></TeamScoreContainer>
+                                    <TeamScoreContainer><TeamLabel>{score.team1_abbrev}:</TeamLabel> <ScoreLabel>{score.score_team1}</ScoreLabel></TeamScoreContainer>
+                                    <TeamScoreContainer><ScoreLabel>{score.score_team2}</ScoreLabel> <TeamLabel>:{score.team2_abbrev}</TeamLabel></TeamScoreContainer>
                                 </ScoreContainer>
                             </QContainer>
                         ))}
