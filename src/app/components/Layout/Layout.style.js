@@ -35,6 +35,29 @@ export const LayoutContainer = styled.div`
   @media only screen and (max-width: 1315px) {
     flex-direction: column;
   }
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+
+    ${props => (!props.hidebackground && !props.isMatch) && `
+      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/bg_device.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 100vw 100vh;
+      background-position: center top;
+      background-repeat: no-repeat;
+  `}
+  ${props => (!props.hidebackground && props.isMatch) && `
+      background-image: linear-gradient(to right, #ffffffc7, transparent 125%), url(${import.meta.env.VITE_APP_ONCO_ASSETS_URL}/image/bg_device.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 100vw 100vh;
+      background-position: center top;
+      background-repeat: no-repeat;
+  `}
+  }
 `;
 
 export const TabContainer = styled.div`
