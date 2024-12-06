@@ -92,7 +92,7 @@ export const OptionsContainer = styled.ul`
 export const TeamQuestionContainer = styled.div`
   display: flex;
   justify-content: center;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,7 +101,7 @@ export const TeamQuestionContainer = styled.div`
 
 export const TeamsDetailsContainer = styled.div`
   width: fit-content;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     margin: 0px auto 35px auto;
   }
 `

@@ -12,7 +12,7 @@ export const TimerDisplay = styled.div`
   width: fit-content;
   margin: auto;
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
       font-size: 18px;
   }
 `;

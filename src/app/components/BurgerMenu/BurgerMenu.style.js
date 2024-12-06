@@ -55,7 +55,7 @@ export const SideMenu = styled.div`
 
 export const Container = styled.div`
     display: none;
-    @media only screen and (max-width: 855px) {
+    @media only screen and (max-width: 1315px) {
         display: block;
         height: 73px;
         width: 100%;

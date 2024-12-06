@@ -10,7 +10,7 @@ export const StandingsContainer = styled.div`
   align-items: center;
   padding: 2rem;
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     display: flex;
     flex-direction: column;
     justify-content: center;

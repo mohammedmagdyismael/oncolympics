@@ -12,7 +12,7 @@ export const GroupsContainer = styled.div`
     justify-self: center;
   }
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,7 @@ export const GroupTable = styled.table`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 18px auto;
   background: #fff;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     margin: 5px auto;
   }
 `;

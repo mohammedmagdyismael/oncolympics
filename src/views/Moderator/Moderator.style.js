@@ -98,7 +98,7 @@ export const ActionBtn = styled.button`
   :hover > p {
     color: #61dafb;
   }
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     margin: auto;
 
   }
@@ -137,7 +137,7 @@ export const BtnsPanel = styled.div`
   display: flex;
   gap: 10px;
   justify-content: center;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     flex-direction: column;
   }
 `;

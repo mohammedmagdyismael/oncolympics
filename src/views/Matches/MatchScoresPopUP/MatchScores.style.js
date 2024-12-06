@@ -65,7 +65,7 @@ export const ScoresContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     width: 100%;
 
-    @media only screen and (max-width: 855px) {
+    @media only screen and (max-width: 1315px) {
         display: flex;
         flex-direction: column;
     }
@@ -74,7 +74,7 @@ export const ScoresContainer = styled.div`
 export const InnerContainer = styled.div`
     display: flex;
     flex-direction: column;
-    @media only screen and (max-width: 855px) {
+    @media only screen and (max-width: 1315px) {
         max-width: unset;
         width: 100%;
         max-height: unset;

@@ -36,7 +36,7 @@ export const LayoutContainer = styled.div`
 export const TabContainer = styled.div`
   display: flex;
   position: relative;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     display: none;
   }
 `;
@@ -206,7 +206,7 @@ export const UserName = styled.p`
 `;
 
 export const OncoLogo = styled.img`
-    width: 140px;
+    width: 7vw;
     display: flex;
     cursor: pointer;
     position: absolute;

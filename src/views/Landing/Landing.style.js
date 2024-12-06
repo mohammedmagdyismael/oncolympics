@@ -39,7 +39,7 @@ export const WebTitle = styled.p`
   color: #DE7FAE;
   padding: 0px 70px;
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     font-size: 38px;
     padding: 0 30px;
     margin: 40px 0px 0 0;
@@ -74,7 +74,7 @@ export const Tab = styled(NavLink)`
     color: #61dafb;
   }
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     padding: 3px 30px;
     font-size: 38px;
   }
@@ -84,7 +84,7 @@ export const OncoLogo = styled.img`
       width: 527px;
       padding: 0 40px;
 
-      @media only screen and (max-width: 855px) {
+      @media only screen and (max-width: 1315px) {
         width: 200px;
       padding: 0 15px;
       }
@@ -95,7 +95,7 @@ export const AstraLogo = styled.img`
       height: 632px;
       padding: 0 40px;
 
-      @media only screen and (max-width: 855px) {
+      @media only screen and (max-width: 1315px) {
         width: 200px;
       padding: 0 15px;
       }

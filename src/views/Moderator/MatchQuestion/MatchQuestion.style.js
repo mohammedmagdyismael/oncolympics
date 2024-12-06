@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     padding: 40px;
 
-    @media only screen and (max-width: 855px) {
+    @media only screen and (max-width: 1315px) {
       padding: 5px;
   }
 `;
@@ -18,7 +18,7 @@ export const Question = styled.p`
     color: #333;
     font-weight: 700;
     white-space: pre-line;
-    @media only screen and (max-width: 855px) {
+    @media only screen and (max-width: 1315px) {
       font-size: 18px;
     }
 `;
@@ -54,7 +54,7 @@ export const QuestionsCounter = styled.div`
   color: #333;
   font-weight: 700;
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
       font-size: 18px;
   }
 `;
@@ -86,7 +86,7 @@ export const OptionsContainer = styled.ul`
   column-gap: 10px;
   padding: 0;
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
       display: flex;
       flex-direction: column;
   }
@@ -94,7 +94,7 @@ export const OptionsContainer = styled.ul`
 
 export const TeamQuestionContainer = styled.div`
   display: flex;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,7 +103,7 @@ export const TeamQuestionContainer = styled.div`
 
 export const TeamsDetailsContainer = styled.div`
   width: fit-content;
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     margin: 0px auto 35px auto;
   }
 `;

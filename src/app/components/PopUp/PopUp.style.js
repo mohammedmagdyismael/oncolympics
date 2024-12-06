@@ -23,7 +23,7 @@ export const Container = styled.div`
   width: 100%;
   position: relative;
 
-  @media only screen and (max-width: 855px) {
+  @media only screen and (max-width: 1315px) {
     max-width: unset;
     width: 100%;
     max-height: unset;
