@@ -1042,6 +1042,9 @@ Error generating stack: `+i.message+`
   grid-template-columns: 1fr;
 `;v(Rm)``;const ut={0:"a. ",1:"b. ",2:"c. ",3:"d. "},oS=v.div`
     padding: 40px;
+    @media only screen and (max-width: 1315px) {
+      padding: 5px;
+    }
 `;v.div`
     margin-bottom: 1.5rem;
 `;v.p`
