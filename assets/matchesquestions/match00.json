@@ -2,23 +2,23 @@
     "questions": [
       {
         "index": 1,
-        "question": "A 55-year-old woman with recurrent uterine serous carcinoma presents to the oncology clinic with fatigue, poor appetite, bloating, and ascites. Her initial diagnosis was stage IB uterine serous carcinoma, treated with surgery, followed by adjuvant carboplatin/paclitaxel for six cycles and vaginal brachytherapy. She was doing well with no evidence of disease until 2 years later when she presented with the above symptoms; CT scan identifies ascites and peritoneal carcinomatosis. CT-guided biopsy of peritoneal disease confirms recurrent endometrial serous carcinoma; tumor tissue is HER2 negative, mismatch repair proficient (pMMR), and microsatellite stable (MSS). She is started on carboplatin/paclitaxel and bevacizumab; initial response shows resolution of ascites and interval decrease in the size of her peritoneal disease. However, follow-up CT scans after the six cycle show disease progression and worsening carcinomatosis. Her Eastern Cooperative Oncology Group (ECOG) performance status is 0 and she is interested in further cancer-directed therapy. Which of the following is the most appropriate next step?",
+        "question": "It is the fourth planet from the Sun. it is covered in iron oxide dust, giving it the nickname (the Red Planet), it is among the brightest objects in Earth's sky & it has two Moons Phobos and Deimos. Which planet is known as the Red Planet?",
         "answers": [
           {
-            "answer": "Hormonal therapy with letrozole and everolimus",
+            "answer": "Venus",
             "correct": false
           },
           {
-            "answer": "Immunotherapy with pembrolizumab",
+            "answer": "Saturn",
             "correct": false
           },
           {
-            "answer": "Pembrolizumab/lenvatinib combination therapy",
+            "answer": "Mars",
             "correct": true,
-            "reason": "The combination of immune checkpoint inhibitor pembrolizumab and VEGF receptor inhibitor lenvatinib was approved by the FDA in August 2022 for treatment of advanced endometrial cancer that: does not have high microsatellite instability (MSI-H) or MMR deficiency (dMMR); is progressive on prior systemic therapy; and is not amenable to curative surgery or radiation. Approval was based on data from a single-arm phase 2 trial, which showed promising activity with an objective response rate of 38%. The anti-PD1 antibody pembrolizumab should be used to treat women who have dMMR or high tumor mutational burden (TMB) endometrial carcinoma and have progressed on platinum-based chemotherapy. Hormonal therapy is typically used for lower-grade endometrioid histology, and preferably in patients with small tumor volume or an indolent growth pace. Ixabepilone is indicated for treatment of metastatic or locally advanced breast cancer (in combination with capecitabine) resistant to an anthracycline and a taxane, or that is taxane-resistant and when further anthracycline therapy is contraindicated.\n\nReferences:\n• Makker V, Colombo N, Casado Herraez A, et al. Lenvatinib plus pembrolizumab for advanced endometrial cancer. N Engl J Med. 2022;386(5):437-448. doi:10.1056/NEJMoa2108330\n• National Comprehensive Cancer Network. NCCN Clinical Practice Guidelines in Oncology. Uterine Neoplasms. Version 1.2024. https://www.nccn.org/"
+            "reason": "Mars is called the RED PLANET"
           },
           {
-            "answer": "Single-agent chemotherapy with ixabepilone",
+            "answer": "Jupiter",
             "correct": false
           }
         ]
