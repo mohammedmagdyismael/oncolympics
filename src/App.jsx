@@ -1,12 +1,13 @@
 // index.js
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Login from 'views/Login';
-import Groups from 'views/Groups';
-import Matches from 'views/Matches';
-import Player from 'views/Player';
-import Moderator from 'views/Moderator';
-import knockouts from 'views/knockouts';
-import Landing from 'views/LandingV2';
+import Login from 'pages/Login';
+import Groups from 'pages/Groups';
+import Matches from 'pages/Matches';
+import Player from 'pages/Player';
+import Moderator from 'pages/Moderator';
+import Knockouts from 'pages/Knockouts';
+import Landing from 'pages/Landing';
+import DevPalettes from 'pages/DevPalettes'
 
 const App = () => {
   return (
@@ -15,10 +16,12 @@ const App = () => {
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route path="/groups" component={Groups} />
-        <Route path="/knockouts" component={knockouts} />
+        <Route path="/knockouts" component={Knockouts} />
         <Route path="/schedule" component={Matches} />
         <Route path="/yourmatch" component={Player} />
         <Route path="/matchmoderator" component={Moderator} />
+
+        <Route path="/devpalettes" component={DevPalettes} />
         <Redirect to="/" />
       </Switch>
     </Router>

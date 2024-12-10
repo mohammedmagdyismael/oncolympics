@@ -9,7 +9,8 @@ export default defineConfig({
   resolve: {
     alias: {
       'app': '/src/app',
-      'views': '/src/views'
+      'views': '/src/views',
+      'pages': '/src/pages',
     }
   },
   plugins: [react()],

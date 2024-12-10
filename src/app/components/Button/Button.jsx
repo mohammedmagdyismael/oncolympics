@@ -1,4 +1,4 @@
-import Loader from "../Loader";
+import Loader from "app/components/Loader";
 import { ButtonContainer, Label } from './Button.style';
 
 const Button = ({
