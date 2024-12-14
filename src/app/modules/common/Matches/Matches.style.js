@@ -63,3 +63,34 @@ export const Deatils = styled.div`
   text-decoration: underline;
   line-height: 18px;
 `;
+
+export const SectionTitle = styled.p`
+  font-size: 28px;
+  font-weight: bold;
+  background: #EDAA20;
+  border-radius: 8px;
+  padding: 2rem;
+  color: #ffff;
+
+  width: 83%;
+  margin: auto;
+
+
+  @media only screen and (max-width: 1315px) {
+    padding: 20px 5px;
+    width: 81%;
+    margin: auto;
+  }
+`;
+
+export const EmptyStateContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const EmptyStateMessage = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+`;

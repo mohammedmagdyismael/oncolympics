@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { matchDetailsAPI } from 'app/api/Matches';
 import PopUp from 'app/components/PopUp';
 import MatchDetails from 'app/modules/common/MatchDetails';
 import {
@@ -19,7 +18,7 @@ import {
 } from './MatchScores.style';
  
 
-const MatchScores = ({ isOpen, onClose, match }) => {
+const MatchScores = ({ isOpen, onClose, match, matchDetailsAPI }) => {
     const [scores, setScores] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

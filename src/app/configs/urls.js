@@ -20,4 +20,7 @@ export const urls = {
 
     reward: `${baseURL}/match/reward`,
     penalty: `${baseURL}/match/penalty`,
+
+    knockouts: `${baseURL}/knockouts`,
+    knockoutsMatchdetails: `${baseURL}/knockouts/matchdetails`,
 };
