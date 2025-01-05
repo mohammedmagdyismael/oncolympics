@@ -6,9 +6,6 @@ import { STAGES } from 'app/constants/Stages';
 import { Container, KnockOutsImg } from './knockouts.style';
  
 const Groups = ({ error, loading, matches }) => {
-
-  console.log(matches);
-
   return (
     <Layout>
       <Container>

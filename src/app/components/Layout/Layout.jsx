@@ -57,6 +57,8 @@ const Layout = ({ children, hidebackground, extendChildContainer, isMatch }) => 
 
   const tabs = getTabs(role);
 
+  const enableLogin = import.meta.env.VITE_APP_END_TOURNAMENT_DATE === 'false' && !role;
+
   return (
     <LayoutContainer hidebackground={hidebackground} isMatch={isMatch}>
       <BurgerMenu items={tabs} title={`Hi! ${userInfo?.name || ''}`} isLogged={!!role} handleLogin={handleLogin} handleLogout={handleLogout} />
@@ -75,7 +77,7 @@ const Layout = ({ children, hidebackground, extendChildContainer, isMatch }) => 
               {tab.label}
             </Tab>
           ))}
-          {!role && (
+          {enableLogin && (
             <LoginContainer onClick={handleLogin}>
               Login
             </LoginContainer>
